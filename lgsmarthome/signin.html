@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta cherset="ute-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"> 
+	<meta name="robots" content="all">
+	<title>Sign In :: LG SmartHome Developer</title>
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">	
+	<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no, width=device-width">
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	
+	<link type="text/css" rel="stylesheet" href="css/materialize.css">
+	<link type="text/css" rel="stylesheet" href="css/common.css">
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:700,400' rel='stylesheet' type='text/css'>
+	<!--[if lt IE 9]>
+	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+	<![endif]-->
+</head>
+<body>
+	<header>
+		<div class="unsupported_bar">
+			<div class="container clearfix">IE 10 버전 이상에 최적화 되어 있습니다. 브라우저 업데이트를 권장합니다.<a id="close_unsupported_bar" class="right close"></a></div>
+		</div>
+		<div class="main_header">
+			<div class="container">
+				<h1><a href=""><img src="img/logo_smarthome_dev.png" alt="LG Smart Home Developer"></a></h1>
+				<div class="header_menu">
+
+					<div class="dropdown slideright">
+						<a class="myaccount">sign in</a>
+						<!--로그인 전에는 안보임
+						<ul class="dropdown_content btnlist clearfix">
+							<li><a href="profile.html">Profile</a></li>
+							<li><a>Sign out</a></li>
+						</ul>
+						-->
+					</div><!--// dropdown-->
+					
+					<div class="dropdown">
+						<a class="nav_more hidden_font">more</a>
+						<dl class="dropdown_content clearfix">
+							<dt>Link</dt>
+							<dd><a href="http://developer.lge.com" class="link_site" target="_blank">LG Developer</a></dd>
+							<dt>Language</dt>
+							<dd>
+								<select class="browser-default">
+									<option selected>English</option>
+									<option>Korea</option>
+								</select>
+							</dd>
+						</dl>
+					</div><!--// dropdown-->
+
+				</div><!--// header_menu-->
+			</div>
+		</div>
+
+	</header>
+
+	<div class="content wrap_signin"><!-- bg_gray → wrap_signin 으로 클래스 변경 -->
+	<div class="wrap_content">
+		<div class="container">
+
+			<div class="box row">
+				<div class="col s6">
+					<h2 class="title_big">Sign in</h2>
+					<!-- <span class="shortbar"></span> 삭제 -->
+					<p class="sub_txt2">LG SmartHome Developers는 최종 승인된 이용자만<br>서비스 이용이 가능합니다.<br>LG  계정에 등록된 아이디 및 비밀번호를 입력해 주세요.</p><!-- sub_txt1 → sub_txt2 로 클래스 변경, 문구 수정 -->
+				</div>
+				<form class="col s6">
+					<input id="last_name" type="email" class="validate full" placeholder="LG 계정 아이디"><!-- placeholder 값 변경 -->
+					<input id="password" type="password" class="validate full" placeholder="비밀번호"><!-- placeholder 값 변경 -->
+					<!-- <p class="err_txt sticky">아이디 또는 비밀번호가 정확하지 않습니다.</p>-->
+					<button class="btn_default color_pk signin modal-trigger-join"  data-target="modal_agree_terms"><span data-hover="SIGN IN">SIGN IN</span></button><!-- btn_signin → btn_default color_pk signin 으로 클래스 변경, <span data-hover=" "></span> 본인값을 data-hover 로 갖는 span 으로 감싸기 -->
+					<a href="http://kr.lgaccount.com/find_info/reset_password" class="right link navy" target="_blank">비밀번호 찾기<span class="icon arrow"></span></a><!-- a태그에 navy 클래스 추가 -->
+				</form>
+			</div>
+
+		</div><!--// container -->
+	</div>
+	</div>
+
+	<footer>
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<img src="img/logo_lg_footer.png" class="img_footer_logo" alt="LG logo">
+				</div>
+				<div class="col">
+					<p class="copyright">COPYRIGHT ⓒ 2015 LG ELECTRONICS.<br>ALL RIGHTS RESERVED.</p>
+				</div>
+				<div class="col right">
+					<div class="termslist">
+						<p class="">TERMS & CONDITIONS<br>[ <a href="">Global</a> / <a href="">KOR</a> ]</p>
+					</div>
+					<div class="termslist">
+						<p class="">PRIVACY<br>[ <a href="">Global</a> / <a href="">개인정보처리방침</a> / <a href="">개인정보취급방침</a> ]</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+	<!-- modal -->
+	<div id="modal_agree_terms" class="modal simple">
+		<div class="modal-content">
+			<h4 class="title_modal">이용 약관 및 개인정보수집이용 동의</h4>
+			<p class="left-align">
+				LG SmartHome Developers를 이용하시려면 '이용약관' 과 '개인정보 수집 및 이용' 에 동의해 주세요.
+			</p>
+			<dl class="modal_terms_area">
+				<dt>이용약관</dt>
+				<dd>
+<pre class="modal_termsbox">
+차후 약관 배포 예정
+차후 약관 배포 예정
+차후 약관 배포 예정
+차후 약관 배포 예정
+차후 약관 배포 예정
+차후 약관 배포 예정
+차후 약관 배포 예정
+차후 약관 배포 예정
+</pre>
+					<input type="checkbox" id="agree_terms1">
+					<label for="agree_terms1">이용약관에 동의합니다.</label>
+				</dd>
+				<dt>개인정보 수집 및 이용 동의</dt>
+				<dd>
+<pre class="modal_termsbox">
+차후 약관 배포 예정
+차후 약관 배포 예정
+차후 약관 배포 예정
+차후 약관 배포 예정
+차후 약관 배포 예정
+차후 약관 배포 예정
+차후 약관 배포 예정
+차후 약관 배포 예정
+</pre>
+					<input type="checkbox" id="agree_terms2">
+					<label for="agree_terms2">개인정보 수집 및 이용에 동의합니다.</label>
+				</dd>
+			</dl>
+		</div>
+		<div class="modal-footer">
+			<input type="checkbox" id="agree_all">
+			<label for="agree_all">위 항목에 모두 동의합니다.</label>
+			<!-- <span class="err_txt">이용약관과 개인정보 수집 및 이용에 모두 동의해 주세요.</span> 약관 미동의 시 에러메시지입니다.-->
+			<div class="btnbox">
+				<a href="#!" class="modal-close btn_modal btn_gray">취소</a>
+				<a href="#!" class="modal-close btn_modal btn_pink">동의하기</a>
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+	<script type="text/javascript" src="js/materialize.min.js"></script>
+	<script type="text/javascript" src="js/retina.min.js"></script>
+	<script type="text/javascript" src="js/common.js"></script>
+</body>
+</html>

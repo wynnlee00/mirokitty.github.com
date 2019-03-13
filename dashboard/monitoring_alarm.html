@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="robots" content="all">
+	<title>Monitoring / Alarm</title>
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no, width=device-width">
+	<meta name="description" content="">
+
+	<link href="" rel="apple-touch-icon-precomposed" sizes="180x180">
+	<link href="" rel="shortcut icon" type="image/x-icon">
+	<link href="" rel="icon" type="image/x-icon">
+	<link rel="stylesheet" href="css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/linearicons.css">
+	<link rel="stylesheet" href="css/common.css" type="text/css">
+	<link href="https://fonts.googleapis.com/css?family=Rubik:400,500,700" rel="stylesheet">
+
+	<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="js/datatables/jquery.dataTables.js"></script>
+	<script type="text/javascript" src="js/datatables/dataTables.buttons.min.js"></script>
+	<script type="text/javascript" src="js/datatables/jszip.min.js"></script>
+	<script type="text/javascript" src="js/datatables/pdfmake.min.js"></script>
+	<script type="text/javascript" src="js/datatables/vfs_fonts.js"></script>
+	<script type="text/javascript" src="js/datatables/buttons.flash.min.js"></script>
+	<script type="text/javascript" src="js/datatables/buttons.html5.min.js"></script>
+	<script type="text/javascript" src="js/datatables/buttons.print.min.js"></script>
+	<script type="text/javascript" src="js/datatables/buttons.colVis.min.js"></script>
+
+
+	<!--[if lt IE 9]>
+	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+	<![endif]-->
+</head>
+<body>
+	<aside class="leftbar">
+		<h1 class="leftbar-logo"><img src="img/logo_a2_leftbar.svg" alt="A2 COMPANY" class="leftbar-logo-img"></h1>
+		<nav class="nav-leftbar">
+			<ul>
+				<li><a class="title-nav-leftbar haschild">Cost</a>
+					<ul class="nav-leftbar-sub">
+						<li><a href="cost_summary.html" class="title-nav-leftbar-dept-2"><u>Summary</u></a></li>
+						<li><a href="cost_detail.html" class="title-nav-leftbar-dept-2"><u>Detail</u></a></li>
+						<li><a class="title-nav-leftbar-dept-2">RI Utilization</a></li>
+						<li><a class="title-nav-leftbar-dept-2">Right Sizing</a></li>
+						<li><a href="cost_invioce.html" class="title-nav-leftbar-dept-2"><u>Invoice</u></a></li>
+					</ul>
+				</li>
+				<li><a class="title-nav-leftbar haschild">Asset</a>
+					<ul class="nav-leftbar-sub">
+						<li><a href="asset_summary.html" class="title-nav-leftbar-dept-2"><u>Summary</u></a></li>
+						<li><a class="title-nav-leftbar-dept-2 haschild"><u>Detail</u></a>
+							<ul class="nav-leftbar-sub">
+								<li><a href="asset_detail_ec2.html" class="title-nav-leftbar-dept-3 ic"><i class="ic-nav ec2"></i><u>EC2</u></a></li>
+								<li><a class="title-nav-leftbar-dept-3 ic"><i class="ic-nav rds"></i>RDS</a></li>
+								<li><a class="title-nav-leftbar-dept-3 ic"><i class="ic-nav elb"></i>ELB</a></li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+				<li class="open current"><a class="title-nav-leftbar haschild">Monitoring</a>
+					<ul class="nav-leftbar-sub" style="display:block;opacity:1;">
+						<li class="current"><a href="monitoring_alarm.html" class="title-nav-leftbar-dept-2"><u>Alarm</u></a></li>
+						<li><a href="monitoring_ec2.html" class="title-nav-leftbar-dept-2 ic"><i class="ic-nav ec2"></i><u>EC2</u></a></li>
+						<li><a class="title-nav-leftbar-dept-2 ic"><i class="ic-nav rds"></i>RDS</a></li>
+						<li><a class="title-nav-leftbar-dept-2 ic"><i class="ic-nav elb"></i>ELB</a></li>
+					</ul>
+				</li>
+				<li><a class="title-nav-leftbar haschild">Account</a>
+					<ul class="nav-leftbar-sub">
+						<li><a href="account_user_list.html" class="title-nav-leftbar-dept-2"><u>User List</u></a></li>
+						<li><a href="account_aws_list.html" class="title-nav-leftbar-dept-2"><u>AWS Account List</u></a></li>
+						<li><a class="title-nav-leftbar-dept-2">Group List</a></li>
+						<li><a class="title-nav-leftbar-dept-2">Change Password</a></li>
+					</ul>
+				</li>
+			</ul>
+		</nav>
+	</aside>
+
+	<div class="content-header">
+		<div class="topbar">
+			<div class="float-right">
+				<div class="topbar-btn">
+					<a class="topbar-account"><span class="ic_account"></span>a2_awsadmin</a>
+					<ul class="account-menu">
+						<li><a href="account_aws_list.html">My Account</a></li>
+						<li><a href="#">Sign out</a></li>
+					</ul>
+				</div>
+				<ul class="topbar-btn clearfix">
+					<li class="topbar-lang">
+						<a class="current">EN</a>
+					</li>
+					<li class="topbar-lang">
+						<a href="#">KR</a>
+					</li>
+				</ul>
+		        <div class="topbar-btn">
+		            <a class="topbar-help" href="../guide/guide_signup.html" target="_blank"><i class="fa fa-question-circle" aria-hidden="true"></i> HELP</a>
+		        </div>
+			</div>
+		</div><!--// toppbar -->
+	</div>
+
+	<div class="content-body">
+		<div class="fullbox">
+			<h2 class="title-header">Alarm</h2>
+			<div class="header-body clearfix">
+                <ul class="header-filter">
+					<li class="selectbox">
+						<span class="label">AWS Account</span>
+						<div class="selectwrap account">
+							<a class="select-default" name="dropdown">aws_kim(691531078301), aws_kim(691531078301)</a>
+							<div class="dropselectbox">
+								<ul class="dropselect clearfix">
+									<li class="dept1"><input type="checkbox" id="service-all"><label for="service-all">All</label></li>
+									<li class="dept1"><input type="checkbox" id="service-1" checked><label for="service-1">aws_kim(691531078301)</label>
+										<ul>
+											<li class="dept2"><input type="checkbox" id="service-2" checked><label for="service-2">aws_park1(691123478302)</label></li>
+											<li class="dept2"><input type="checkbox" id="service-3"><label for="service-3">aws_lee(691531078304)</label></li>
+										</ul>
+									</li>
+									<li class="dept1"><input type="checkbox" id="service-4" checked><label for="service-4">aws_park(691232348302)</label>
+										<ul>
+											<li class="dept2"><input type="checkbox" id="service-5" checked><label for="service-5">aws_park2(691531078302)</label></li>
+										</ul>
+									</li>
+									<li class="dept1"><input type="checkbox" id="service-6"><label for="service-6">aws_lee33(691531065404)</label></li>
+									<li class="dept1"><input type="checkbox" id="service-7"><label for="service-7">aws_jung(691531078301)</label></li>
+								</ul>
+							</div>
+						</div>
+					</li>
+				</ul>
+				<a class="btn-default">Apply</a>
+			</div>
+		</div>
+		<section class="wrap">
+			<div class="box box-cont">
+				<div class="row">
+					<div class="col-3" style="border-right:1px solid #ddd">
+						<h3 class="title-alarm-list">Total</h3>
+						<p class="txt-value-m">3</p>
+					</div>
+					<ul class="col-9 alarm-list">
+						<li class="float-left alarm">
+							<h3 class="title-alarm-list">
+								<!--<i class="state-sign"></i>-->
+								<div class="pulsate">
+								  	<div class="pulsate-ring"></div>
+								  	<i></i>
+								</div>
+								Alarm
+							</h3>
+							<p class="txt-value-m">1</p>
+						</li>
+						<li class="float-left insufficient">
+							<h3 class="title-alarm-list">
+								<!--<i class="state-sign"></i> -->
+								<div class="pulsate">
+								  	<div class="pulsate-ring"></div>
+								  	<i></i>
+								</div>
+								Insufficient
+							</h3>
+							<p class="txt-value-m">1</p>
+						</li>
+						<li class="float-left ok">
+							<h3 class="title-alarm-list">
+								<!-- <i class="state-sign"></i> -->
+								<div class="pulsate">
+								  	<div class="pulsate-ring"></div>
+								  	<i></i>
+								</div>
+								OK
+							</h3>
+							<p class="txt-value-m">1</p>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+<!--
+			<div class="row">
+				<div class="col-4">
+					<div class="box fitbox-cont ">
+						<h3 class="title-box">Alarm</h3>
+						<p class="txt-value-b">0</p>
+					</div>
+				</div>
+				<div class="col-4">
+					<div class="box fitbox-cont bg-insuff">
+						<h3 class="title-box">Insufficient</h3>
+						<span class="txt-value-b">2</span>
+					</div>
+				</div>
+				<div class="col-4">
+					<div class="box fitbox-cont bg-ok">
+						<h3 class="title-box">OK</h3>
+						<span class="txt-value-b">1</span>
+					</div>
+				</div>
+			</div>
+-->
+
+			<div class="box fitbox">
+				<div class="box-table">
+                <table id="table_alarm" class="table-data list hoverable line-break" width="100%">
+                    <caption class="hidden-element">Monitoring Alarm</caption>
+                    <colgroup>
+                        <col class="number-cell">
+                        <col span="5">
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th scope="col"></th>
+                            <th scope="col">AWS Account</th>
+                            <th scope="col">State</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Threshold</th>
+                            <th scope="col">Config Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td>aws_kim(123456789)</td>
+                            <td><span class="alarm-status alarm"><i class="state-sign"></i>Alarm</span></td>
+                            <td>drs_registry_st-ReadCapacityUnitsLimit-BasicAlarm</td>
+                            <td>ConsumedReadCapacityUnits >= 240 for 5 minutes</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>aws_kim(123456789)</td>
+                            <td><span class="alarm-status alarm"><i class="state-sign"></i>Alarm</span></td>
+                            <td>drs_registry_st-ReadCapacityUnitsLimit-BasicAlarm</td>
+                            <td>ConsumedReadCapacityUnits >= 240 for 5 minutes</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>aws_kim(123456789)</td>
+                            <td><span class="alarm-status insufficient"><i class="state-sign"></i>Insufficient</span></td>
+                            <td>drs_registry_st-ReadCapacityUnitsLimit-BasicAlarm</td>
+                            <td>ConsumedReadCapacityUnits >= 240 for 5 minutes</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>aws_kim(123456789)</td>
+                            <td><span class="alarm-status ok"><i class="state-sign"></i>OK</span></td>
+                            <td>drs_registry_st-ReadCapacityUnitsLimit-BasicAlarm</td>
+                            <td>ConsumedReadCapacityUnits >= 240 for 5 minutes</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>aws_kim(123456789)</td>
+                            <td><span class="alarm-status ok"><i class="state-sign"></i>OK</span></td>
+                            <td>drs_registry_st-ReadCapacityUnitsLimit-BasicAlarm</td>
+                            <td>ConsumedReadCapacityUnits >= 240 for 5 minutes</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>aws_kim(123456789)</td>
+                            <td><span class="alarm-status alarm"><i class="state-sign"></i>Alarm</span></td>
+                            <td>drs_registry_st-ReadCapacityUnitsLimit-BasicAlarm</td>
+                            <td>ConsumedReadCapacityUnits >= 240 for 5 minutes</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <script>
+                //colvis separate
+                var org_buildButton = $.fn.DataTable.Buttons.prototype._buildButton;
+                $.fn.DataTable.Buttons.prototype._buildButton = function(config, collectionButton) {
+                     var button = org_buildButton.apply(this, arguments);
+                     $(document).one('init.dt', function(e, settings, json) {
+                        if (config.container && $(config.container).length) {
+                            $(button.inserter[0]).detach().appendTo(config.container)
+                        }
+                    })
+                    return button;
+                1}
+
+
+                // table_alarm sort ascending
+                $('#table_alarm').DataTable({
+                    dom: 'B<"collection-filter"l<"#colvis">f>rtip',
+
+                    "lengthMenu": [ 10, 20, 50, 100 , 200 ],
+                    "iDisplayLength": 100,
+                    "scrollX": false,
+
+                    //Download Btn
+                    buttons: [
+                        {
+                            extend: 'copy',
+                            text: '<i class="btn-download-files copy" aria-hidden="true"></i>',
+                            titleAttr: 'Copy to Clipboard'
+                        },
+                        {
+                            extend: 'csv',
+                            text: '<i class="btn-download-files csv" aria-hidden="true"></i>',
+                            titleAttr: 'Export to csv'
+                        },
+                        {
+                            extend: 'excel',
+                            text: '<i class="btn-download-files excel" aria-hidden="true"></i>',
+                            titleAttr: 'Export to Excel'
+                        },
+                        {
+                            extend: 'print',
+                            text: '<i class="btn-download-files print" aria-hidden="true"></i>',
+                            titleAttr: 'View print view'
+                        },
+                        {
+                            extend: 'colvis',
+                            container : '#colvis',
+                            text: 'Show / Hide Columns',
+                            columns: ':not(:first-child)'
+                        }
+                    ],
+                    columnDefs: [ {
+                        orderable: false,
+                        className: 'details-control',
+                        targets:   0
+                    } ],
+                    order: [[ 1, 'asc' ]],
+                    "language": {
+                        "lengthMenu": "_MENU_",
+                        "info": "_START_ - _END_ of _TOTAL_ (_PAGE_/_PAGES_)",
+                        "search": "<i class='fa fa-search'></i>",
+                        "paginate": {
+                            "previous": "<i class='fa fa-chevron-left' aria-hidden='true'></i>",
+                            "next": "<i class='fa fa-chevron-right' aria-hidden='true'></i>"
+                        }
+                    }
+                } );
+
+                $('div.dataTables_length select').addClass('buttons-colvis');
+
+
+                // childe row
+                var table = $('#table_alarm').DataTable();
+                table.rows().every( function () {
+                    this.child(
+                        '<div class="childbox">'+
+                            '<div class="inner">'+
+                                '<table class="nohoverable">'+
+                                    '<colgroup>'+
+                                            '<col style="width:15%">'+
+                                            '<col style="width:35%">'+
+                                            '<col style="width:15%">'+
+                                            '<col style="width:35%">'+
+                                        '</colgroup>'+
+                                    '<tr>'+
+                                        '<th>State Details</th>'+
+                                        '<td>State changed to INSUFFICIENT DATA at 2017/03/30. (Reason: Insufficient Data:  5 datapoints were unknown.)</td>'+
+                                        '<th>Description</th>'+
+                                        '<td></td>'+
+                                    '</tr>'+
+                                    '<tr>'+
+                                        '<th>Threshold</th>'+
+                                        '<td>ConsumedWriteCapacityUnits >= 240 for 5 minutes</td>'+
+                                        '<th>Actions</th>'+
+                                        '<td>In ALARM Send message to topic "dynamodb" (devops@a2company.co.kr)</td>'+
+                                    '</tr>'+
+                                    '<tr>'+
+                                        '<th>Namespace</th>'+
+                                        '<td>AWS/DynamoDB</td>'+
+                                        '<th>Metric Name</th>'+
+                                        '<td>ConsumedWriteCapacityUnits</td>'+
+                                    '</tr>'+
+                                    '<tr>'+
+                                        '<th>Dimensions</th>'+
+                                        '<td>TableName = drs_registry_st</td>'+
+                                        '<th>Statistic</th>'+
+                                        '<td>Sum</td>'+
+                                    '</tr>'+
+                                    '<tr>'+
+                                        '<th>Period</th>'+
+                                        '<td>1 minute</td>'+
+                                        '<th>Treat missing data as</th>'+
+                                        '<td>Missing</td>'+
+                                    '</tr>'+
+                                    '<tr>'+
+                                        '<th>Percentiles with low samples</th>'+
+                                        '<td>evaluate</td>'+
+                                        '<th></th>'+
+                                        '<td></td>'+
+                                    '</tr>'+
+                                '</table>'+
+                            '</div>'+
+                        '</div>'
+                    );
+                } );
+
+                $('#table_alarm tbody').on( 'click', 'td.details-control', function () {
+                    var tr = $(this).closest('tr');
+                    var child = table.row( this ).child;
+
+                    if ( child.isShown() ) {
+                        $('.childbox', child()).slideUp( 'fast' , function(){
+                            child.hide();
+                            tr.removeClass('shown');
+                        });
+                    }
+                    else {
+                        child.show();
+                        tr.addClass('shown');
+                        $('.shown').next('tr').addClass('childrow');
+                        $('.childbox').slideDown('fast');
+                    }
+                } );
+
+                //모든 column 숨겼을 때, childrow 숨기기
+                $('a.buttons-collection').on( 'click', function (e) {
+                    $('.buttons-columnVisibility').on('click', function(e){
+                        if(!$('.buttons-columnVisibility').hasClass('active')){
+                            $('.childrow').hide();
+                        } else {
+                            $('.childrow').show();
+                        }
+                    });
+                });
+
+
+                // shown <-> childrow hover bg
+                $('#table_alarm').on('mouseover','tr.shown',function(){
+                    var next = $(this).next();	//.childrow
+                    $(this).next([0]).find('td').removeClass('default').addClass('hover');
+                });
+                $('#table_alarm').on('mouseleave','tr.shown',function(){
+                    var next = $(this).next();	//.childrow
+                    $(this).next([0]).find('td').removeClass('hover').addClass('default');
+                    $(this).removeClass('hover');
+                });
+                $('#table_alarm').on('mouseover','tr.childrow',function(){
+                    var prev = $(this).prev(); //.shown
+                    $(this).prev([0]).addClass('hover');
+                    $(this).find('td').removeClass('default').addClass('hover');
+                });
+                $('#table_alarm').on('mouseleave','tr.childrow',function(){
+                    var prev = $(this).prev(); //.shown
+                    $(this).prev([0]).removeClass('hover');
+                    $(this).find('td').removeClass('hover').addClass('default');
+                });
+
+            </script>
+
+		</section><!--// wrap -->
+	</div>
+
+	<a class="btn-top" title="go to top"><i class="fa fa-chevron-up" aria-hidden="true"></i></a>
+	<footer class="footer">
+		<span class="terms"><a href="terms_service.html" class="link">서비스 이용 약관</a> | <a href="terms_privacy.html" class="link"><strong>개인정보 취급방침</strong></a></span>
+		<span class="copyright">© A2 COMPANY ALL RIGHTS RESERVED.</span>
+	</footer>
+
+	<script src="js/common.js"></script>
+	<script>
+
+	</script>
+
+</body>
+</html>

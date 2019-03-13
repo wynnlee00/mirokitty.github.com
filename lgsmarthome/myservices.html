@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta cherset="ute-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="robots" content="all">
+	<title>My Services :: LG SmartHome Developer</title>
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no, width=device-width">
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+
+	<link type="text/css" rel="stylesheet" href="css/materialize.css">
+	<link type="text/css" rel="stylesheet" href="css/common.css">
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:700,600,400' rel='stylesheet' type='text/css'>
+	<!--[if lt IE 9]>
+	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+	<![endif]-->
+</head>
+<body>
+	<header>
+		<div class="main_header">
+			<div class="container">
+				<h1><a href="index.html"><img src="img/logo_smarthome_dev.png" alt="LG Smart Home Developer"></a></h1>
+				<div class="header_menu">
+
+					<div class="dropdown slideright">
+						<a class="myaccount down"><span class="ic_account manager"></span> test@lge.com</a>
+						<ul class="dropdown_content btnlist clearfix">
+							<li><a href="profile.html">Profile</a></li>
+							<li><a>Sign out</a></li>
+						</ul>
+					</div><!--// dropdown-->
+
+					<div class="dropdown">
+						<a class="nav_more hidden_font">more</a>
+						<dl class="dropdown_content clearfix">
+							<dt>Link</dt>
+							<dd><a href="http://developer.lge.com" class="link_site" target="_blank">LG Developer</a></dd>
+							<dt>Language</dt>
+							<dd>
+								<select class="select_default">
+									<option selected>English</option>
+									<option>Korea</option>
+								</select>
+							</dd>
+						</dl>
+					</div><!--// dropdown-->
+
+				</div><!--// header_menu-->
+			</div>
+		</div>
+	</header>
+
+	<div class="navbar_wrap">
+		<div class="navbar">
+			<div class="container">
+				<ul class="navlist left">
+					<li><a href="get_started.html">Get Started</a></li>
+					<li><a href="supported_products.html">Supported Products</a></li>
+					<li><a href="apis_overview.html">APIs</a></li>
+					<li><a href="sdks.html">SDKs</a></li>
+					<li><a href="alljoyn.html">Alljoyn</a></li>
+				</ul>
+				<ul class="navlist right">
+					<li><a href="myservices.html" class="current">My Services</a></li>
+					<li><a href="virtual_test_lab.html">Virtual Test Lab</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div class="content">
+	<div class="wrap_content">
+		<div class="container">
+			<h2 class="title_big">
+				My Services
+				<span class="title_s">(<span class="lightnavy_txt">04</span>/20)</span>
+			</h2>
+			<div class="flexbox">
+				<p class="sub_txt2 flex1">
+					개발을 시작하기 전에 반드시 Service 를 생성해야 합니다.<br>
+					Service 생성 시  Service ID가 부여되고, 이는 서비스 개발에 필요한 Key값으로 사용됩니다.
+				</p>
+			</div>
+			<div class="notibox basic mt0 mb30">
+				<span class="icon"></span>
+				<span class="point_txt">Service 생성/수정/삭제 권한 안내</span><br>
+				• Service 생성(최대 20개),수정 및 삭제는 Manager Account(<span class="ic_account manager"></span>)만 가능합니다. 단, 개발 환경이 OP인 경우, 승인이 완료(Approved)된 이후에만 삭제가 가능합니다. <br>
+				• Developer Account(<span class="ic_account"></span>)는 Service 조회만 가능합니다.
+
+			</div>
+
+			<a href="myservices_create.html" class="btn_border right mb20">Service 생성하기</a>
+			<div><!-- box 클래스 삭제 -->
+				<table class="table_default fixed bordered hoverable"><!-- centered 클래스 삭제 -->
+					<colgroup><!-- colgroup 속 각각의 width값 모두 변경 -->
+						<col width="16%">
+						<!--<col width="12%">-->
+						<col width="10%">
+						<col width="35%">
+						<col width="18%">
+						<col width="10%">
+						<col width="11%">
+						<col width="60px" style="text-align:right !important">
+					</colgroup>
+					<thead>
+						<tr>
+							<th>Service</th>
+							<th>Country</th>
+							<th>Supported Products</th>
+							<th>Connected Products<br>(Current/Max)</th>
+							<th>Mode</th>
+							<th>Status <a href="#tip_status" class="ic_tip modal-trigger-long">?</a></th>
+							<th></th>
+						</tr>
+					</thead>
+					<tbody>
+						<!-- <tr class="empty">
+							<td colspan="7">없습니다.</td>
+						</tr> -->
+						<tr data-href="myservices_view.html">
+							<td>Service AAA</td>
+							<!--<td>Read</td>-->
+							<td>KOR</td>
+							<td>
+								<span class="hidden_font product purifier">purifier</span>
+								<span class="hidden_font product aircon">air conditioner</span>
+								<span class="hidden_font product washer">washer</span>
+								<span class="hidden_font product oven">oven</span>
+								<span class="hidden_font product dryer">dryer</span>
+								<span class="hidden_font product roboking">roboking</span>
+								<span class="hidden_font product smarthub">smarthub</span>
+								<span class="hidden_font product gateway">g/w</span>
+								<span class="hidden_font product sensor">sensor</span>
+							</td>
+							<td>(<span class="red_txt">000</span>/0,000)</td><!-- Current값이 Max에 80% 근접했을 때 <span class="red_txt"></span>으로 씌워주기 -->
+							<td>OP</td>
+							<td><span class="txt_status submitted">Submitted</span></td>
+							<td class="td_delete invalid">
+								<a href="#sevice_delete_step1" class="hidden_font btn_delete invalid modal-trigger">delete</a>
+							</td>
+						</tr>
+						<tr data-href="myservices_view.html">
+							<td>Service BBB</td>
+							<!--<td>Read</td>-->
+							<td>KOR</td>
+							<td>
+								<span class="hidden_font product roboking">roboking</span>
+								<span class="hidden_font product audio">audio</span>
+							</td>
+							<td>(<span class="point_txt">000</span>/0,000)</td>
+							<td>OP</td>
+							<td><span class="txt_status reviewing">Reviewing</span></td>
+							<td class="td_delete"><a href="#sevice_delete_step2" class="hidden_font btn_delete modal-trigger">delete</a></td>
+						</tr>
+						<tr data-href="myservices_view.html">
+							<td>Service CCC</td>
+							<!--<td>Read/Write</td>-->
+							<td>KOR</td>
+							<td>
+								<span class="hidden_font product refrigerator">refrigerator</span>
+								<span class="hidden_font product dryer">dryer</span>
+								<span class="hidden_font product aircon">air conditioner</span>
+							</td>
+							<td>(<span class="point_txt">000</span>/0,000)</td>
+							<td>OP</td>
+							<td><span class="txt_status pass">pass</span></td>
+							<td class="td_delete"><a href="#sevice_delete_complete" class="hidden_font btn_delete modal-trigger">delete</a></td>
+						</tr>
+						<tr data-href="myservices_view.html">
+							<td>Service CCC</td>
+							<!--<td>Read/Write</td>-->
+							<td>KOR</td>
+							<td>
+								<span class="hidden_font product refrigerator">refrigerator</span>
+								<span class="hidden_font product dryer">dryer</span>
+								<span class="hidden_font product aircon">air conditioner</span>
+							</td>
+							<td>(<span class="point_txt">000</span>/0,000)</td>
+							<td>OP</td>
+							<td><span class="txt_status fail">fail</span></td>
+							<td class="td_delete"><a href="#sevice_delete_complete" class="hidden_font btn_delete modal-trigger">delete</a></td>
+						</tr>
+						<tr data-href="myservices_view.html">
+							<td>Home control</td>
+							<!--<td>Read/Write</td>-->
+							<td>USA</td>
+							<td>
+								<span class="hidden_font product washer">washer</span>
+								<span class="hidden_font product aircon">air conditioner</span>
+							</td>
+							<td>(<span class="point_txt">000</span>/0,000)</td>
+							<td>OP</td>
+							<td><span class="txt_status approved">Approved</span></td>
+							<td class="td_delete"><a href="#sevice_delete_step1" class="hidden_font btn_delete modal-trigger">delete</a></td>
+						</tr>
+						<tr data-href="myservices_view.html">
+							<td>The quick</td>
+							<!--<td>Read/Write</td>-->
+							<td>KOR</td>
+							<td>
+								<span class="hidden_font product refrigerator">refrigerator</span>
+								<span class="hidden_font product dryer">dryer</span>
+								<span class="hidden_font product aircon">air conditioner</span>
+								<span class="hidden_font product range">range</span>
+								<span class="hidden_font product audio">audio</span>
+								<span class="hidden_font product audio">audio</span>
+							</td>
+							<td>(<span class="point_txt">000</span>/0,000)</td>
+							<td>OP</td>
+							<td><span class="txt_status suspended">Suspended</span></td>
+							<td class="td_delete"><a href="#sevice_delete_step1" class="hidden_font btn_delete modal-trigger">delete</a></td>
+						</tr>
+						<tr data-href="myservices_view.html">
+							<td>Service BBB</td>
+							<!--<td>Read</td>-->
+							<td>KOR</td>
+							<td>
+								<span class="hidden_font product roboking">roboking</span>
+								<span class="hidden_font product audio">audio</span>
+							</td>
+							<td>-</td>
+							<td>DV</td>
+							<td><span class="txt_status">N/A</span></td>
+							<td class="td_delete"><a href="#service_exceed" class="hidden_font btn_delete modal-trigger">delete</a></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+
+
+		</div><!--// container -->
+	</div><!--// wrap_content -->
+	</div>
+
+	<span class="hidden_font btn_top" style="display:none;">go to top</span>
+	<footer>
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<img src="img/logo_lg_footer.png" class="img_footer_logo" alt="LG logo">
+				</div>
+				<div class="col">
+					<p class="copyright">COPYRIGHT ⓒ 2015 LG ELECTRONICS.<br>ALL RIGHTS RESERVED.</p>
+				</div>
+				<div class="col right">
+					<div class="termslist">
+						<p class="">TERMS & CONDITIONS<br>[ <a href="terms_global.html">Global</a> / <a href="terms.html">KOR</a> ]</p>
+					</div>
+					<div class="termslist">
+						<p class="">PRIVACY<br>[ <a href="terms_privacy.html">Global</a> / <a href="terms_privacy_global.html">개인정보처리방침</a> / <a href="terms_privacy_global.html">개인정보취급방침</a> ]</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+	<!-- modal -->
+	<div id="change_account_level" class="modal simple">
+		<div class="modal-content">
+			<h4 class="title_modal">계정 등급 변경</h4>
+			<p class="left-align">
+				관리자 계정의 해지로 인해 계정 등급이 변경되었습니다. <br><br>
+				<strong>• 변경 전 : Developer Account<br>
+				• 변경 후 : Manager Account</strong><br><br>
+				※ 계정 등급 정보는 '내 계정' &gt; 'Profile' 메뉴에서 확인이 가능합니다.
+			</p>
+		</div>
+		<div class="modal-footer">
+			<a href="#!" class="modal-close btn_modal btn_pink"><span data-hover="확인">확인</span></a>
+		</div>
+	</div>
+
+	<div id="tip_status" class="modal simple wide long">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h4 class="title_modal">상태 정보</h4>
+				<a href="#!" class="modal-close btn_x"></a>
+			</div>
+			<!--
+			<p class="left-align">
+				Service 상태 정보는 5개로 분리됩니다.
+			</p>-->
+			<h5 class="sub_title_modal left-align">OP 환경에 대한 상태 정보</h5>
+			<div class="modal-contentbox left-align normal" style="margin:0.7em 1.429em 0.5em">
+				<strong class="block mb10">런칭 전 승인 진행 단계 표시</strong>
+				<img src="img/img_approval_step.png" class="block mb10" alt="">
+				<div style="font-size:0.875em;padding-left:0.5em;">
+					<span class="step_num">1</span> <span class="txt_status submitted">Submitted</span> : 승인 요청 상태<br>
+					<span class="step_num">2</span> <span class="txt_status reviewing">reviewing</span> : 검증 진행 상태<br>
+					<span class="step_num">3</span> <span class="txt_status passed">passed</span> : 검증 결과안내<br>
+					<span class="step_num">4</span> <span class="txt_status approved">approved</span> : 승인 완료 상태
+				</div>
+			</div>
+			<!-- <div class="modal-contentbox left-align normal" style="margin:0.5em 1.429em">
+				<strong class="block mb10">런칭 이후 일시 정지 단계 표시</strong>
+				<div style="font-size:0.875em;padding-left:0.5em;">
+					<span class="step_num none"></span> <span class="txt_status suspended">suspended</span> : 점검 및 장애로 인한 일시 정지 상태
+				</div>
+			</div> -->
+			<p class="left-align sub_txt4">※ 각 단계별 상태 정보는 메일로 안내함</p>
+			<br>
+			<h5 class="sub_title_modal left-align" style="margin-top:0.5em;">DV 환경에 대한 상태 정보</h5>
+			<div class="modal-contentbox left-align normal" style="margin:0.7em 1.429em 0.5em">
+				<div style="font-size:0.875em;padding-left:0.5em;">
+					<span class="step_num none"></span> <span class="txt_status" style="display:inline;padding:0">n/a</span> : 상태 표시 없음<br>
+					<span class="step_num none"></span> <span class="txt_status suspended">suspended</span> : 점검 및 장애로 인한 일시 정지 상태
+				</div>
+			</div>
+		</div>
+		<div class="modal-footer">
+			<a href="#!" class="modal-close btn_modal btn_gray">닫기</a>
+		</div>
+	</div>
+
+	<div id="sevice_delete_step1" class="modal simple">
+		<div class="modal-content">
+			<h4 class="title_modal">Service 삭제</h4>
+			<div class="modal-contentbox flexcenter warning">
+				<span class="icon warning">!</span>
+				<p class="flex1">Service를 삭제 할 경우, 연동된 제품 정보를 포함하여 모든 정보가 삭제되며 복구되지 않습니다. </p>
+			</div>
+			<p>
+				<strong>'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'</strong>를 삭제 하시겠습니까?
+			</p>
+		</div>
+		<div class="modal-footer">
+			<a href="#!" class="modal-close btn_modal btn_gray">아니오</a>
+			<a href="#!" class="modal-close btn_modal btn_pink">예</a>
+		</div>
+	</div>
+
+	<div id="sevice_delete_step2" class="modal simple">
+		<div class="modal-content">
+			<h4 class="title_modal">Service 삭제</h4>
+			<p class="left-align">
+				Service 삭제를 위해,<br>LG 계정의 비밀번호를 입력해주세요.
+			</p>
+			<div class="modal-contentbox left-align">
+				LG 계정 : test@lge.com
+				<input type="password" placeholder="비밀번호">
+				<!--<span class="err_txt">비밀번호가 정확하지 않습니다.</span>--> <!-- 에러케이스 -->
+			</div>
+		</div>
+		<div class="modal-footer">
+			<a href="#!" class="modal-close btn_modal btn_gray">취소</a>
+			<a href="#!" class="modal-close btn_modal btn_pink">확인</a>
+		</div>
+	</div>
+
+	<div id="sevice_delete_complete" class="modal simple">
+		<div class="modal-content">
+			<h4 class="title_modal">Service 삭제 완료</h4>
+			<p>
+				<strong>'Service AAA'</strong>가 삭제되었습니다.
+			</p>
+		</div>
+		<div class="modal-footer">
+			<a href="#!" class="modal-close btn_modal btn_pink">확인</a>
+		</div>
+	</div>
+
+	<div id="service_exceed" class="modal simple">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h4 class="title_modal">Service 생성 초과</h4>
+				<a href="#!" class="modal-close btn_x"></a>
+			</div>
+			<div class="modal-contentbox flexcenter warning">
+				<span class="icon warning">!</span>
+				<p class="flex1">생성할 수 있는 Service 개수(최대 20대)를 초과하였습니다. Service를 삭제 후 다시 이용해 주세요.</p>
+			</div>
+		</div>
+		<div class="modal-footer">
+			<a href="#" class="btn_modal btn_pink">확인</a>
+		</div>
+	</div>
+
+	<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+	<script type="text/javascript" src="js/materialize.min.js"></script>
+	<script type="text/javascript" src="js/retina.min.js"></script>
+	<script type="text/javascript" src="js/common.js"></script>
+	<script>
+		//modal open on document ready
+		$('#change_account_level').openModal({
+			dismissible: false, // Modal can be dismissed by clicking outside of the modal
+			opacity: .6
+		});
+
+	//custom join modal
+	$('.modal-trigger-long').leanModal({
+		dismissible: false, // Modal can be dismissed by clicking outside of the modal
+		opacity: .6,
+		in_duration: 0, // Transition in duration
+		out_duration: 200, // Transition out duration
+		ready: function() {
+			var in_duration = 300,
+				  modal = $('#tip_status');
+			$("#lean-overlay").css({ display : "block", opacity : 0 });
+			$("#lean-overlay").velocity({opacity: .8}, {duration: in_duration, queue: false, ease: "easeOutCubic"})
+			$(modal).css({
+				top: "3%",
+				opacity: 0
+			});
+			$(modal).velocity({top: "5%", opacity: 1}, {
+			  duration: in_duration,
+			  queue: false,
+			  ease: "easeOutCubic"
+			});
+		}
+	});
+	</script>
+</body>
+</html>

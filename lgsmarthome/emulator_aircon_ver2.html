@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta cherset="ute-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="robots" content="all">
+	<title>Ver2 Aircon Emulator :: LG SmartHome Developer</title>
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no, width=device-width">
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+
+	<link type="text/css" rel="stylesheet" href="css/common.css">
+	<link type="text/css" rel="stylesheet" href="css/emulator_ver2.css">
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:600,400' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
+	<!--[if lt IE 9]>
+	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+	<![endif]-->
+</head>
+<body onload="prettyPrint()"><!-- 로그창 prettyPrint 사용 시 -->
+	<div id="mask"></div>
+	<div id="mask_light"></div>
+	<header class="header_emulator">
+		<div class="connection_status connected"><!-- 미연결 시 connected 클래스를 disconnected 로 바꿔주세요 -->
+			<span class="light"></span>
+		</div>
+		<div class="flex1">
+            <h2 class="title_emulator flexcenter"><!-- title_emulator h2 태그에 "flexcenter" 클래스 추가해주세요 -->
+				<!-- 제품 아이콘 추가
+					타이틀 앞에 <span class="ic_product"></span> 를 추가해주세요.
+					제품별 클래스명은 웹과 동일합니다.
+
+					<span class="ic_product refrigerator"></span> 냉장고
+					<span class="ic_product audio"></span> 오디오
+					<span class="ic_product dryer"></span> 건조기
+					<span class="ic_product washer"></span> 세탁기
+					<span class="ic_product range"></span> 렌지(미국)
+					<span class="ic_product oven"></span> 오븐
+					<span class="ic_product roboking"></span> 로보킹
+					<span class="ic_product aircon"></span> 에어컨
+				-->
+				Air Conditioner1
+			</h2>
+			<p class="txt_info">
+				Service <span class="txt_emulator_info">LG_HomeChat_QA</span>&nbsp;&nbsp;/&nbsp;&nbsp;
+				Product <span class="txt_emulator_info">Air Conditioner</span>&nbsp;&nbsp;/&nbsp;&nbsp;
+				Model No. <span class="txt_emulator_info">FQ167PASW</span>
+			</p>
+		</div>
+		<div class="flexcenter btn_area_right">
+			<a href="#emulator_reset" id="button" name="dialog_common" class="btn_txt">초기화</a>
+			<a class="btn_txt">도움말</a>
+		</div>
+	</header>
+
+	<div class="content_emulator">
+
+		<div class="display">
+
+			<div class="areatitle">
+				<p class="title_control">Product’s<br>display panel</p>
+				<img src="img/product/FQ230PC1W.png" alt="product image">
+
+				<div class="display_status">
+					<span class="icon power"></span><!-- 꺼졌을때는 "off" 클래스 추가 -->
+					<span class="icon wifi"></span><!-- 꺼졌을때는 "off" 클래스 추가 -->
+				</div>
+			</div>
+
+			<div class="displayselect">
+
+				<!-- 제품 상태 설정 UI 재정의 -->
+				<div class="wrap_prod_status">
+					<div class="prod_status_init">제품 상태 설정</div>
+					<div class="prod_status_slidebox">
+						<ul name="speed" id="speed">
+							<li><input type="radio" id="option01" name="prod_status"><label for="option01" class="">냉방 운전 중 (예약 없음)</label></li>
+							<li>
+								<input type="radio" id="option02" name="prod_status"><label for="option02" class="">냉방 운전 중 (예약 있음)</label>
+								<span class="chk_timelapse"><input type="checkbox" id="option02_timelapse"><label for="option02_timelapse">시간 단축</label></span>
+							</li>
+							<li><input type="radio" id="option06" name="prod_status"><label for="option06" class="">제습 운전 중 (예약 없음)</label></li>
+							<li>
+								<input type="radio" id="option07" name="prod_status"><label for="option07" class="">제습 운전 중 (예약 있음)</label>
+								<span class="chk_timelapse"><input type="checkbox" id="option07_timelapse"><label for="option07_timelapse">시간 단축</label></span>
+							</li>
+							<li><input type="radio" id="option17" name="prod_status"><label for="option17" class="">전원 OFF</label></li>
+							<li><input type="radio" id="option36" name="prod_status"><label for="option36" class="">네트워크 미연결</label></li>
+						</ul>
+						<div class="btnbox">
+							<a class="btn_emulator btn_pink full">설정</a>
+						</div>
+					</div>
+				</div>
+
+				<div class="floatR">
+					<!-- <a class="btn_forward"></a>  빨리감기 삭제 -->
+					<a class="btn_refresh"></a>
+				</div>
+			</div>
+
+			<div class="inner">
+
+				<div class="main_area grid divide2 clearfix">
+					<div class="col white_txt"><!-- 온도값 없을 때 "null" 클래스 추가 -->
+						<span class="txt_display_s ml5">희망</span><br>
+						<span class="txt_display_l">20</span><span class="txt_display_m">ºC</span>
+					</div>
+					<div class="col pl40"><!-- 온도값 없을 때 "null" 클래스 추가 -->
+						<span class="txt_display_s ml5">현재</span><br>
+						<span class="txt_display_l">25</span><span class="txt_display_m">ºC</span>
+					</div>
+				</div>
+
+				<div class="mode_area flexcenter">
+					<div class="tbdisplay">
+						<div class="tbrdisplay null"><!-- 값 없을 때 "null" 클래스 추가 -->
+							<div class="txt_mode tbcdisplay">운전모드</div>
+							<div class="tbcdisplay"><span class="selected">--</span></div>
+						</div>
+						<div class="tbrdisplay"><!-- 값 없을 때 "null" 클래스 추가 -->
+							<div class="txt_mode tbcdisplay">바람세기</div>
+							<div class="tbcdisplay"><span class="selected">약</span></div>
+						</div>
+						<div class="tbrdisplay"><!-- 값 없을 때 "null" 클래스 추가 -->
+							<div class="txt_mode tbcdisplay">예약</div>
+							<div class="tbcdisplay"><span class="selected">취침</span><span class="selected">꺼짐</span><span class="selected">켜짐</span></div>
+						</div>
+					</div>
+				</div>
+
+				<div class="display_mask"></div>
+
+			</div><!--// inner -->
+		</div><!--// display -->
+
+		<div class="wrap_control">
+
+			<div class="areatitle">
+				<p class="title_control">API<br>remote control</p>
+				<img src="img/emulator_img_control.png" alt="">
+
+				<div id="messagebox" class="messagebox">
+					<span class="ic_messagebox"></span>
+					Notification
+					<span class="badge active">N</span><!-- 알림 없을 때 <span class="badge active">N</span> 삭제 -->
+				</div>
+			</div>
+
+			<!-- 토스트박스
+			<div class="display_toast_alert">
+				<p>오븐의 예열이 완료되었습니다.</p>
+			</div>
+			 -->
+
+			<!-- 푸시알림박스 -->
+			<div id="popup_messagebox" class="display_push_alert">
+				<div class="push_alert_header">
+					<h3 class="title_s">알림</h3>
+					<a href="#!" id="close_unsupported_bar" class="btn_x"></a>
+				</div>
+
+				<!--알림이 있을 때 -->
+				<div class="scrollbox">
+					<p class="new">오븐의 예열이 완료되었습니다.<span class="time">12/12 00:00</span></p>
+					<p>물 보충이 필요합니다.물 보충이 필요합니다.물 보충이 필요합니다.<span class="time">8/12 00:00</span></p>
+					<p>스팀 청소가 완료되었습니다.<span class="time">8/12 00:00</span></p>
+					<p>오븐의 예열이 완료되었습니다.<span class="time">8/12 00:00</span></p>
+					<p>물 보충이 필요합니다.<span class="time">8/12 00:00</span></p>
+					<p>스팀 청소가 완료되었습니다.<span class="time">8/12 00:00</span></p>
+					<p>오븐의 예열이 완료되었습니다.<span class="time">8/12 00:00</span></p>
+					<p>물 보충이 필요합니다.<span class="time">8/12 00:00</span></p>
+					<p>스팀 청소가 완료되었습니다.<span class="time">8/12 00:00</span></p>
+				</div>
+
+				<!-- 알림이 없을 떄는 scrollbox에 "empty" 클래스를 추가해주세요
+				<div class="scrollbox empty">
+					푸시 알림 내역이 없습니다.
+				</div>
+				-->
+
+			</div>
+
+			<div class="controlbox">
+				<ul class="control_list accordion"><!-- control_list ul 에 "accordion" 클래스 추가 -->
+
+					<!-- disabled 되는 기능이 있을 경우, control_list 의 li 에 "disabled" 라는 클래스를 추가해주세요.
+							li 속에 input(checkbox나 radio버튼) 이 있을 경우 해당 li 의 자식 input 상태도 disabled 로 바꿔주세요. -->
+					<li>
+
+						<!-- API제어 리스트 앞에 아이콘 추가
+								각 리스트의 타이틀이 있는 <p></p> 안에 <span class="ic_control_list"></span> 을 넣어주세요.
+								span 에는 각 타이틀에 맞는 클래스를 추가해주세요. (참고: emulator_api_icon.html) -->
+						<p class="flex1"><span class="ic_control_list power"></span>운전 시작/정지</p>
+						<div class="flexcenter">
+							<div class="onoffswitch">
+								<input type="checkbox" class="onoffswitch-checkbox" id="power" checked>
+								<label class="onoffswitch-label" for="power">
+									<span class="onoffswitch-inner"></span>
+									<span class="onoffswitch-switch"></span>
+								</label>
+							</div>
+						</div>
+					</li>
+					<li>
+						<p class="flex1"><span class="ic_control_list airconmode"></span>운전모드</p>
+						<div class="flexcenter">
+							<div class="buttonbar">
+								<input type="radio" id="cool" name="mode" checked><label for="cool">냉방</label>
+								<input type="radio" id="humid" name="mode"><label for="humid">제습</label>
+							</div>
+						</div>
+					</li>
+					<li class="collapse"><!-- 열리는 리스트 "collapse" 클래스 추가 -->
+						<div class="collapse_header flexcenter"><!-- div "collapse_header" 로 감싸기 -->
+							<p class="flex1"><span class="ic_control_list temp"></span>희망온도</p>
+							<a href="#" class="emulator_link"><input type="text" id="target_temp_value" class="target_temp_value txt_value" readonly>ºC</a>
+						</div>
+						<div class="collapse_body temp flexcenter">
+							<div id="target_temp_slider" class="flex1"></div>
+							<input type="text" id="" class="target_temp_value txt_value" readonly>
+						</div>
+					</li>
+					<li><!-- disabled -->
+						<p class="flex1"><span class="ic_control_list wind"></span>바람세기</p>
+						<div class="flexcenter">
+							<div class="buttonbar">
+								<input type="radio" id="weak" name="wind" checked><label for="weak">약</label>
+								<input type="radio" id="medium" name="wind"><label for="medium">중</label>
+								<input type="radio" id="strong" name="wind"><label for="strong">강</label>
+							</div>
+						</div>
+					</li>
+
+					<li>
+						<p class="flex1"><span class="ic_control_list saving"></span>절전</p>
+						<div class="flexcenter">
+							<div class="onoffswitch">
+								<input type="checkbox" class="onoffswitch-checkbox" id="power_saving" checked>
+								<label class="onoffswitch-label" for="power_saving">
+									<span class="onoffswitch-inner"></span>
+									<span class="onoffswitch-switch"></span>
+								</label>
+							</div>
+						</div>
+					</li>
+
+					<li>
+						<p class="flex1"><span class="ic_control_list airfresh"></span>공기청정</p>
+						<div class="flexcenter">
+							<div class="onoffswitch">
+								<input type="checkbox" class="onoffswitch-checkbox" id="air_fresh">
+								<label class="onoffswitch-label" for="air_fresh">
+									<span class="onoffswitch-inner"></span>
+									<span class="onoffswitch-switch"></span>
+								</label>
+							</div>
+						</div>
+					</li>
+
+					<li class="collapse">
+						<div class="collapse_header flexcenter">
+							<p class="flex1"><span class="ic_control_list timer"></span>예약</p>
+							<a href="#" class="emulator_link floatR">
+								<span class="timer_case">
+									<span class="timer_type">Sleep</span>
+									<span class="timer_time">00:30 later</span>
+								</span>
+								<span class="timer_case">
+									<span class="timer_type">On</span>
+									<span class="timer_time">01:01 later</span>
+								</span>
+								<span class="timer_case">
+									<span class="timer_type">Off</span>
+									<span class="timer_time">12:34 later</span>
+								</span>
+							</a>
+						</div>
+						<div class="collapse_body">
+							<div id="tabs">
+								<ul class="clearfix grid divide3">
+									<li class="col"><a href="#tabs_sleep">열대야 취침</a></li>
+									<li class="col"><a href="#tabs_poweroff">꺼짐</a></li>
+									<li class="col"><a href="#tabs_poweron">켜짐</a></li>
+								</ul>
+								<div class="inner">
+									<form>
+									<div id="tabs_sleep">
+
+										<!-- 비활성일 때, detail_setting 클래스에 "disabled" 라는 클래스를 추가해주시고, 그 자식의 selectbox 상태도 disabled 로 바꿔주세요. -->
+										<div class="detail_setting flexbox">
+											<div class="flex1">
+												<select class="select_default wide">
+													<option selected>00분</option>
+													<option>30분</option>
+													<option>1시간</option>
+													<option>2시간</option>
+													<option>3시간</option>
+													<option>4시간</option>
+													<option>5시간</option>
+													<option>6시간</option>
+													<option>7시간</option>
+												</select>
+											</div>
+											<div class="flexbottom"><a class="btn_emulator btn_pink">설정</a></div>
+										</div>
+									</div><!--// tabs_sleep -->
+
+									<div id="tabs_poweroff">
+										<div class="detail_setting flexbox">
+											<div class="flex1">
+												<select class="select_default">
+													<option selected>0</option>
+													<option>1</option>
+													<option>2</option>
+													<option>3</option>
+													<option>4</option>
+													<option>5</option>
+													<option>6</option>
+													<option>7</option>
+													<option>8</option>
+													<option>9</option>
+													<option>10</option>
+													<option>11</option>
+													<option>12</option>
+													<option>13</option>
+													<option>14</option>
+													<option>15</option>
+													<option>16</option>
+													<option>17</option>
+													<option>18</option>
+													<option>19</option>
+													<option>19</option>
+													<option>20</option>
+													<option>21</option>
+													<option>22</option>
+													<option>23</option>
+												</select>
+												시간
+												<select class="select_default ml10">
+													<option selected>00</option>
+													<option>01</option><option>02</option><option>03</option><option>04</option>
+													<option>05</option><option>06</option><option>07</option><option>08</option>
+													<option>09</option><option>10</option><option>11</option><option>12</option>
+													<option>13</option><option>14</option><option>15</option><option>16</option>
+													<option>17</option><option>18</option><option>19</option><option>19</option>
+													<option>20</option><option>21</option><option>22</option><option>23</option>
+													<option>24</option><option>25</option><option>26</option><option>27</option>
+													<option>28</option><option>29</option><option>30</option><option>31</option>
+													<option>32</option><option>33</option><option>34</option><option>35</option>
+													<option>36</option><option>37</option><option>38</option><option>39</option>
+													<option>40</option><option>41</option><option>42</option><option>43</option>
+													<option>44</option><option>45</option><option>46</option><option>47</option>
+													<option>48</option><option>49</option><option>50</option><option>51</option>
+													<option>52</option><option>53</option><option>54</option><option>55</option>
+													<option>56</option><option>57</option><option>58</option><option>59</option>
+												</select>
+												분
+											</div>
+											<div class="flexbottom"><a class="btn_emulator btn_pink">설정</a></div>
+										</div>
+										<p class="err_txt">시간을 설정해 주세요.</p>
+									</div><!--// tabs_poweroff -->
+
+									<div id="tabs_poweron">
+										<!-- <div class="txt_timer">01:05<a class="btn_round">예약 취소</a></div> txt_timer 삭제 -->
+										<div class="detail_setting flexbox"><!-- mt20 클래스 삭제 -->
+											<div class="flex1">
+												<span class="txt_change_time">0</span><!-- 예약 중에는 select 대신에 <span class="txt_change_time">이 나타남 -->
+												<!--
+												<select class="select_default">
+													<option>0</option>
+													<option selected>1</option>
+													<option>2</option>
+													<option>3</option>
+													<option>4</option>
+													<option>5</option>
+													<option>6</option>
+													<option>7</option>
+													<option>8</option>
+													<option>9</option>
+													<option>10</option>
+													<option>11</option>
+													<option>12</option>
+													<option>13</option>
+													<option>14</option>
+													<option>15</option>
+													<option>16</option>
+													<option>17</option>
+													<option>18</option>
+													<option>19</option>
+													<option>19</option>
+													<option>20</option>
+													<option>21</option>
+													<option>22</option>
+													<option>23</option>
+												</select>-->
+												시간
+												<span class="txt_change_time">30</span><!-- 예약 중에는 select 대신에 <span class="txt_change_time">이 나타남 -->
+												<!--
+												<select class="select_default ml10">
+													<option selected>00</option>
+													<option>01</option><option>02</option><option>03</option><option>04</option>
+													<option>05</option><option>06</option><option>07</option><option>08</option>
+													<option>09</option><option>10</option><option>11</option><option>12</option>
+													<option>13</option><option>14</option><option>15</option><option>16</option>
+													<option>17</option><option>18</option><option>19</option><option>19</option>
+													<option>20</option><option>21</option><option>22</option><option>23</option>
+													<option>24</option><option>25</option><option>26</option><option>27</option>
+													<option>28</option><option>29</option><option>30</option><option>31</option>
+													<option>32</option><option>33</option><option>34</option><option>35</option>
+													<option>36</option><option>37</option><option>38</option><option>39</option>
+													<option>40</option><option>41</option><option>42</option><option>43</option>
+													<option>44</option><option>45</option><option>46</option><option>47</option>
+													<option>48</option><option>49</option><option>50</option><option>51</option>
+													<option>52</option><option>53</option><option>54</option><option>55</option>
+													<option>56</option><option>57</option><option>58</option><option>59</option>
+												</select>-->
+												분
+											</div>
+
+											<div class="flexbottom"><a class="btn_emulator btn_pink">예약취소</a></div><!-- 예약 중에는 "예약취소" 로 문구바뀜 -->
+										</div>
+									</div><!--// tabs_poweron -->
+
+									</form>
+								</div><!--// dialog_body -->
+							</div><!--// #tabs -->
+						</div>
+					</li>
+				</ul>
+			</div>
+
+			<div class="controlbox">
+				<div class="control_list modal_link">
+					<!-- 푸시 알림 있는 경우
+					<a href="#dialog_push" name="dialog" class="emulator_link">제품에서 제공하는 푸시 알림을 간편하게 테스트해 볼 수 있습니다.</a> -->
+
+					<!-- 푸시 알림 없을 경우 -->
+					<p class="not_support"><span class="ic_notice"></span>이 제품은 푸시 알림을 지원하지 않습니다.</p>
+				</div>
+			</div>
+
+		</div><!--// wrap_control -->
+	</div><!--// content_emulator -->
+
+
+	<div id="tabs_log" class="wrap_log">
+
+		<div class="log_header">
+			<div class="flexbox flexcenter log_header_top">
+				<h3 class="title_control flex1">결과 내역</h3>
+				<ul class="link_area">
+					<li><a href="#tab_mode_general" class="hidden_font mode_icon doc">general mode</a></li>
+					<li><a href="#tab_mode_log" class="hidden_font mode_icon log">log mode</a></li>
+				</ul>
+				<a class="hidden_font search_icon">search</a>
+			</div>
+
+			<div class="flexbox wrap_search">
+				<div class="search_area flex1 flexbox"><!-- search_area 에 "flexbox" 클래스 추가 -->
+					<input type="text" id="search_word" value="마지막" class="flex1"><!-- input 에 "flex1" 클래스 추가 -->
+					<span class="result_number">1/4123</span>
+				</div>
+
+				<!-- 검색 시, 경우에 따라서 "btn_area(화살표버튼)" / "btn_search(검색버튼)" 두 div 가 번갈아 보여지도록 해주세요 -->
+				<div class="btn_area">
+					<a class="hidden_font btn_arrow prev">previous</a>
+					<a class="hidden_font btn_arrow next">next</a>
+				</div>
+				<a class="btn_search" style="display:none">Search</a><!-- 검색 버튼 추가 -->
+			</div>
+		</div>
+
+		<div id="tab_mode_general" class="log_area">
+			<div class="log">
+				<!-- 로그 유형별 컬러 추가
+
+				컬러가 추가되는 문구 각각을 해당 클래스의 span 으로 감싸주시면 됩니다.
+				[RES] - orange_txt
+				[REQ] - violet_txt
+				[RESTful] - green_txt
+				[MQTT] - blue_txt
+				-->
+				<p class="msg_head">
+					[12:27:56]
+					<span class="orange_txt">[RES]</span>
+					<span class="blue_txt">[MQTT]</span>
+					[API]
+				</p>
+				<p class="msg_short">MQTT</p>
+				<p style="margin-bottom:10px"></p>
+				<p class="msg_head">
+					[12:27:55]
+					<span class="violet_txt">[REQ]</span>
+					<span class="green_txt">[RESTful]</span>
+					[API]
+				</p>
+				<p class="msg_short">Monitor</p>
+				<p class="msg_head">
+					[12:27:56]
+					<span class="orange_txt">[RES]</span>
+					<span class="blue_txt">[MQTT]</span>
+					[API]
+				</p>
+				<p class="msg_short">MQTT</p>
+				<p style="margin-bottom:10px"></p>
+				<p class="msg_head">
+					[12:27:55]
+					<span class="violet_txt">[REQ]</span>
+					<span class="green_txt">[RESTful]</span>
+					[API]
+				</p>
+				<p class="msg_short">Monitor</p>
+
+				<!-- Tip 추가
+				<div class="tip">
+					<p>[00:01:03 제품상태변경]</p>
+					<p class="point_txt">공기청정 단독 운전 중에는 희망온도, 절전 설정이 불가능합니다. 바람모드는 중풍 설정이 불가능합니다.</p>
+				</div>  -->
+			</div>
+		</div>
+
+		<div id="tab_mode_log" class="log_area">
+			<div class="log">
+				<p class="msg_head">
+					[12:27:56]
+					<span class="orange_txt">[RES]</span>
+					<span class="blue_txt">[MQTT]</span>
+					[API]
+				</p>
+				<p class="msg_short">MQTT</p>
+				<p class="msg_long">{"msgId": "5e5fa775acbe9f20_1443151675774", "result_code": "200", "device_id": "5e5fa775acbe9f20", "result": {"Wind": {"Strength": {"4": "중풍"}}, "Misc": {"AirClean": {"1": "on"}}, "Operation": {"Status": {"1": "Start"}, "Mode": {"1": "제습"}}, "Power": {"State": {"1": "on"}, "Save": {"1": "on"}, "Network": {"1": "on"}}, "Time": {"On": "0", "Off": "0", "Sleep": "0"}, "Temperature": {"Current": 30, "Target": 22}}}</p>
+				<p style="margin-bottom:10px"></p>
+				<p class="msg_head">
+					[12:27:55]
+					<span class="violet_txt">[REQ]</span>
+					<span class="green_txt">[RESTful]</span>
+					[API]
+				</p>
+				<p class="msg_short">Monitor</p>
+				<p class="msg_long">{"request":{"cmd":{"Action":"Monitor"},"msgId":"5e5fa775acbe9f20_1443151675774"}}</p>
+				<p class="msg_head">
+					[12:27:56]
+					<span class="orange_txt">[RES]</span>
+					<span class="blue_txt">[MQTT]</span>
+					[API]
+				</p>
+				<p class="msg_short">MQTT</p>
+				<p class="msg_long">{"msgId": "5e5fa775acbe9f20_1443151675774", "result_code": "200", "device_id": "5e5fa775acbe9f20", "result": {"Wind": {"Strength": {"4": "중풍"}}, "Misc": {"AirClean": {"1": "on"}}, "Operation": {"Status": {"1": "Start"}, "Mode": {"1": "제습"}}, "Power": {"State": {"1": "on"}, "Save": {"1": "on"}, "Network": {"1": "on"}}, "Time": {"On": "0", "Off": "0", "Sleep": "0"}, "Temperature": {"Current": 30, "Target": 22}}}</p>
+				<p style="margin-bottom:10px"></p>
+				<p class="msg_head">
+					[12:27:55]
+					<span class="violet_txt">[REQ]</span>
+					<span class="green_txt">[RESTful]</span>
+					[API]
+				</p>
+				<p class="msg_short">Monitor</p>
+				<p class="msg_long">{"request":{"cmd":{"Action":"Monitor"},"msgId":"5e5fa775acbe9f20_1443151675774"}}</p>
+				<p class="msg_head">
+					[12:27:56]
+					<span class="orange_txt">[RES]</span>
+					<span class="blue_txt">[MQTT]</span>
+					[API]
+				</p>
+				<p class="msg_short">MQTT</p>
+				<p class="msg_long">{"msgId": "5e5fa775acbe9f20_1443151675774", "result_code": "200", "device_id": "5e5fa775acbe9f20", "result": {"Wind": {"Strength": {"4": "중풍"}}, "Misc": {"AirClean": {"1": "on"}}, "Operation": {"Status": {"1": "Start"}, "Mode": {"1": "제습"}}, "Power": {"State": {"1": "on"}, "Save": {"1": "on"}, "Network": {"1": "on"}}, "Time": {"On": "0", "Off": "0", "Sleep": "0"}, "Temperature": {"Current": 30, "Target": 22}}}</p>
+				<p style="margin-bottom:10px"></p>
+				<p class="msg_head">
+					[12:27:55]
+					<span class="violet_txt">[REQ]</span>
+					<span class="green_txt">[RESTful]</span>
+					[API]
+				</p>
+				<p class="msg_short">Monitor</p>
+				<p class="msg_long">{"request":{"cmd":{"Action":"Monitor"},"msgId":"5e5fa775acbe9f20_1443151675774"}}</p>
+			</div>
+		</div>
+
+		<!--
+		<div class="alret_area">
+			<a class="hidden_font btn_more">view new log<span class="up"></span></a>
+		</div>-->
+
+	</div><!--// wrap_log -->
+
+
+	<!--dialog-->
+	<div id="dialog">
+
+		<!-- 공통팝업 -->
+		<div id="emulator_reset" class="dialog modal simple">
+			<div class="modal-content">
+				<h4 class="title_modal">가상제품 초기화</h4>
+				<p>
+					제품 설정을 초기화하시겠습니까?
+				</p>
+			</div>
+			<div class="modal-footer">
+				<a href="#!" class="close btn_modal btn_gray">아니오</a>
+				<a href="#!" class="close btn_modal btn_pink">예</a>
+			</div>
+		</div>
+
+		<div id="firmware_update" class="dialog modal simple">
+			<div class="modal-content">
+				<h4 class="title_modal">펌웨어 업데이트 안내</h4>
+				<p>
+					펌웨어가 업데이트 되어 XX버전으로 동작합니다.
+				</p>
+			</div>
+			<div class="modal-footer">
+				<a href="#!" class="close btn_modal btn_pink">확인</a>
+			</div>
+		</div>
+
+		<div id="disconnect_server" class="dialog modal simple">
+			<div class="modal-content">
+				<h4 class="title_modal">응답 없음</h4>
+				<p>
+					서버와의 연결이 끊어졌습니다.<br>
+					재연결 후에도.문제가 지속될 경우, 창을 닫고 잠시 후에 다시 시도해 주세요.
+				</p>
+			</div>
+			<div class="modal-footer">
+				<a href="#!" class="close btn_modal btn_gray">취소</a>
+				<a href="#!" class="close btn_modal btn_pink">재연결</a>
+			</div>
+		</div>
+
+		<div id="setting_fail" class="dialog modal simple">
+			<div class="modal-content">
+				<h4 class="title_modal">설정 실패</h4>
+				<p>
+					설정이 실패하였습니다.<br>
+					다시 시도해 주세요.
+				</p>
+			</div>
+			<div class="modal-footer">
+				<a href="#!" class="close btn_modal btn_pink">확인</a>
+			</div>
+		</div>
+
+		<div id="unknown_error" class="dialog modal simple">
+			<div class="modal-content">
+				<h4 class="title_modal">알 수 없는 에러</h4>
+				<p>
+					알 수 없는 에러가 발생했습니다.<br>
+					창을 닫고 잠시 후에 다시 시도해 주세요.
+				</p>
+			</div>
+			<div class="modal-footer">
+				<a href="#!" class="close btn_modal btn_pink">확인</a>
+			</div>
+		</div>
+
+		<!-- 에어컨설정 팝업 추가 -->
+		<div id="dialog_aircon_setting" class="dialog dialog_wrap narrow">
+			<div class="dialog_header">
+				<h3 class="dialog_title">에어컨 설정</h3>
+				<a class="close hidden_font">close</a>
+			</div>
+			<div class="dialog_body">
+				<ul class="control_list">
+					<li>
+						<p class="flex1"><span class="ic_control power"></span>전원</p>
+						<div class="flexcenter">
+							<div class="onoffswitch">
+								<input type="checkbox" class="onoffswitch-checkbox" id="power_supply" checked>
+								<label class="onoffswitch-label" for="power_supply">
+									<span class="onoffswitch-inner"></span>
+									<span class="onoffswitch-switch"></span>
+								</label>
+							</div>
+						</div>
+					</li>
+					<li>
+						<p class="flex1"><span class="ic_control wifi"></span>네트워크</p>
+						<div class="flexcenter">
+							<div class="onoffswitch">
+								<input type="checkbox" class="onoffswitch-checkbox" id="home_network">
+								<label class="onoffswitch-label" for="home_network">
+									<span class="onoffswitch-inner"></span>
+									<span class="onoffswitch-switch"></span>
+								</label>
+							</div>
+						</div>
+					</li>
+					<li>
+						<p class="flex1"><span class="ic_control temp"></span>현재 온도</p>
+						<div class="flexcenter">
+							<a href="#dialog_current_temp" name="dialog" class="emulator_link">25ºC</a>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div><!-- #dialog_aircon_setting -->
+
+	</div><!--// #dialog -->
+
+	<!-- loading -->
+	<div class="loading_layer" style="display:none">
+		<div class="mauto center">
+			<div class="loader_animation">
+				<span class="dot1"></span><span class="dot2"></span><span class="dot3"></span>
+			</div><br>
+			<p>처리 중입니다.<br>잠시만 기다려 주세요.</p>
+		</div>
+	</div>
+
+
+
+	<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+	<script type="text/javascript" src="js/jquery-ui.min.js"></script>
+
+	<!-- prettify -->
+	<script type="text/javascript" src="js/prettify.js"></script>
+
+	<script type="text/javascript" src="js/emulator.js"></script>
+	<script>
+		//general mode ↔ log mode
+		$("#tabs_log").tabs();
+
+		//dialog_target_temp
+		$( "#target_temp_slider" ).slider({
+		  //orientation: "vertical",
+		  range: "min",
+		  value: 20,
+		  min: 18,
+		  max: 30,
+		  slide: function( event, ui ) {
+			$( ".target_temp_value" ).val( ui.value );
+		  }
+		});
+		$( ".target_temp_value" ).val( $( "#target_temp_slider" ).slider( "value" ) );
+
+		//dialog_timer
+		$( "#tabs" ).tabs();
+
+		//accordion
+		$(".accordion").hcAccordion();
+
+		//selectmenu (jqueryui)
+		//$( "#speed" ).selectmenu();
+
+
+		//임시로 디스플레이의 메시지박스 클릭시 팝업박스 나오도록
+		$('#messagebox').click(function() {
+			if (!$('#popup_messagebox').is(':visible')){
+				$('#popup_messagebox').fadeIn();
+			}
+		});
+		//메시지박스 닫기 버튼 클릭 시
+		$('.display_push_alert .btn_x').click(function(){
+			$('#popup_messagebox').fadeOut();
+		});
+
+		//임시로 search button focus 시, 검색버튼 나오도록
+		$( "#search_word" ).focus(function() {
+			$(this).parents('.wrap_search').find('.btn_search').show();
+			$(this).parents('.wrap_search').find('.btn_area').hide();
+		});
+
+		//임시로 search input value 값이 있을 때, 화살표버튼 나오도록
+		$('#search_word').blur(function()	{
+			if( this.value ) {
+				$(this).parents('.wrap_search').find('.btn_search').hide();
+				$(this).parents('.wrap_search').find('.btn_area').show();
+			  }
+		});
+
+		//제품상태설정 슬라이드 메뉴
+		// $('.prod_status_init').click(function(){
+		// 	$('.prod_status_slidebox').slideToggle();
+		// });
+
+		$('#button1').clickToggle(function(){
+			$('.loading_layer').show();
+		},function(){
+			$('.loading_layer').hide();
+		});
+
+
+		//log search box
+		$('.search_icon').clickToggle(
+			function(){
+				$(this).addClass('ic_close');
+				$('.log_header').css('height','8.5em');
+				$('.wrap_log').css('padding-top','13.5em');
+				$('.alret_area').css('top','13.5em');
+			},
+			function(){
+				$(this).removeClass('ic_close');
+				$('.log_header').css('height','4.5em');
+				$('.wrap_log').css('padding-top','9.5em');
+				$('.alret_area').css('top','9.5em');
+			}
+		);
+	</script>
+</body>
+</html>

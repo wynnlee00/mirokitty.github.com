@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="robots" content="all">
+	<title>Account / AWS Account List</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1, width=device-width">
+    <meta name="description" content="">
+
+    <link href="img/favicon_a2solution.ico" rel="shortcut icon" type="image/x-icon">
+    <link href="img/favicon_a2solution.ico" rel="icon" type="image/x-icon">
+    <link rel="stylesheet" href="css/bootstrap-dropdown.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/linearicons.css">
+    <link rel="stylesheet" href="css/common.css" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Rubik:400,500,700" rel="stylesheet">
+
+    <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="js/underscore-min.js"></script>
+    <script type="text/javascript" src="js/datatables/jquery.dataTables.js"></script>
+    <script type="text/javascript" src="js/datatables/dataTables.buttons.min.js"></script>
+    <script type="text/javascript" src="js/datatables/jszip.min.js"></script>
+    <script type="text/javascript" src="js/datatables/pdfmake.min.js"></script>
+    <script type="text/javascript" src="js/datatables/vfs_fonts.js"></script>
+    <script type="text/javascript" src="js/datatables/buttons.flash.min.js"></script>
+    <script type="text/javascript" src="js/datatables/buttons.html5.min.js"></script>
+    <script type="text/javascript" src="js/datatables/buttons.print.min.js"></script>
+    <script type="text/javascript" src="js/datatables/buttons.colVis.min.js"></script>
+    <script type="text/javascript" src="js/common.js"></script>
+
+
+	<!--[if lt IE 9]>
+	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+	<![endif]-->
+</head>
+<body>
+	<aside class="leftbar">
+		<h1 class="leftbar-logo"><img src="img/logo_a2_leftbar.svg" alt="A2 COMPANY" class="leftbar-logo-img"></h1>
+		<nav class="nav-leftbar">
+			<ul>
+				<li><a class="title-nav-leftbar haschild">Cost</a>
+					<ul class="nav-leftbar-sub">
+						<li><a href="cost_summary.html" class="title-nav-leftbar-dept-2"><u>Summary</u></a></li>
+						<li><a href="cost_detail.html" class="title-nav-leftbar-dept-2"><u>Detail</u></a></li>
+						<li><a class="title-nav-leftbar-dept-2">RI Utilization</a></li>
+						<li><a class="title-nav-leftbar-dept-2">Right Sizing</a></li>
+						<li><a href="cost_invioce.html" class="title-nav-leftbar-dept-2"><u>Invoice</u></a></li>
+					</ul>
+				</li>
+				<li><a class="title-nav-leftbar haschild">Asset</a>
+					<ul class="nav-leftbar-sub">
+						<li><a href="asset_summary.html" class="title-nav-leftbar-dept-2"><u>Summary</u></a></li>
+						<li><a class="title-nav-leftbar-dept-2 haschild"><u>Detail</u></a>
+							<ul class="nav-leftbar-sub">
+								<li><a href="asset_detail_ec2.html" class="title-nav-leftbar-dept-3 ic"><i class="ic-nav ec2"></i><u>EC2</u></a></li>
+								<li><a class="title-nav-leftbar-dept-3 ic"><i class="ic-nav rds"></i>RDS</a></li>
+								<li><a class="title-nav-leftbar-dept-3 ic"><i class="ic-nav elb"></i>ELB</a></li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+				<li><a class="title-nav-leftbar haschild">Monitoring</a>
+					<ul class="nav-leftbar-sub">
+						<li><a href="monitoring_alarm.html" class="title-nav-leftbar-dept-2"><u>Alarm</u></a></li>
+						<li><a href="monitoring_ec2.html" class="title-nav-leftbar-dept-2 ic"><i class="ic-nav ec2"></i><u>EC2</u></a></li>
+						<li><a class="title-nav-leftbar-dept-2 ic"><i class="ic-nav rds"></i>RDS</a></li>
+						<li><a class="title-nav-leftbar-dept-2 ic"><i class="ic-nav elb"></i>ELB</a></li>
+					</ul>
+				</li>
+				<li class="open current"><a class="title-nav-leftbar haschild">Account</a>
+					<ul class="nav-leftbar-sub" style="display:block;opacity:1;">
+						<li><a href="account_user_list.html" class="title-nav-leftbar-dept-2"><u>User List</u></a></li>
+						<li class="current"><a href="account_aws_list.html" class="title-nav-leftbar-dept-2"><u>AWS Account List</u></a></li>
+						<li><a class="title-nav-leftbar-dept-2">Group List</a></li>
+						<li><a class="title-nav-leftbar-dept-2">Change Password</a></li>
+					</ul>
+				</li>
+			</ul>
+		</nav>
+	</aside>
+
+	<div class="content-header">
+		<div class="topbar">
+			<div class="float-right">
+				<div class="topbar-btn">
+					<a class="topbar-account"><span class="ic_account"></span>a2_awsadmin</a>
+					<ul class="account-menu">
+						<li><a href="account_aws_list.html">My Account</a></li>
+						<li><a href="#">Sign out</a></li>
+					</ul>
+				</div>
+				<ul class="topbar-btn clearfix">
+					<li class="topbar-lang">
+						<a class="current">EN</a>
+					</li>
+					<li class="topbar-lang">
+						<a href="#">KR</a>
+					</li>
+				</ul>
+		        <div class="topbar-btn">
+		            <a class="topbar-help" href="../guide/guide_signup.html" target="_blank"><i class="fa fa-question-circle" aria-hidden="true"></i> HELP</a>
+		        </div>
+			</div>
+		</div><!--// toppbar -->
+	</div>
+
+	<div class="content-body">
+		<div class="fullbox">
+			<h2 class="title-header">AWS Account List</h2>
+		</div>
+		<section class="wrap">
+			<div class="box fitbox">
+				<div class="wrap-absolute">
+					<a class="btn-default" href="account_aws_add.html">Add Account</a>
+				</div>
+
+				<table id="table_user_list" class="table-data v-center list hoverable" width="100%">
+					<colgroup>
+                        <col class="number-cell">
+                        <col span="5">
+                        <col style="width:19.917rem">
+					</colgroup>
+					<thead>
+						<tr>
+							<th scope="col">No.</th>
+							<th scope="col">Account Name</th>
+							<th scope="col">Account ID</th>
+							<th scope="col">Account Type</th>
+							<th scope="col">Payer Account ID</th>
+							<th scope="col">Status <a href="#modal-status" name="modal"><i class="fa fa-question-circle" aria-hidden="true"></i></a></th>
+							<th scope="col">Action</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>1</td>
+							<td>aws_kim</td>
+							<td>691531078301</td>
+							<td>Payer account</td>
+							<td>-</td>
+							<td><span class="label-status ok">OK</span></td>
+							<td>
+								<a class="btn-small" name="modal" href="#modal-bucket"><span class="lnr lnrcustom-bucket"></span> Bucket</a>
+								<a class="btn-small" href="account_aws_edit.html"><span class="lnr lnr-pencil"></span> Edit</a>
+								<a class="btn-small" name="modal" href="#modal-delete"><span class="lnr lnr-trash"></span> Delete</a>
+							</td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td>aws_kim</td>
+							<td>691531078301</td>
+							<td>Payer account</td>
+							<td>-</td>
+							<td><span class="label-status ok">OK</span></td>
+							<td>
+								<a class="btn-small disabled" name="modal" href="#modal-bucket"><span class="lnr lnrcustom-bucket"></span> Bucket</a>
+								<a class="btn-small" href="account_aws_edit.html"><span class="lnr lnr-pencil"></span> Edit</a>
+								<a class="btn-small" name="modal" href="#modal-delete"><span class="lnr lnr-trash"></span> Delete</a>
+							</td>
+						</tr>
+						<tr>
+							<td>3</td>
+							<td>aws_kim</td>
+							<td>691531078301</td>
+							<td>Payer account</td>
+							<td>-</td>
+							<td><span class="label-status fail">Fail</span></td>
+							<td>
+								<a class="btn-small" name="modal" href="#modal-bucket"><span class="lnr lnrcustom-bucket"></span> Bucket</a>
+								<a class="btn-small" href="account_aws_edit.html"><span class="lnr lnr-pencil"></span> Edit</a>
+								<a class="btn-small" name="modal" href="#modal-delete"><span class="lnr lnr-trash"></span> Delete</a>
+							</td>
+						</tr>
+						<tr>
+							<td>4</td>
+							<td>aws_kim</td>
+							<td>691531078301</td>
+							<td>Payer account</td>
+							<td>-</td>
+							<td><span class="label-status ok">OK</span></td>
+							<td>
+								<a class="btn-small" name="modal" href="#modal-bucket"><span class="lnr lnrcustom-bucket"></span> Bucket</a>
+								<a class="btn-small" href="account_aws_edit.html"><span class="lnr lnr-pencil"></span> Edit</a>
+								<a class="btn-small" name="modal" href="#modal-delete"><span class="lnr lnr-trash"></span> Delete</a>
+							</td>
+						</tr>
+
+						<tr>
+							<td>5</td>
+							<td>aws_park</td>
+							<td>691531078302</td>
+							<td>Linked account</td>
+							<td>691531078301</td>
+							<td><span class="label-status fail">Failed</span></td>
+							<td>
+                                <a class="btn-small" name="modal" href="#modal-bucket"><span class="lnr lnrcustom-bucket"></span> Bucket</a>
+								<a class="btn-small" href="account_aws_edit.html"><span class="lnr lnr-pencil"></span> Edit</a>
+								<a class="btn-small" name="modal" href="#modal-delete"><span class="lnr lnr-trash"></span> Delete</a>
+							</td>
+						</tr>
+						<tr>
+							<td>6</td>
+							<td>aws_lee</td>
+							<td>691531078303</td>
+							<td>Single account</td>
+							<td>-</td>
+							<td><span class="label-status ok">OK</span></td>
+							<td>
+                                <a class="btn-small" name="modal" href="#modal-bucket"><span class="lnr lnrcustom-bucket"></span> Bucket</a>
+								<a class="btn-small" href="account_aws_edit.html"><span class="lnr lnr-pencil"></span> Edit</a>
+								<a class="btn-small" name="modal" href="#modal-delete"><span class="lnr lnr-trash"></span> Delete</a>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</section><!--// wrap -->
+	</div>
+
+	<div class="modal" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-backdrop"></div>
+		<div class="v-align">
+			<div class="v-align-cell">
+
+				<!-- Access Key Edit -->
+				<div class="modal-dialog " id="modal-access-key-edit">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="modal-close close"><span class="lnr lnr-cross"></span></button>
+							<h4 class="title-modal">Access Key Edit</h4>
+						</div>
+						<div class="modal-body">
+							<ul class="align-left">
+								<li class="wrap-column">
+									<label for="access-key" class="column col-label">Access Key ID <span class="red">*</span></label>
+									<input type="email" id="access-key" class="input-default" value="AKIAIKOYQ2VPFPMIWOZ"><!-- 미선택 시 invalid 클래스가 추가되도록 해주세요 -->
+									<!-- 에러메시지
+									<span class="err-color">Access Key를 입력해주세요.</span> -->
+								</li>
+								<li class="wrap-column">
+									<label for="secret-key" class="column col-label">Secret Key Access <span class="red">*</span></label>
+									<input type="password" id="secret-key" class="input-default" value="AKIAIKOYQ2VPFPMIWOZ"><!-- 미선택 시 invalid 클래스가 추가되도록 해주세요 -->
+									<!-- 에러메시지
+									<span class="err-color">Company를 입력해주세요.</span> -->
+								</li>
+							</ul>
+						</div>
+						<div class="modal-footer">
+							<div class="btn-area divide">
+								<button type="button" class="modal-close btn-txt gray-lighten1">Cancel</button><!-- 팝업 닫는 버튼에 modal-close 클래스를 추가해주시면 됩니다 -->
+							</div>
+							<div class="btn-area divide">
+								<button type="button" class="btn-txt point">OK</button>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Delete step2 버튼이 하나인 팝업-->
+				<div class="modal-dialog" id="modal-delete2">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="modal-close close"><span class="lnr lnr-cross"></span></button>
+							<h4 class="title-modal">삭제 완료</h4>
+						</div>
+						<div class="modal-body">
+							Account Name 이 삭제되었습니다.
+						</div>
+						<div class="modal-footer">
+							<div class="btn-area">
+								<button type="button" class="modal-close btn-txt point">OK</button>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Delete step1 버튼이 두개인 팝업 -->
+				<div class="modal-dialog" id="modal-delete">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="modal-close close"><span class="lnr lnr-cross"></span></button>
+							<h4 class="title-modal">Delete</h4>
+						</div>
+						<div class="modal-body">
+							Account Name 을 삭제하시겠습니까?<br><br>
+							<p class="err-color">삭제할 경우 Management Solution에서<br> 관련 정보가 영구 삭제됩니다.</p>
+						</div>
+						<div class="modal-footer">
+							<div class="btn-area divide">
+								<button type="button" class="modal-close btn-txt gray-lighten1">Cancel</button><!-- 팝업 닫는 버튼에 modal-close 클래스를 추가해주시면 됩니다 -->
+							</div>
+							<div class="btn-area divide">
+								<button type="button" class="btn-txt point">OK</button>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Bucket -->
+				<div class="modal-dialog large" id="modal-bucket">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="modal-close close"><span class="lnr lnr-cross"></span></button>
+							<h4 class="title-modal">S3 Bucket</h4>
+						</div>
+						<div class="modal-body">
+							<ul class="align-left">
+								<li class="wrap-column">
+									<label for="region" class="column col-label">Region <span class="red">*</span></label>
+									<select class="select-default"><!-- 미선택 시 invalid 클래스가 추가되도록 해주세요 -->
+										<option selected disabled>Region</option>
+										<option>Asia Pacific (Mumbai)</option>
+										<option>Asia Pacific (Seoul)</option>
+										<option>Asia Pacific (Singapore)</option>
+										<option>Asia Pacific (Tokyo)</option>
+										<option>Canada (Central)</option>
+										<option>EU (Frankfurt)</option>
+										<option>EU (Ireland)</option>
+										<option>EU (London)</option>
+										<option>South America (Sao Paulo)</option>
+										<option>US East (N.Virginia)</option>
+										<option>US East (Ohio)</option>
+										<option>US West (N. California)</option>
+										<option>US West (Oregon)</option>
+									</select>
+									<!-- 에러메시지
+									<span class="err-color">Bucket의 Region을 선택해주세요.</span> -->
+								</li>
+								<li class="wrap-column">
+									<label for="bucket-name" class="column col-label">Bucket Name <span class="red">*</span></label>
+									<input type="text" id="bucket-name" class="input-default"><!-- 미선택 시 invalid 클래스가 추가되도록 해주세요 -->
+									<!-- 에러메시지
+									<span class="err-color">Bucket의 Name을 입력해주세요.</span> -->
+								</li>
+							</ul>
+							<div class="modal-guide align-left">
+								<p class="title-guide">
+									<span class="inner">
+										<i class="fa fa-info-circle" aria-hidden="true"></i> Guide
+									</span>
+								</p>
+								<p>
+									<span class="title-num">Bucket Name</span><br>
+									1. 기본 설정 페이지에 접속합니다.<br>
+									2.’ S3 버킷에 저장 : bucket name’에서 버킷 이름을 확인하여 입력합니다.
+								</p>
+								<p>
+									<span class="title-num">Region</span><br>
+									1. <a class="link point" target="_blank" href="https://console.aws.amazon.com/s3/home?region=ap-northeast-1">S3</a> 페이지에 접속합니다.<br>
+                             		2. 해당 버킷의 Region 정보를 확인하여 입력합니다.
+								</p>
+							</div>
+							<div class="modal-guide align-left">
+								<p class="title-guide">
+									<span class="inner">
+										<i class="fa fa-info-circle" aria-hidden="true"></i> AWS 설정 가이드
+									</span>
+								</p>
+								<p>
+									<span class="title-num">Step1</span>
+									<a class="link point" target="_blank" href="http://docs.aws.amazon.com/ko_kr/awsaccountbilling/latest/aboutv2/billing-getting-started.html#step-2">AWS 비용 및 사용 보고서 설정</a>
+								</p>
+								<p>
+									<span class="title-num">Step2</span>
+									<a class="link point" target="_blank" href="http://docs.aws.amazon.com/ko_kr/awsaccountbilling/latest/aboutv2/configurecostallocreport.html#allocation-report">월별 비용 할당 보고서 설정</a>
+								</p>
+							</div>
+						</div>
+						<div class="modal-footer">
+							<div class="btn-area divide">
+								<button type="button" class="modal-close btn-txt gray-lighten1">Cancel</button><!-- 팝업 닫는 버튼에 modal-close 클래스를 추가해주시면 됩니다 -->
+							</div>
+							<div class="btn-area divide">
+								<button type="button" class="btn-txt point">Save</button>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Status info 팝업-->
+				<div class="modal-dialog" id="modal-status">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="modal-close close"><span class="lnr lnr-cross"></span></button>
+							<h4 class="title-modal">Status Information</h4>
+						</div>
+						<div class="modal-body align-left">
+							<ul>
+								<li class="wrap-column">
+									<span class="column col-status"> <span class="label-status ok">OK</span></span>
+									Account 관련 정보가 정상적으로 등록된 상태입니다.
+								</li>
+								<li class="wrap-column">
+									<span class="column col-status"> <span class="label-status fail">Failed</span></span>
+									Account 관련 정보가 잘못 등록된 상태로 수정이 필요합니다.
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div><!--// modal -->
+
+	<a class="btn-top" title="go to top"><i class="fa fa-chevron-up" aria-hidden="true"></i></a>
+	<footer class="footer">
+		<span class="terms"><a href="terms_service.html" class="link">서비스 이용 약관</a> | <a href="terms_privacy.html" class="link"><strong>개인정보 취급방침</strong></a></span>
+		<span class="copyright">© A2 COMPANY ALL RIGHTS RESERVED.</span>
+	</footer>
+
+	<script>
+		$('#table_user_list').DataTable({
+			dom: '<".collection-filter"lf>rtip',
+			"lengthMenu": [ 20, 50, 100 , 200 ],
+			"iDisplayLength": 100,
+			//"scrollY": "400px",
+			"scrollX": true,
+			"language": {
+				"lengthMenu": "_MENU_",
+				"info": "_START_ - _END_ of _TOTAL_ (_PAGE_/_PAGES_)",
+				"paginate": {
+					"previous": "<i class='fa fa-chevron-left' aria-hidden='true'></i>",
+					"next": "<i class='fa fa-chevron-right' aria-hidden='true'></i>"
+				}
+			},
+			"columnDefs": [
+				{ "orderable": false, "targets": 6 }
+			]
+		});
+		$('div.dataTables_length select').addClass('buttons-colvis');
+	</script>
+
+</body>
+</html>

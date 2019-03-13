@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta cherset="ute-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="robots" content="all">
+	<title>이용 해지 :: LG SmartHome Developer</title>
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no, width=device-width">
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+
+	<link type="text/css" rel="stylesheet" href="css/materialize.css">
+	<link type="text/css" rel="stylesheet" href="css/common.css">
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:700,600,400' rel='stylesheet' type='text/css'>
+	<!--[if lt IE 9]>
+	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+	<![endif]-->
+</head>
+<body>
+	<header>
+		<div class="main_header">
+			<div class="container">
+				<h1><a href="index.html"><img src="img/logo_smarthome_dev.png" alt="LG Smart Home Developer"></a></h1>
+				<div class="header_menu">
+
+					<div class="dropdown slideright">
+						<a class="myaccount down">test@lge.com</a>
+						<ul class="dropdown_content btnlist clearfix">
+							<li><a href="profile.html">Profile</a></li>
+							<li><a>Sign out</a></li>
+						</ul>
+					</div><!--// dropdown-->
+
+					<div class="dropdown">
+						<a class="nav_more hidden_font">more</a>
+						<dl class="dropdown_content clearfix">
+							<dt>Link</dt>
+							<dd><a href="http://developer.lge.com" class="link_site" target="_blank">LG Developer</a></dd>
+							<dt>Language</dt>
+							<dd>
+								<select class="select_default">
+									<option selected>English</option>
+									<option>Korea</option>
+								</select>
+							</dd>
+						</dl>
+					</div><!--// dropdown-->
+
+				</div><!--// header_menu-->
+			</div>
+		</div>
+	</header>
+
+	<div class="navbar_wrap">
+		<div class="navbar">
+			<div class="container">
+				<ul class="navlist left">
+					<li><a href="get_started.html">Get Started</a></li>
+					<li><a href="supported_products.html">Supported Products</a></li>
+					<li><a href="apis_overview.html">APIs</a></li>
+					<li><a href="sdks.html">SDKs</a></li>
+					<li><a href="alljoyn.html">Alljoyn</a></li>
+				</ul>
+				<ul class="navlist right">
+					<li><a href="myservices.html">My Services</a></li>
+					<li><a href="virtual_test_lab.html">Virtual Test Lab</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div class="content">
+	<div class="wrap_content">
+		<div class="container">
+			<h2 class="title_big">Manager Account 이용 해지</h2>
+			<p class="sub_txt2">
+				LG SmartHome Developers 이용을 해지하기 전 아래 안내 사항을 꼭 확인해 주세요.
+			</p>
+			<div class="box">
+				<h3 class="title_m">이용 해지 시 주의사항</h3>
+				<p class="txt_guide mt10">• 이용자 정보 및 회사 정보는 모두 삭제되며 복구가 불가능합니다.</p>
+				<p class="txt_guide">• 생성된 Service에 등록한 사용자 정보는 모두 삭제되며 복구가 불가능합니다.</p>
+				<p class="txt_guide">• LG SmartHome Developers 이용 해지만 이루어지며, LG Account 계정은 유효합니다. </p>
+				<p class="txt_guide">• 동일한 계정 정보로 언제든 LG SmartHome Developers 가입이 가능합니다.</p>
+				<p class="txt_guide">• 계정 등급별 이용해지 안내</p>
+
+				<div style="padding:5px 0 5px 15px;">
+					<p>1. Manager Account 이용해지</p>
+					<p class="indent_1depth">― 반드시 동 회사의 다른 Developer Account에게 권한을 이관한 뒤 이용 해지가 가능합니다.</p>
+					<p class="indent_1depth">― 이관할 계정이 없는 경우,</p>
+					<p class="indent_2depth">• Developer Account를 우선 생성한 뒤 권한을 이관 후 해지</p>
+					<p class="indent_2depth">• My Services에서 생성한 Service 정보를 모두 삭제한 후 해지</p>
+					<br>
+					<p>2. Developer Account 이용해지</p>
+					<p class="indent_1depth">― 권한 이관 절차 없이 바로 이용해지가 가능합니다.</p>
+				</div>
+
+			</div>
+			<div class="mt20 center">
+				<input type="checkbox" id="agree_terminate">
+				<label for="agree_terminate">안내 사항을 모두 확인하였으며, 이에 동의합니다.</label>
+			</div>
+
+			<div class="relegate_area">
+				<h3 class="title_m">Manager 권한을 이관할 계정을 선택한 후 이용 해지를 진행해주세요.</h3>
+				<table class="table_default fixed bordered centered mt20 mb20">
+					<colgroup>
+						<col width="50px">
+						<col >
+					</colgroup>
+					<thead>
+						<tr>
+							<th></th>
+							<th>이름</th>
+							<th>LG 계정</th>
+							<th>전화번호</th>
+							<th>계정 등급</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>
+								<!-- 계정 수가 늘어날 때, input의 id는 서로 같지 않도록 번호를 붙여주세요. input의 id와 해당 label의 for를 동일하게 맞춰주세요.-->
+								<input name="account" type="radio" id="account1" checked>
+								<label for="account1"></label>
+							</td>
+							<td>홍길동</td>
+							<td>	test@lge.com</td>
+							<td>+82-01012341234</td>
+							<td>Developer</td>
+						</tr>
+						<tr>
+							<td>
+								<input name="account" type="radio" id="account2">
+								<label for="account2"></label>
+							</td>
+							<td>홍길동</td>
+							<td>	test@lge.com</td>
+							<td>+82-01012341234</td>
+							<td>Developer</td>
+						</tr>
+						<tr>
+							<td>
+								<input name="account" type="radio" id="account3">
+								<label for="account3"></label>
+							</td>
+							<td>홍길동</td>
+							<td>	test@lge.com</td>
+							<td>+82-01012341234</td>
+							<td>Developer</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+
+
+			<div class="btnbox">
+				<a class="btn_default color_gr" href="">취소</a>
+				<a class="btn_default color_pk invalid modal-trigger" href="#terminate">LG SmartHome Developers 이용 해지</a><!-- 버튼이 활성될 때 invalid 클래스를 삭제해주세요.-->
+			</div>
+
+		</div><!--// container -->
+	</div>
+	</div>
+
+	<footer>
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<img src="img/logo_lg_footer.png" class="img_footer_logo" alt="LG logo">
+				</div>
+				<div class="col">
+					<p class="copyright">COPYRIGHT ⓒ 2015 LG ELECTRONICS.<br>ALL RIGHTS RESERVED.</p>
+				</div>
+				<div class="col right">
+					<div class="termslist">
+						<p class="">TERMS & CONDITIONS<br>[ <a href="terms_global.html">Global</a> / <a href="terms.html">KOR</a> ]</p>
+					</div>
+					<div class="termslist">
+						<p class="">PRIVACY<br>[ <a href="terms_privacy.html">Global</a> / <a href="terms_privacy_global.html">개인정보처리방침</a> / <a href="terms_privacy_global.html">개인정보취급방침</a> ]</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+	<!-- modal -->
+	<div id="terminate" class="modal simple">
+		<div class="modal-content">
+			<h4 class="title_modal">비밀번호 입력</h4>
+			<p class="left-align">
+				이용 해지를 위해 LG 계정의 비밀번호를 입력해주세요.
+			</p>
+			<div class="modal-contentbox left-align">
+				LG 계정 : test@lge.com
+				<input type="password" placeholder="비밀번호">
+				<!--<span class="err_txt">비밀번호가 정확하지 않습니다.</span>--> <!-- 에러케이스 -->
+			</div>
+		</div>
+		<div class="modal-footer">
+			<a href="#!" class="modal-close btn_modal btn_gray">취소</a>
+			<a href="#!" class="modal-close btn_modal btn_pink">확인</a>
+		</div>
+	</div>
+
+	<div id="terminate_complete" class="modal simple">
+		<div class="modal-content">
+			<h4 class="title_modal">이용 해지 완료</h4>
+			<p>
+				이용 해지가 완료되었습니다.<br>
+				LG SmartHome Developers를<br>이용해 주셔서 감사합니다.
+			</p>
+		</div>
+		<div class="modal-footer">
+			<a href="#!" class="modal-close btn_modal btn_pink">확인</a>
+		</div>
+	</div>
+
+	<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+	<script type="text/javascript" src="js/materialize.min.js"></script>
+	<script type="text/javascript" src="js/retina.min.js"></script>
+	<script type="text/javascript" src="js/common.js"></script>
+	<script>
+	$('.relegate_area .table_default tr:first-child').find('td').addClass('semibold');
+	$('input:radio[name=account]').change(function(){
+		$(this).parents('tbody').find('td').removeClass('semibold');
+		$(this).parents('tr').find('td').addClass('semibold');
+	});
+	</script>
+
+</body>
+</html>

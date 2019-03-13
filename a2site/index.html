@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="robots" content="all">
+	<title>A2 COMPANY</title>
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="viewport" content="initial-scale=1,maximum-scale=1, width=device-width">
+	<meta name="description" content="에이투컴퍼니는 Cloud 플랫폼 개발 및 글로벌 Cloud 인프라 설계 / 컨설팅 역량을 갖춘 기업입니다.">
+
+	<link href="img/ic_apple_180.png" rel="apple-touch-icon" sizes="180x180">
+	<link href="img/favicon.ico" rel="shortcut icon" type="image/x-icon">
+	<link href="img/favicon.ico" rel="icon" type="image/x-icon">
+	<link href="css/common.css" type="text/css" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:800,400" rel="stylesheet" type="text/css">
+	<!--[if lt IE 9]>
+	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+	<![endif]-->
+
+	<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	  ga('create', 'UA-103564483-1', 'auto');
+	  ga('send', 'pageview');
+	</script>
+</head>
+<body class="index">
+	<div id="load-overlay" class="darklayer"></div>
+	<header>
+		<div class="wrap-1140 clearfix">
+			<div class="row">
+				<div class="grid-col-6">
+					<h1><a href="index.html" class="img-logo hidden-font">A2 COMPANY</a></h1>
+				</div>
+				<div class="grid-col-6 align-right">
+					<div class="btn-menu">
+						<div class="menu">
+							<span class="top"></span>
+							<span class="middle"></span>
+							<span class="bottom"></span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+
+	<section id="menu">
+		<h2 class="hidden-element">navigation</h2>
+		<div class="vertical-center">
+			<div class="wrap-1140 vertical-center-inner">
+				<nav class="nav">
+					<ul class="nav-list">
+						<li><a class="link-slash" href="index.html">Home</a></li>
+						<li><a class="link-slash" href="about.html">About</a></li>
+						<li><a class="link-slash" href="contact.html">Contact</a></li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+	</section>
+
+	<section class="main">
+		<h2 class="hidden-element">intro</h2>
+		<div class="content">
+			<div class="type-wrap">
+				<div id="typed-strings">
+					<p>Our Cloud<br>Connects People.<br>All About Cloud</p>
+				</div>
+				<span id="typed" class="title-main"></span>
+			</div>
+		</div>
+	</section>
+	<div class="overlay"></div>
+	<div id="slides">
+		<div class="slides-container">
+			<img src="img/main1.jpg" alt="">
+			<img src="img/main2.jpg" alt="">
+			<img src="img/main3.jpg"  alt="">
+			<img src="img/main4.jpg"  alt="">
+		</div>
+	</div>
+	<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="js/script.main.js"></script>
+	<script type="text/javascript" src="js/common.js"></script>
+	<script>
+		//image loaded
+		$('body').imagesLoaded(function(){
+
+			$('#load-overlay').addClass('hide');
+
+			//background slide
+			$('#slides').superslides({
+				animation: 'fade',
+				play: 4000,
+				pagination: false,
+			});
+
+			if(! /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+				setTimeout(function(){
+					//txt main typed
+					$("#typed").typed({
+						stringsElement: $('#typed-strings'),
+						typeSpeed: 100,
+						backDelay: 500,
+						loop: false,
+						contentType: 'html', // or text
+						loopCount: false, // defaults to false for infinite loop
+					});
+				},1000);
+			} else {
+				$('#typed-strings>p').css('visibility','visible').append("<span class=\"typed-cursor\">_</span>");
+			}
+        });
+	</script>
+
+</body>
+</html>

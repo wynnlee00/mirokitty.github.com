@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="robots" content="all">
+	<title>Asset / Summary</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1, width=device-width">
+    <meta name="description" content="">
+
+    <link href="img/favicon_a2solution.ico" rel="shortcut icon" type="image/x-icon">
+    <link href="img/favicon_a2solution.ico" rel="icon" type="image/x-icon">
+    <link rel="stylesheet" href="css/bootstrap-dropdown.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/linearicons.css">
+    <link rel="stylesheet" href="css/common.css" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Rubik:400,500,700" rel="stylesheet">
+
+    <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="js/common.js"></script>
+
+	<!--[if lt IE 9]>
+	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+	<![endif]-->
+</head>
+<body>
+	<aside class="leftbar">
+		<h1 class="leftbar-logo"><img src="img/logo_a2_leftbar.svg" alt="A2 COMPANY" class="leftbar-logo-img"></h1>
+		<nav class="nav-leftbar">
+			<ul>
+				<li><a class="title-nav-leftbar haschild">Cost</a>
+					<ul class="nav-leftbar-sub">
+						<li><a href="cost_summary.html" class="title-nav-leftbar-dept-2"><u>Summary</u></a></li>
+						<li><a href="cost_detail.html" class="title-nav-leftbar-dept-2"><u>Detail</u></a></li>
+						<li><a class="title-nav-leftbar-dept-2">RI Utilization</a></li>
+						<li><a class="title-nav-leftbar-dept-2">Right Sizing</a></li>
+						<li><a href="cost_invioce.html" class="title-nav-leftbar-dept-2"><u>Invoice</u></a></li>
+					</ul>
+				</li>
+				<li class="open current"><a class="title-nav-leftbar haschild">Asset</a>
+					<ul class="nav-leftbar-sub" style="display:block;opacity:1;">
+						<li class="current"><a href="asset_summary.html" class="title-nav-leftbar-dept-2"><u>Summary</u></a></li>
+						<li><a class="title-nav-leftbar-dept-2 haschild"><u>Detail</u></a>
+							<ul class="nav-leftbar-sub">
+								<li><a href="asset_detail_ec2.html" class="title-nav-leftbar-dept-3 ic"><i class="ic-nav ec2"></i><u>EC2</u></a></li>
+								<li><a class="title-nav-leftbar-dept-3 ic"><i class="ic-nav rds"></i>RDS</a></li>
+								<li><a class="title-nav-leftbar-dept-3 ic"><i class="ic-nav elb"></i>ELB</a></li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+				<li><a class="title-nav-leftbar haschild">Monitoring</a>
+					<ul class="nav-leftbar-sub">
+						<li><a href="monitoring_alarm.html" class="title-nav-leftbar-dept-2"><u>Alarm</u></a></li>
+						<li><a href="monitoring_ec2.html" class="title-nav-leftbar-dept-2 ic"><i class="ic-nav ec2"></i><u>EC2</u></a></li>
+						<li><a class="title-nav-leftbar-dept-2 ic"><i class="ic-nav rds"></i>RDS</a></li>
+						<li><a class="title-nav-leftbar-dept-2 ic"><i class="ic-nav elb"></i>ELB</a></li>
+					</ul>
+				</li>
+				<li><a class="title-nav-leftbar haschild">Account</a>
+					<ul class="nav-leftbar-sub">
+						<li><a href="account_user_list.html" class="title-nav-leftbar-dept-2"><u>User List</u></a></li>
+						<li><a href="account_aws_list.html" class="title-nav-leftbar-dept-2"><u>AWS Account List</u></a></li>
+						<li><a class="title-nav-leftbar-dept-2">Group List</a></li>
+						<li><a class="title-nav-leftbar-dept-2">Change Password</a></li>
+					</ul>
+				</li>
+			</ul>
+		</nav>
+	</aside>
+
+	<div class="content-header">
+		<div class="topbar">
+			<div class="float-right">
+				<div class="topbar-btn">
+					<a class="topbar-account"><span class="ic_account"></span>a2_awsadmin</a>
+					<ul class="account-menu">
+						<li><a href="account_aws_list.html">My Account</a></li>
+						<li><a href="#">Sign out</a></li>
+					</ul>
+				</div>
+				<ul class="topbar-btn clearfix">
+					<li class="topbar-lang">
+						<a class="current">EN</a>
+					</li>
+					<li class="topbar-lang">
+						<a href="#">KR</a>
+					</li>
+				</ul>
+		        <div class="topbar-btn">
+		            <a class="topbar-help" href="../guide/guide_signup.html" target="_blank"><i class="fa fa-question-circle" aria-hidden="true"></i> HELP</a>
+		        </div>
+			</div>
+		</div><!--// toppbar -->
+	</div>
+
+	<div class="content-body">
+		<div class="fullbox">
+			<h2 class="title-header">Summary</h2>
+			<div class="header-body clearfix">
+                <ul class="header-filter">
+					<li class="selectbox">
+						<span class="label">AWS Account</span>
+						<div class="selectwrap account">
+							<a class="select-default" name="dropdown">aws_kim(691531078301)</a>
+							<div class="dropselectbox">
+								<ul class="dropselect clearfix">
+									<li class="dept1"><input type="checkbox" id="service-all"><label for="service-all">All</label></li>
+									<li class="dept1"><input type="checkbox" id="service-1" checked><label for="service-1">aws_kim(691531078301)</label>
+										<ul>
+											<li class="dept2"><input type="checkbox" id="service-2"><label for="service-2">aws_park1(691123478302)</label></li>
+											<li class="dept2"><input type="checkbox" id="service-3"><label for="service-3">aws_lee(691531078304)</label></li>
+										</ul>
+									</li>
+									<li class="dept1"><input type="checkbox" id="service-4"><label for="service-4">aws_park(691232348302)</label>
+										<ul>
+											<li class="dept2"><input type="checkbox" id="service-5"><label for="service-5">aws_park2(691531078302)</label></li>
+										</ul>
+									</li>
+									<li class="dept1"><input type="checkbox" id="service-6"><label for="service-6">aws_lee33(691531065404)</label></li>
+									<li class="dept1"><input type="checkbox" id="service-7"><label for="service-7">aws_jung(691531078301)</label></li>
+								</ul>
+							</div>
+						</div>
+					</li>
+				</ul>
+				<a class="btn-default">Apply</a>
+                <div class="update-time">
+                    <span>2017-06-30</span> 기준
+                </div>
+			</div>
+		</div>
+		<section class="wrap">
+
+			<div class="row box fitbox">
+				<div class="col-4 asset-top-list">
+					<div class="box-header">
+						<h3 class="title-box">주요 리소스 현황</h3>
+					</div>
+					<div class="box-cont wrap-column">
+						<div class="wrap-row"><!-- 수량이 30이상인 경우 accent 클래스를 추가해주세요 -->
+							<h4 class="column middle title-header-big">EC2</h4>
+							<div class="column middle center">
+								<span class="label-rounded run">20</span><br><span class="title-small run">Running</span>
+							</div>
+							<div class="column middle center">
+								<span class="label-rounded stop">10</span><br><span class="title-small stop">Stopped</span>
+							</div>
+						</div>
+						<div class="wrap-row accent"><!-- 수량이 30이상인 경우 accent 클래스를 추가해주세요 -->
+							<h4 class="column middle title-header-big">RDS</h4>
+							<div class="column middle center">
+								<span class="label-rounded run">30</span><br><span class="title-small run">Available</span>
+							</div>
+							<div class="column middle center">
+								<span class="label-rounded stop">10</span><br><span class="title-small stop">Stopped</span>
+							</div>
+						</div>
+						<div class="wrap-row"><!-- 수량이 30이상인 경우 accent 클래스를 추가해주세요 -->
+							<h4 class="column middle title-header-big">ELB</h4>
+							<div class="column middle center">
+								<span class="label-rounded run">10</span>
+							</div>
+							<div class="column middle center"></div>
+						</div>
+					</div><!-- // box-cont -->
+				</div>
+				<div class="col-8">
+					<div class="summary-chart">
+						<div id="asset-summary" style="width:100%;height:31em"></div>
+						<ul class="tabs">
+							<li class="tab"><a class="active">Last 3 Days</a></li>
+							<li class="tab"><a>Last 7 Days</a></li>
+							<li class="tab"><a class="disabled">Last 14 Days</a></li>
+						</ul>
+					</div>
+				</div>
+			</div><!--// row -->
+
+			<div class="row asset">
+				<div class="col-asset"><!-- 수량이 30이상인 경우 accent 클래스를 추가해주세요 -->
+					<div class="box fitbox-cont">
+						<div class="asset-list-header">
+							<h4 class="title-header">EC2</h4>
+								<a href="asset_detail_ec2.html" class="link link-detail">detail <i class="fa fa-angle-right" aria-hidden="true"></i></a>
+								<!--<a href="asset_detail_ec2.html" class="btn-floating btn-detail">detail <i class="fa fa-angle-right" aria-hidden="true"></i></a>-->
+						</div>
+						<ul class="asset-list">
+							<li>
+								<span class="label-card">Total</span>
+								<span class="txt-value-card">30</span>
+								<ul>
+									<li>
+										<span class="label-card">Running <a href="#modal-status" name="modal"><i class="fa fa-question-circle" aria-hidden="true"></i></a></span>
+										<span class="txt-value-card">20</span>
+									</li>
+									<li>
+										<span class="label-card">Stopped <a href="#modal-status" name="modal"><i class="fa fa-question-circle" aria-hidden="true"></i></a></span>
+										<span class="txt-value-card stop">10</span><!-- stopped 일때만 stop 클래스를 추가해주세요 -->
+									</li>
+								</ul>
+							</li>
+							<li>
+								<span class="label-card">Volumn</span>
+								<span class="txt-value-card">40</span>
+							</li>
+							<li>
+								<span class="label-card">Volumn Size</span>
+								<span class="txt-value-card">470</span>
+								<small class="txt-unit">GB</small>
+							</li>
+						</ul>
+					</div><!--// box -->
+				</div><!--// col-asset -->
+
+				<div class="col-asset accent">
+					<div class="box fitbox-cont">
+						<div class="asset-list-header">
+							<h4 class="title-header">RDS</h4>
+							<a class="link link-detail">detail <i class="fa fa-angle-right" aria-hidden="true"></i></a>
+						</div>
+						<ul class="asset-list">
+							<li>
+								<span class="label-card">Total</span>
+								<span class="txt-value-card">40</span>
+								<ul>
+									<li>
+										<span class="label-card">Available <a href="#modal-status" name="modal"><i class="fa fa-question-circle" aria-hidden="true"></i></a></span>
+										<span class="txt-value-card">30</span>
+									</li>
+									<li>
+										<span class="label-card">Stopped <a href="#modal-status" name="modal"><i class="fa fa-question-circle" aria-hidden="true"></i></a></span>
+										<span class="txt-value-card stop">10</span><!-- stopped 일때만 stop 클래스를 추가해주세요 -->
+									</li>
+								</ul>
+							</li>
+							<li>
+								<span class="label-card">Storage</span>
+								<span class="txt-value-card">100</span>
+								<small class="txt-unit">GB</small>
+							</li>
+							<li>
+								<span class="label-card">Single-AZ</span>
+								<span class="txt-value-card">4</span>
+							</li>
+							<li>
+								<span class="label-card">Multi-AZ</span>
+								<span class="txt-value-card">6</span>
+							</li>
+						</ul>
+					</div><!--// box -->
+				</div><!--// col-asset -->
+
+				<div class="col-asset">
+					<div class="box fitbox-cont">
+						<div class="asset-list-header">
+							<h4 class="title-header">Route53</h4>
+						</div>
+						<ul class="asset-list">
+							<li>
+								<span class="label-card">Hosted Zone</span>
+								<span class="txt-value-card">3</span>
+							</li>
+							<li>
+								<span class="label-card">Record Set</span>
+								<span class="txt-value-card">40</span>
+							</li>
+						</ul>
+					</div><!--// box -->
+				</div><!--// col-asset -->
+
+				<div class="col-asset">
+					<div class="box fitbox-cont">
+						<div class="asset-list-header">
+							<h4 class="title-header">API Gateway</h4>
+						</div>
+						<ul class="asset-list">
+							<li>
+								<span class="label-card">Rest API</span>
+								<span class="txt-value-card">20</span>
+							</li>
+							<li>
+								<span class="label-card">Client Certificates</span>
+								<span class="txt-value-card">2</span>
+							</li>
+							<li>
+								<span class="label-card">Custom Domains</span>
+								<span class="txt-value-card">2</span>
+							</li>
+							<li>
+								<span class="label-card">AP Keys</span>
+								<span class="txt-value-card">4</span>
+							</li>
+						</ul>
+					</div><!--// box -->
+				</div><!--// col-asset -->
+
+				<div class="col-asset">
+					<div class="box fitbox-cont">
+						<div class="asset-list-header">
+							<h4 class="title-header">ELB</h4>
+							<a class="link link-detail">detail <i class="fa fa-angle-right" aria-hidden="true"></i></a>
+						</div>
+						<ul class="asset-list">
+							<li>
+								<span class="label-card">Total</span>
+								<span class="txt-value-card">9</span>
+								<ul>
+									<li>
+										<span class="label-card">Application LB</span>
+										<span class="txt-value-card">5</span>
+									</li>
+									<li>
+										<span class="label-card">Classic LB</span>
+										<span class="txt-value-card">4</span>
+										<ul>
+											<li>
+												<span class="label-card">Target Groups</span>
+												<span class="txt-value-card">2</span>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div><!--// box -->
+				</div><!--// col-asset -->
+
+				<div class="col-asset">
+					<div class="box fitbox-cont">
+						<div class="asset-list-header">
+							<h4 class="title-header">Elasticache</h4>
+						</div>
+						<ul class="asset-list">
+							<li>
+								<span class="label-card">Total</span>
+								<span class="txt-value-card">5</span>
+								<ul>
+									<li>
+										<span class="label-card">Memcached</span>
+										<span class="txt-value-card">3</span>
+									</li>
+									<li>
+										<span class="label-card">Redis</span>
+										<span class="txt-value-card">2</span>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div><!--// box -->
+				</div><!--// col-asset -->
+
+				<div class="col-asset">
+					<div class="box fitbox-cont">
+						<div class="asset-list-header">
+							<h4 class="title-header">VPC</h4>
+						</div>
+						<ul class="asset-list">
+							<li>
+								<span class="label-card">Total</span>
+								<span class="txt-value-card">4</span>
+							</li>
+							<li>
+								<span class="label-card">Subnets</span>
+								<span class="txt-value-card">5</span>
+							</li>
+						</ul>
+					</div><!--// box -->
+				</div><!--// col-asset -->
+
+				<div class="col-asset">
+					<div class="box fitbox-cont">
+						<div class="asset-list-header">
+							<h4 class="title-header">DynamoDB</h4>
+						</div>
+						<ul class="asset-list">
+							<li>
+								<span class="label-card">Tables</span>
+								<span class="txt-value-card">5</span>
+							</li>
+							<li>
+								<span class="label-card">Read Capacity</span>
+								<span class="txt-value-card">20</span>
+							</li>
+							<li>
+								<span class="label-card">Write Capacity</span>
+								<span class="txt-value-card">40</span>
+							</li>
+						</ul>
+					</div><!--// box -->
+				</div><!--// col-asset -->
+
+				<div class="col-asset">
+					<div class="box fitbox-cont">
+						<div class="asset-list-header">
+							<h4 class="title-header">S3</h4>
+						</div>
+						<ul class="asset-list">
+							<li>
+								<span class="label-card">Buckets</span>
+								<span class="txt-value-card">10</span>
+							</li>
+						</ul>
+					</div><!--// box -->
+				</div><!--// col-asset -->
+
+			</div>
+
+			<script type="text/javascript" src="js/echarts/echarts.min.js"></script>
+			<script type="text/javascript">
+				var assetSummary = echarts.init(document.getElementById('asset-summary'));
+
+				optionSummary = {
+					color : ['#f87a56','#d2cabe','#f57399'],
+					tooltip : {
+						trigger: 'axis',
+						//formatter: '{b}<br>{a0} : <strong>${c0}</strong><br>{a1} : <strong>${c1}</strong><br>{a2} : <strong>${c2}</strong>',
+                        backgroundColor:echart_tooltip_backgroundColor,
+                        padding: echart_tooltip_padding,
+                        textStyle:{
+                            fontFamily:echart_fontFamily,
+                            fontSize:echart_tooltip_fontSize
+                        }
+					},
+					legend: {
+                        left : 'left',
+                        top: '8px',
+                        padding: [0, 20],
+                        itemWidth : 16,
+                        itemHeight : 8,
+                        textStyle : {
+                            fontFamily : echart_fontFamily,
+                            fontSize : '10',
+                            color : 'rgba(0,0,0,.5)'
+                        },
+                        data:['EC2','RDS','ELB']
+					},
+					grid: {
+						left: '20px',
+						right: '26px',
+						top:'15%',
+						bottom: '0',
+						containLabel: true
+					},
+					xAxis : [
+						{
+							type : 'category',
+							boundaryGap : false,
+							axisTick : {
+								show: false
+							},
+							axisLine: {
+								show: false,
+								lineStyle: {
+									color:'#b0b0b0'
+								}
+							},
+							splitLine: {
+								show: true,
+								lineStyle: {
+									type: 'dotted',
+									color:'#ddd'
+								}
+							},
+							axisLabel: {
+								textStyle: {
+									fontFamily:echart_fontFamily,
+									fontSize:10
+								}
+							},
+							data : ['2017-06-27 0:00','2017-06-27 6:00','2017-06-27 12:00','2017-06-27 18:00','2017-06-28 0:00','2017-06-28 6:00','2017-06-28 12:00','2017-06-28 18:00','2017-06-29 0:00','2017-06-29 6:00','2017-06-29 12:00','2017-06-29 18:00']
+						}
+					],
+					yAxis : [
+						{
+							type : 'value',
+							axisTick : {
+								show: false
+							},
+							axisLine: {
+								show: false,
+								lineStyle: {
+									color:'#b0b0b0'
+								}
+							},
+							splitLine: {
+								show: true,
+								lineStyle: {
+									type: 'dotted',
+									color:'#ddd'
+								}
+							},
+							axisLabel: {
+								textStyle: {
+									fontFamily:echart_fontFamily,
+									fontSize:10
+								}
+							}
+						}
+					],
+					series : [
+						{
+							name:'EC2',
+							type:'line',
+							symbolSize: 6,
+							itemStyle: {
+								normal: {
+									borderColor:'#f87a56',
+									borderWidth:2
+								}
+							},
+							lineStyle:{
+								normal: {
+									color:'#f87a56'
+								}
+							},
+							data:[5,3,5,6,6,6,6,10,16,16,16,18,20]
+						},
+						{
+							name:'RDS',
+							type:'line',
+							symbolSize: 6,
+							itemStyle: {
+								normal: {
+									borderColor:'#d2cabe',
+									borderWidth:2
+								}
+							},
+							lineStyle:{
+								normal: {
+									color:'#d2cabe'
+								}
+							},
+							data:[2,3,3,5,8,7,5,5,6,7,8,8]
+						},
+						{
+							name:'ELB',
+							type:'line',
+							symbolSize: 6,
+							itemStyle: {
+								normal: {
+									borderColor:'#f57399',
+									borderWidth:2
+								}
+							},
+							lineStyle:{
+								normal: {
+									color:'#f57399'
+								}
+							},
+							data:[8,8,8,8,8,8,8,8,8,8,8,8]
+						}
+
+					]
+				};
+
+				assetSummary.setOption(optionSummary);
+				window.onresize = function() {
+					assetSummary.resize();
+				};
+			</script>
+
+		</section><!--// wrap -->
+	</div>
+
+	<div class="modal" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-backdrop"></div>
+		<div class="v-align">
+			<div class="v-align-cell">
+
+				<!-- Status info 팝업-->
+				<div class="modal-dialog" id="modal-status">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="modal-close close"><span class="lnr lnr-cross"></span></button>
+							<h4 class="title-modal">Status Information</h4>
+						</div>
+						<div class="modal-body align-left">
+							RDS - Unavailable 은 아래 상태의 합을 의미합니다.<br><br>
+
+							- creating<br>
+							- deleting<br>
+							- failed<br>
+							- incompatible-network<br>
+							- renaming<br>
+							- rebooting<br>
+							- stopping<br>
+							- upgrading
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div><!--// modal -->
+
+	<a class="btn-top" title="go to top"><i class="fa fa-chevron-up" aria-hidden="true"></i></a>
+	<footer class="footer">
+		<span class="terms"><a href="terms_service.html" class="link">서비스 이용 약관</a> | <a href="terms_privacy.html" class="link"><strong>개인정보 취급방침</strong></a></span>
+		<span class="copyright">© A2 COMPANY ALL RIGHTS RESERVED.</span>
+	</footer>
+
+</body>
+</html>

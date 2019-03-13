@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"> 
+	<meta name="robots" content="all">
+	<title>Sign Up</title>
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">	
+	<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no, width=device-width">
+	<meta name="description" content="">
+	
+	<link href="" rel="apple-touch-icon-precomposed" sizes="180x180">
+	<link href="" rel="shortcut icon" type="image/x-icon">
+	<link href="" rel="icon" type="image/x-icon">
+	<link rel="stylesheet" href="css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/linearicons.css">
+	<link rel="stylesheet" href="css/common.css" type="text/css">
+	<link href="https://fonts.googleapis.com/css?family=Lato:400,700|Montserrat:400,600" rel="stylesheet">
+
+	<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="js/datatables/jquery.dataTables.js"></script>
+	<script type="text/javascript" src="js/datatables/dataTables.buttons.min.js"></script>
+	<script type="text/javascript" src="js/datatables/jszip.min.js"></script>
+	<script type="text/javascript" src="js/datatables/pdfmake.min.js"></script>
+	<script type="text/javascript" src="js/datatables/vfs_fonts.js"></script>
+	<script type="text/javascript" src="js/datatables/buttons.flash.min.js"></script>
+	<script type="text/javascript" src="js/datatables/buttons.html5.min.js"></script>
+	<script type="text/javascript" src="js/datatables/buttons.print.min.js"></script>
+	<script type="text/javascript" src="js/datatables/buttons.colVis.min.js"></script>
+
+
+	<!--[if lt IE 9]>
+	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+	<![endif]-->
+</head>
+<body class="signup">
+	<div class="wrap-signup">
+		<div class="signup-box">
+			<h1 class="logo"><img src="img/logo_kinx.svg" alt="KINX" class=""></h1>	
+			
+			<div class="form">
+				<div class="wrap-column">
+					<label for="email-id" class="column col-label">Email ID</label>
+					<input type="email" id="email-id" class="input-default" value="a2_awsadmin@a2company.co.kr" readonly>
+				</div>
+				<div class="wrap-column">
+					<label for="pw" class="column col-label">Password</label>
+					<input type="password" id="pw" class="input-default invalid"><!-- 에러메시지 출력 시 invalid 클래스를 추가해주세요 -->
+					<p class="gray-lighten1">(6~16자 영문 대/소문자, 숫자, 특수문자 포함)</p>
+					<!--에러메시지-->
+					<span class="err-color">비밀번호는 6~16자 영문 대/소문자(구분), 숫자, 특수문자를 사용할 수 있습니다.</span>
+				</div>
+				<div class="wrap-column">
+					<label for="verify-pw" class="column col-label">Verify Password</label>
+					<input type="password" id="verify-pw" class="input-default"><!-- 에러메시지 출력 시 invalid 클래스를 추가해주세요 -->
+					<!--에러메시지
+					<span class="err-color">비밀번호 확인을 입력해주세요.</span> -->
+				</div>
+				<div class="wrap-column">
+					<label for="company" class="column col-label">Company</label>
+					<input type="text" id="company" class="input-default" value="KINX" readonly>
+				</div>
+				<div class="bottom-area">
+					<a href="#modal-signup" class="btn-default" name="modal">SIGN UP</a>
+				</div>
+			</div>
+		</div> 
+		<footer>
+			<span class="copyright">© KINX Inc. All Rights Reserved.</span>
+		</footer>
+	</div> 
+	
+	<div class="modal" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-backdrop"></div>
+		<div class="v-align">
+			<div class="v-align-cell">	
+				
+				<div class="modal-dialog" id="modal-signup">
+					<div class="modal-content">
+						<div class="modal-header">						
+							<button type="button" class="modal-close close"><span class="lnr lnr-cross"></span></button>
+							<h4 class="title-modal">가입 완료</h4>
+						</div>
+						<div class="modal-body">
+							가입이 완료되었습니다.
+						</div>
+						<div class="modal-footer">
+							<div class="btn-area">
+								<button type="button" class="modal-close btn-txt point">OK</button>
+							</div>
+						</div>
+					</div>
+				</div>	
+			</div>
+		</div>
+	</div><!--// modal -->
+
+	<script src="js/common.js"></script>
+
+</body>
+</html>
+
+

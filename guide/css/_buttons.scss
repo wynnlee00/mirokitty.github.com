@@ -1,0 +1,29 @@
+.link {
+    display:inline-block;
+    position:relative;
+    line-height: 1.2;
+}
+.link:after {
+    content:'';
+    display:block;
+    position: absolute;
+    bottom:0;
+    width:0%;
+    background:#444;
+    height:1px;
+    -webkit-transform: width;
+    -ms-transform: width;
+    transform: width;
+    -webkit-transition-property: all;
+    transition-property: all;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-timing-function: ease-in-out;
+    transition-timing-function: ease-in-out;
+}
+.link.point:after {
+    background:#ff4f5e;
+}
+.link:hover:after {
+    width:100%;
+}

@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta cherset="ute-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="robots" content="all">
+	<title>Virtual Test Lab :: LG SmartHome Developer</title>
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no, width=device-width">
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+
+	<link type="text/css" rel="stylesheet" href="css/materialize.css">
+	<link type="text/css" rel="stylesheet" href="css/common.css">
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:700,600,400' rel='stylesheet' type='text/css'>
+	<!--[if lt IE 9]>
+	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+	<![endif]-->
+</head>
+<body>
+	<header>
+		<div class="main_header">
+			<div class="container">
+				<h1><a href="index.html"><img src="img/logo_smarthome_dev.png" alt="LG Smart Home Developer"></a></h1>
+				<div class="header_menu">
+
+					<div class="dropdown slideright">
+						<a class="myaccount down">test@lge.com</a>
+						<ul class="dropdown_content btnlist clearfix">
+							<li><a href="profile.html">Profile</a></li>
+							<li><a>Sign out</a></li>
+						</ul>
+					</div><!--// dropdown-->
+
+					<div class="dropdown">
+						<a class="nav_more hidden_font">more</a>
+						<dl class="dropdown_content clearfix">
+							<dt>Link</dt>
+							<dd><a href="http://developer.lge.com" class="link_site" target="_blank">LG Developer</a></dd>
+							<dt>Language</dt>
+							<dd>
+								<select class="select_default">
+									<option selected>English</option>
+									<option>Korea</option>
+								</select>
+							</dd>
+						</dl>
+					</div><!--// dropdown-->
+
+				</div><!--// header_menu-->
+			</div>
+		</div>
+	</header>
+
+	<div class="navbar_wrap">
+		<div class="navbar">
+			<div class="container">
+				<ul class="navlist left">
+					<li><a href="get_started.html">Get Started</a></li>
+					<li><a href="supported_products.html">Supported Products</a></li>
+					<li><a href="apis_overview.html">APIs</a></li>
+					<li><a href="sdks.html">SDKs</a></li>
+					<li><a href="alljoyn.html">Alljoyn</a></li>
+				</ul>
+				<ul class="navlist right">
+					<li><a href="myservices.html">My Services</a></li>
+					<li><a href="virtual_test_lab.html" class="current">Virtual Test Lab</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div class="content"><!-- bg_gray 클래스 삭제 -->
+	<div class="wrap_content">
+		<div class="container">
+			<h2 class="title_big">Virtual Test Lab</h2>
+			<div class="flexbox">
+				<p class="sub_txt2 flex1">
+					Virtual Test Lab에서는 실제 제품과 동일하게 동작하는 "가상 제품"과 이를 제어할 수 있는 "Emulator"를 제공합니다. <a href="virtual_test_lab_detail.html" class="link"><strong>자세히 보기</strong><span class="icon arrow"></span></a>
+				</p>
+			</div>
+			<div class="notibox basic mt0 mb30">
+				<span class="icon"></span>
+				<span class="point_txt">가상 제품 생성 안내</span><br>
+				• 가상 제품은 하나의 Service와 User에 종속되어 생성됩니다.<br>
+				• 가상 제품은 로그인한 개발자 계정에만 등록할 수 있습니다.<br>
+				• 가상 제품 생성 시, 개발자 계정이 Service의 User로 자동으로 등록되기 때문에 제품 등록 전 User 등록 단계를 생략할 수 있습니다. <br>
+				• 가상제품은 한 Service 당 최대 20대까지 생성할 수 있습니다.
+			</div>
+
+			<ul class="collapsible big virtual" data-collapsible="expandable">
+				<li>
+					<div class="collapsible-header active flexcenter">
+						<div class="flex1">
+							<p class="truncate">Service : <strong>Service A</strong></p>
+							<p class="sub_txt3">가상 제품 :
+								<strong>4</strong> 대</p>
+						</div>
+						<span class="icon_arrow"></span>
+						<a class="btn_border create_vproduct" target="_blank">가상 제품 생성하기</a>
+					</div>
+					<div class="collapsible-body">
+						<ul>
+							<li class="columnbox">
+								<div class="column tbcdisplay link_vproduct" onclick="javascript:openVdevice();">
+									<div class="tbcdisplay">
+										<div class="product_icon_area"><span class="hidden_font product_icon purifier">Air Purifier</span></div>
+									</div>
+									<div class="tbcdisplay">
+										<p class="title_s">Air Purifier1</p>
+									</div>
+								</div>
+								<div class="column row">
+									<div class="col s6">
+										<p><strong class="mr10">Product ID</strong>ASDFASDF</p>
+										<p><strong class="mr10">제품군</strong>Washer</p>
+										<!--<p><strong class="mr10">펌웨어 버전</strong>1.0<span class="badge">up</span></p>-->
+										<p><strong class="mr10">모델명</strong>ASDFASDF</p>
+									</div>
+									<div class="col s6">
+										<p><strong class="mr10">최근 테스트 날짜</strong>JAN/12/2015</p>
+										<p><strong class="mr10">생성 날짜</strong>JAN/12/2015</p>
+										<p><strong class="mr10">현재 상태</strong><span class="point_txt">ON</span></p>
+									</div>
+								</div>
+								<div class="column tbcdisplay btnarea_delete">
+									<a  class="hidden_font btn_delete">delete</a>
+								</div>
+							</li>
+
+							<li class="columnbox">
+								<div class="column tbcdisplay link_vproduct" onclick="javascript:openVdevice();">
+									<div class="tbcdisplay">
+										<div class="product_icon_area"><span class="hidden_font product_icon aircon">air conditioner</span></div>
+									</div>
+									<div class="tbcdisplay">
+										<p class="title_s">Air Conditioner1</p>
+									</div>
+								</div>
+								<div class="column row">
+									<div class="col s6">
+										<p><strong class="mr10">Product ID</strong>ASDFASDF</p>
+										<p><strong class="mr10">제품군</strong>Air Conditioner</p>
+										<p><strong class="mr10">모델명</strong>ASDFASDF</p>
+										<!-- <p><strong class="mr10">펌웨어 버전</strong>1.0</p> -->
+									</div>
+									<div class="col s6">
+										<p><strong class="mr10">최근 테스트 날짜</strong>JAN/12/2015</p>
+										<p><strong class="mr10">생성 날짜</strong>JAN/12/2015</p>
+										<p><strong class="mr10">현재 상태</strong><span class="grey-text">OFF</span></p>
+									</div>
+								</div>
+								<div class="column tbcdisplay btnarea_delete">
+									<a  class="hidden_font btn_delete">delete</a>
+								</div>
+							</li>
+
+							<li class="columnbox">
+								<div class="column tbcdisplay link_vproduct" onclick="javascript:openVdevice();">
+									<div class="tbcdisplay">
+										<div class="product_icon_area"><span class="hidden_font product_icon refrigerator">Refrigerator</span></div>
+									</div>
+									<div class="tbcdisplay">
+										<p class="title_s">Refrigerator1</p>
+									</div>
+								</div>
+								<div class="column row">
+									<div class="col s6">
+										<p><strong class="mr10">Product ID</strong>ASDFASDF</p>
+										<p><strong class="mr10">제품군</strong>Refrigerator</p>
+										<p><strong class="mr10">펌웨어 버전</strong>1.0</p>
+									</div>
+									<div class="col s6">
+										<p><strong class="mr10">모델명</strong>ASDFASDF</p>
+										<p><strong class="mr10">최근 테스트 날짜</strong>JAN/12/2015</p>
+										<p><strong class="mr10">생성 날짜</strong>JAN/12/2015</p>
+									</div>
+								</div>
+								<div class="column tbcdisplay btnarea_delete">
+									<a  class="hidden_font btn_delete">delete</a>
+								</div>
+							</li>
+
+							<li class="columnbox">
+								<div class="column tbcdisplay link_vproduct" onclick="javascript:openVdevice();">
+									<div class="tbcdisplay">
+										<div class="product_icon_area"><span class="hidden_font product_icon dryer">Dryer</span></div>
+									</div>
+									<div class="tbcdisplay">
+										<p class="title_s">Dryer123</p>
+									</div>
+								</div>
+								<div class="column row">
+									<div class="col s6">
+										<p><strong class="mr10">Product ID</strong>ASDFASDF</p>
+										<p><strong class="mr10">제품군</strong>Refrigerator</p>
+										<p><strong class="mr10">펌웨어 버전</strong>1.0</p>
+									</div>
+									<div class="col s6">
+										<p><strong class="mr10">모델명</strong>ASDFASDF</p>
+										<p><strong class="mr10">최근 테스트 날짜</strong>JAN/12/2015</p>
+										<p><strong class="mr10">생성 날짜</strong>JAN/12/2015</p>
+									</div>
+								</div>
+								<div class="column tbcdisplay btnarea_delete">
+									<a  class="hidden_font btn_delete">delete</a>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</li>
+
+				<li>
+					<div class="collapsible-header flexcenter">
+						<div class="flex1">
+							<p class="truncate">Service : <strong>Service B</strong></p>
+							<p class="sub_txt3">가상 제품 : <strong>0</strong> 대</p>
+						</div>
+						<span class="icon_arrow"></span>
+						<a class="btn_border create_vproduct">가상 제품 생성하기</a>
+					</div>
+					<div class="collapsible-body empty">
+						이 Service 에 생성된 가상제품이 없습니다.
+					</div>
+
+				</li>
+
+
+
+				<li>
+					<div class="collapsible-header flexcenter">
+						<div class="flex1">
+							<p class="truncate">Service : <strong>Service C</strong></p>
+							<p class="sub_txt3">가상 제품 : <strong>1</strong> 대</p>
+						</div>
+						<span class="icon_arrow"></span>
+						<a class="btn_border create_vproduct">가상 제품 생성하기</a>
+					</div>
+					<div class="collapsible-body">
+						<ul>
+							<li class="columnbox">
+								<div class="column tbcdisplay link_vproduct" onclick="javascript:openVdevice();">
+									<div class="tbcdisplay">
+										<div class="product_icon_area"><span class="hidden_font product_icon roboking">roboking</span></div>
+									</div>
+									<div class="tbcdisplay">
+										<p class="title_s">Living Room Roboking22</p>
+										<!-- <a href="" class="btn_round" target="_blank">에뮬레이터</a> -->
+									</div>
+								</div>
+								<div class="column row">
+									<div class="col s6">
+										<p><strong class="mr10">Product ID</strong>ASDFASDF</p>
+										<p><strong class="mr10">제품군</strong>Roboking</p>
+										<p><strong class="mr10">펌웨어 버전</strong>1.0</p>
+									</div>
+									<div class="col s6">
+										<p><strong class="mr10">모델명</strong>ASDFASDF</p>
+										<p><strong class="mr10">최근 테스트 날짜</strong>JAN/12/2015</p>
+										<p><strong class="mr10">생성 날짜</strong>JAN/12/2015</p>
+									</div>
+								</div>
+								<div class="column tbcdisplay btnarea_delete">
+									<a  class="hidden_font btn_delete">delete</a>
+								</div>
+							</li>
+
+
+						</ul>
+					</div>
+				</li>
+			</ul>
+			<!-- div class="progress"><div>Loading…</div></div-->
+
+
+		</div><!--// container -->
+	</div>
+	</div>
+
+	<span class="hidden_font btn_top" style="display:none;">go to top</span>
+	<footer>
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<img src="img/logo_lg_footer.png" class="img_footer_logo" alt="LG logo">
+				</div>
+				<div class="col">
+					<p class="copyright">COPYRIGHT ⓒ 2015 LG ELECTRONICS.<br>ALL RIGHTS RESERVED.</p>
+				</div>
+				<div class="col right">
+					<div class="termslist">
+						<p class="">TERMS & CONDITIONS<br>[ <a href="terms_global.html">Global</a> / <a href="terms.html">KOR</a> ]</p>
+					</div>
+					<div class="termslist">
+						<p class="">PRIVACY<br>[ <a href="terms_privacy.html">Global</a> / <a href="terms_privacy_global.html">개인정보처리방침</a> / <a href="terms_privacy_global.html">개인정보취급방침</a> ]</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<!-- modal -->
+	<div class="modal simple">
+		<div class="modal-content">
+			<h4 class="title_modal">가상제품 삭제</h4>
+			<p>
+				'Washer1' 가상제품을 삭제하시겠습니까?
+			</p>
+		</div>
+		<div class="modal-footer">
+			<a href="#!" class="modal-close btn_modal btn_gray"><span data-hover="아니오">아니오</span></a>
+			<a href="#!" class="modal-close btn_modal btn_pink"><span data-hover="예">예</span></a>
+		</div>
+	</div>
+
+	<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+	<script type="text/javascript" src="js/materialize.min.js"></script>
+	<script type="text/javascript" src="js/retina.min.js"></script>
+	<script type="text/javascript" src="js/common.js"></script>
+	<script>
+
+	$('.create_vproduct').click(function(evt) {
+		evt.stopPropagation();
+	});
+
+	//open emulator
+	function openVdevice(){
+    	window.open('emulator_aircon_ver2.html','', 'width=900, height=800, toolbar=no, menubar=no, scrollbars=no, resizable=yes' );
+	}
+
+	</script>
+</body>
+</html>

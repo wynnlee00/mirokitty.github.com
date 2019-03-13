@@ -1,0 +1,2 @@
+png - Emulator popup '제품 디스플레이' 실사이미지
+jpg - Supported Product 국가별 지원제품 실사이미지

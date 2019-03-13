@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="robots" content="all">
+	<title>Account 가이드</title>
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="viewport" content="initial-scale=1,maximum-scale=1, width=device-width">
+	<meta name="description" content="">
+
+	<link href="" rel="apple-touch-icon" sizes="180x180">
+	<link href="" rel="shortcut icon" type="image/x-icon">
+	<link href="" rel="icon" type="image/x-icon">
+	<link rel="stylesheet" href="css/linearicons.css">
+	<link rel="stylesheet" href="css/guide.min.css" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond:700|Rubik:400,500" rel="stylesheet">
+	<script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+    <script src="js/guide.js"></script>
+
+	<!--[if lt IE 9]>
+	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+	<![endif]-->
+</head>
+<body>
+    <div class="wrap">
+        <div class="top-padding"></div>
+        <div class="guide-content">
+            <div class="guide-content-wrap">
+                <div class="guide-sidebar">
+                    <h2 class="sidebar-title">User Guide</h2>
+                    <nav class="nav-leftbar">
+            			<ul>
+                            <li><a href="guide_signup.html" class="title-nav-leftbar">Sign up & Sign in <span class="lnr lnr-arrow-right"></span></a>
+            				</li>
+            				<li class="open"><a href="#" class="title-nav-leftbar haschild active">Account <span class="lnr lnr-arrow-right"></span></a>
+            					<ul class="nav-leftbar-sub">
+                                    <li><a href="#account-account-list" class="title-nav-leftbar-dept-2">Account List</a></li>
+            						<li><a href="#account-user-list" class="title-nav-leftbar-dept-2">User List</a></li>
+            						<li><a href="#account-group-list" class="title-nav-leftbar-dept-2">Group List</a></li>
+            						<li><a href="#account-change-pw" class="title-nav-leftbar-dept-2">Change Password</a></li>
+            					</ul>
+            				</li>
+            				<li><a href="guide_cost.html" class="title-nav-leftbar haschild">Cost <span class="lnr lnr-arrow-right"></span></a>
+            					<ul class="nav-leftbar-sub">
+            						<li><a href="#cost-summary" class="title-nav-leftbar-dept-2">Summary</a></li>
+            						<li><a href="#cost-detail" class="title-nav-leftbar-dept-2">Detail</a></li>
+            						<li><a href="#cost-invoice" class="title-nav-leftbar-dept-2">Invoice</a></li>
+            					</ul>
+            				</li>
+            			</ul>
+            		</nav>
+                </div>
+                <div class="guide-content-inner">
+                    <div class="top-line"></div>
+                    <section>
+                        <h3 class="page-title">Account</h3>
+                        <article id="account-account-list" class="article-body">
+                            <h4 class="article-title">Account list</h4>
+                            <p>비용 조회를 위해서는 사용 중인 AWS 계정 연동이 필요합니다. <br>
+                                (*계정 정보가 정상적으로 추가되었다면 해당 데이터를 불러오는데 약간의 시간이 소요될 수 있습니다.)<br><br>
+
+                                - AWS 계정 등록 : 솔루션 관리자만 가능<br>
+                                - AWS 계정 조회/수정/삭제 : 솔루션 관리자, 회사 Default 그룹에 속한 사용자 가능 </p>
+
+                            <h5 class="chapter-title"><span>Edit 화면</span></h5>
+                            <ol class="ol-desc">
+                                <li>수정/조회를 원할 경우 해당 계정의 ‘Edit’ 버튼을 클릭합니다.
+                                    <figure class="w800">
+                                        <img src="img/guide/account_list01.png" alt="">
+                                    </figure>
+                                </li>
+                                <li>수정이 필요한 항목을 수정한 후 ‘Save’ 버튼을 클릭합니다.
+                                    <figure class="w800">
+                                        <img src="img/guide/account_list02.png" alt="">
+                                    </figure>
+                                </li>
+                                <li>Account List 화면에서 ‘Bucket’ 버튼이 활성화 된 상태로 보인다면 S3 Bucket 정보를 추가로 입력해야 합니다. <br>
+                                    (Linked Account를 제외한 나머지 타입의 계정은 데이터를 불러오기 위해 Bucket 정보가 필요합니다.)
+                                    <figure class="w800">
+                                        <img src="img/guide/account_list03.png" alt="">
+                                    </figure>
+                                </li>
+                                <li>‘Bucket’ 팝업 창에서 Region, Bucket Name을 입력 후 ‘Save’ 버튼을 클릭합니다.
+                                    <figure class="w800">
+                                        <img src="img/guide/account_list04.png" alt="">
+                                    </figure>
+                                </li>
+                            </ol>
+
+                            <h5 class="chapter-title"><span>Delete 화면</span></h5>
+                            <ol class="ol-desc">
+                                <li>삭제하고자 하는 AWS 계정의 ‘Delete’ 버튼을 클릭합니다.
+                                    <figure class="w800">
+                                        <img src="img/guide/account_list05.png" alt="">
+                                    </figure>
+                                </li>
+                                <li>‘Delete’ 팝업 내용을 확인 후 ‘OK’ 버튼을 클릭합니다.<br>
+                                    (*AWS 계정 정보를 삭제할 경우 솔루션에서 해당 계정의 관련 정보가 모두 삭제됩니다.)
+                                    <figure class="w800">
+                                        <img src="img/guide/account_list06.png" alt="">
+                                    </figure>
+                                </li>
+                            </ol>
+                        </article>
+                        <article id="account-user-list" class="article-body">
+                            <h4 class="article-title">User List</h4>
+                            <h5 class="chapter-title"><span>사용자 초대 화면</span></h5>
+                            <p>Default 그룹에 속한 사용자는 회사의 다른 사용자를 초대할 수 있습니다.</p>
+                            <ol class="ol-desc">
+                                <li>‘Create User’ 버튼을 클릭합니다.
+                                    <figure class="w800">
+                                        <img src="img/guide/user_list01.png" alt="">
+                                    </figure>
+                                </li>
+                                <li>사용자 초대 팝업 창에서 필수 입력 값인 Email ID를 입력, Group을 선택한 후 ‘OK’ 버튼을 클릭합니다.
+                                    <figure class="w800">
+                                        <img src="img/guide/user_list02.png" alt="">
+                                    </figure>
+                                </li>
+                                <li>초대 메일 발송 완료 팝업 창을 확인 후 ‘OK’ 버튼을 클릭합니다.
+                                    <figure class="w800">
+                                        <img src="img/guide/user_list03.png" alt="">
+                                    </figure>
+                                </li>
+                                <li>초대 메일을 받은 사용자는 해당 메일에서 가입 후 이용을 시작합니다.</li>
+                            </ol>
+
+                            <h5 class="chapter-title"><span>초대 메일 재발송</span></h5>
+                            <ol class="ol-desc">
+                                <li>초대 메일의 유효 시간은 72시간이며, 만료될 경우 활성화되는 ‘Send Email’ 버튼을 클릭합니다.
+                                    <figure class="w800">
+                                        <img src="img/guide/user_list04.png" alt="">
+                                    </figure>
+                                </li>
+                                <li>‘Send Email’ 팝업 내용을 확인 후 ‘OK’ 버튼을 클릭합니다.
+                                    <figure class="w800">
+                                        <img src="img/guide/user_list05.png" alt="">
+                                    </figure>
+                                </li>
+                            </ol>
+
+                            <h5 class="chapter-title"><span>사용자 탈퇴/삭제</span></h5>
+                            <ol class="ol-desc">
+                                <li>탈퇴 또는 삭제하고자 하는 이메일의 ‘Withdraw‘ 또는 ‘Delete’ 버튼을 클릭합니다. <br>
+                                    - Withdraw : 가입한 사용자의 경우 <br>
+                                    - Delete : 초대했으나 가입하지 않은 사용자의 경우
+                                    <figure class="w800">
+                                        <img src="img/guide/user_list06.png" alt="">
+                                    </figure>
+                                </li>
+                                <li>‘Withdraw User’ 또는 ‘Delete User’ 팝업 내용을 확인 후 ‘OK’ 버튼을 클릭합니다.
+                                    <figure class="w800">
+                                        <img src="img/guide/user_list07.png" alt="">
+                                    </figure>
+                                </li>
+                            </ol>
+
+                            <h5 class="chapter-title"><span>비밀번호 초기화 메일 발송</span></h5>
+                            <ol class="ol-desc">
+                                <li>비밀번호 초기화 메일을 발송할 이메일의 ‘Password Reset’ 버튼을 클릭합니다.
+                                    <figure class="w800">
+                                        <img src="img/guide/user_list08.png" alt="">
+                                    </figure>
+                                </li>
+                                <li>‘Reset Password’ 팝업 내용을 확인 후 ‘OK’ 버튼을 클릭합니다.
+                                    <figure class="w800">
+                                        <img src="img/guide/user_list09.png" alt="">
+                                    </figure>
+                                </li>
+                            </ol>
+                        </article>
+                        <article id="account-group-list" class="article-body">
+                            <h4 class="article-title">Group List</h4>
+                            <p>한 회사에서 다수의 AWS 계정을 사용 중이고 관련 담당자가 많을 때 유용한 그룹 관리 기능을 제공합니다.<br>
+                                Default 그룹에 속한 사용자는 그룹 관리 기능을 사용할 수 있습니다.</p>
+                            <h5 class="chapter-title"><span>Create 화면</span></h5>
+                            <ol class="ol-desc">
+                                <li>그룹 생성을 위해 ‘Create Group’ 버튼을 클릭합니다.
+                                    <figure class="w800">
+                                        <img src="img/guide/group_list01.png" alt="">
+                                    </figure>
+                                </li>
+                                <li>그룹명을 입력하고 해당 그룹에 속할 AWS Account, User를 선택 후 ‘Create’ 버튼을 클릭합니다.
+                                    <figure class="w800">
+                                        <img src="img/guide/group_list02.png" alt="">
+                                    </figure>
+                                </li>
+                            </ol>
+
+                            <h5 class="chapter-title"><span>Edit 화면</span></h5>
+                            <ol class="ol-desc">
+                                <li>그룹 수정을 위해 해당 그룹의 ‘Edit’ 버튼을 클릭합니다.
+                                    <figure class="w800">
+                                        <img src="img/guide/group_list03.png" alt="">
+                                    </figure>
+                                </li>
+                                <li>수정이 필요한 항목을 수정한 후 ‘Update’ 버튼을 클릭합니다.
+                                    <figure class="w800">
+                                        <img src="img/guide/group_list04.png" alt="">
+                                    </figure>
+                                </li>
+                            </ol>
+
+                            <h5 class="chapter-title"><span>Delete 화면</span></h5>
+                            <ol class="ol-desc">
+                                <li>그룹 삭제를 위해 해당 그룹의 ‘Delete’ 버튼을 클릭합니다.
+                                    <figure class="w800">
+                                        <img src="img/guide/group_list05.png" alt="">
+                                    </figure>
+                                </li>
+                                <li>‘Delete’ 팝업 창을 확인 후 ‘OK’를 클릭합니다.
+                                    <figure class="w800">
+                                        <img src="img/guide/group_list06.png" alt="">
+                                    </figure>
+                                </li>
+                            </ol>
+                        </article>
+                        <article id="account-change-pw" class="article-body">
+                            <h4 class="article-title">Change Password</h4>
+                            <p>비밀번호 변경을 원할 경우 ‘Change Password’ 메뉴를 클릭합니다.<br>
+                                현재 비밀번호, 새 비밀번호, 새 비밀번호 확인을 입력 후 ‘Save’ 버튼을 클릭합니다.</p>
+                            <figure class="w800">
+                                <img src="img/guide/change_pw01.png" alt="">
+                            </figure>
+                            <p>‘비밀번호 변경 완료’ 팝업 내용을 확인 후 ‘OK’ 버튼을 클릭합니다. <br>
+                                (*클릭 후 로그인 페이지로 이동합니다.)</p>
+                            <figure class="w800">
+                                <img src="img/guide/change_pw02.png" alt="">
+                            </figure>
+                        </article>
+                    </section>
+                </div>
+
+            </div>
+
+            <footer class="wrap-footer">
+                <div class="guide-footer">
+                    <span>© A2 COMPANY ALL RIGHTS RESERVED.</span>
+                </div>
+            </footer>
+        </div><!--// guide-content -->
+    </div><!--// wrap -->
+
+    <div class="border">
+        <div id="left"></div>
+        <div id="right"></div>
+        <div id="top"></div>
+        <div id="bottom"></div>
+    </div>
+
+</body>
+</html>

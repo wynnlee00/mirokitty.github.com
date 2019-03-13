@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="robots" content="all">
+	<title>Cost / Datail</title>
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no, width=device-width">
+	<meta name="description" content="">
+
+	<link href="" rel="apple-touch-icon-precomposed" sizes="180x180">
+	<link href="" rel="shortcut icon" type="image/x-icon">
+	<link href="" rel="icon" type="image/x-icon">
+	<link rel="stylesheet" href="css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/linearicons.css">
+	<link rel="stylesheet" href="css/bootstrap-dropdown.css" />
+	<link rel="stylesheet" href="css/common.css" type="text/css">
+	<link href="https://fonts.googleapis.com/css?family=Rubik:400,500,700" rel="stylesheet">
+
+	<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+
+	<!-- Data Tables -->
+	<script type="text/javascript" src="js/datatables/jquery.dataTables.js"></script>
+	<script type="text/javascript" src="js/datatables/dataTables.buttons.min.js"></script>
+	<script type="text/javascript" src="js/datatables/jszip.min.js"></script>
+	<script type="text/javascript" src="js/datatables/pdfmake.min.js"></script>
+	<script type="text/javascript" src="js/datatables/vfs_fonts.js"></script>
+	<script type="text/javascript" src="js/datatables/buttons.flash.min.js"></script>
+	<script type="text/javascript" src="js/datatables/buttons.html5.min.js"></script>
+	<script type="text/javascript" src="js/datatables/buttons.print.min.js"></script>
+	<script type="text/javascript" src="js/datatables/buttons.colVis.min.js"></script>
+
+	<!-- Date Range Picker -->
+	<script type="text/javascript" src="js/daterangepicker/moment.min.js"></script>
+	<script type="text/javascript" src="js/daterangepicker/daterangepicker.js"></script>
+
+
+	<!--[if lt IE 9]>
+	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+	<![endif]-->
+</head>
+<body>
+	<aside class="leftbar">
+		<h1 class="leftbar-logo"><img src="img/logo_a2_leftbar.svg" alt="A2 COMPANY" class="leftbar-logo-img"></h1>
+		<nav class="nav-leftbar">
+			<ul>
+				<li class="open current"><a class="title-nav-leftbar haschild">Cost</a>
+					<ul class="nav-leftbar-sub" style="display:block;opacity:1;">
+						<li><a href="cost_summary.html" class="title-nav-leftbar-dept-2"><u>Summary</u></a></li>
+						<li class="current"><a href="cost_detail.html" class="title-nav-leftbar-dept-2"><u>Detail</u></a></li>
+						<li><a class="title-nav-leftbar-dept-2">RI Utilization</a></li>
+						<li><a class="title-nav-leftbar-dept-2">Right Sizing</a></li>
+						<li><a href="cost_invioce.html" class="title-nav-leftbar-dept-2"><u>Invoice</u></a></li>
+					</ul>
+				</li>
+				<li><a class="title-nav-leftbar haschild">Asset</a>
+					<ul class="nav-leftbar-sub">
+						<li><a href="asset_summary.html" class="title-nav-leftbar-dept-2"><u>Summary</u></a></li>
+						<li><a class="title-nav-leftbar-dept-2 haschild"><u>Detail</u></a>
+							<ul class="nav-leftbar-sub">
+								<li><a href="asset_detail_ec2.html" class="title-nav-leftbar-dept-3 ic"><i class="ic-nav ec2"></i><u>EC2</u></a></li>
+								<li><a class="title-nav-leftbar-dept-3 ic"><i class="ic-nav rds"></i>RDS</a></li>
+								<li><a class="title-nav-leftbar-dept-3 ic"><i class="ic-nav elb"></i>ELB</a></li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+				<li><a class="title-nav-leftbar haschild">Monitoring</a>
+					<ul class="nav-leftbar-sub">
+						<li><a href="monitoring_alarm.html" class="title-nav-leftbar-dept-2"><u>Alarm</u></a></li>
+						<li><a href="monitoring_ec2.html" class="title-nav-leftbar-dept-2 ic"><i class="ic-nav ec2"></i><u>EC2</u></a></li>
+						<li><a class="title-nav-leftbar-dept-2 ic"><i class="ic-nav rds"></i>RDS</a></li>
+						<li><a class="title-nav-leftbar-dept-2 ic"><i class="ic-nav elb"></i>ELB</a></li>
+					</ul>
+				</li>
+				<li><a class="title-nav-leftbar haschild">Account</a>
+					<ul class="nav-leftbar-sub">
+						<li><a href="account_user_list.html" class="title-nav-leftbar-dept-2"><u>User List</u></a></li>
+						<li><a href="account_aws_list.html" class="title-nav-leftbar-dept-2"><u>AWS Account List</u></a></li>
+						<li><a class="title-nav-leftbar-dept-2">Group List</a></li>
+						<li><a class="title-nav-leftbar-dept-2">Change Password</a></li>
+					</ul>
+				</li>
+			</ul>
+		</nav>
+	</aside>
+
+	<div class="content-header">
+		<div class="topbar">
+			<div class="float-right">
+				<div class="topbar-btn">
+					<a class="topbar-account"><span class="ic_account"></span>a2_awsadmin</a>
+					<ul class="account-menu">
+						<li><a href="account_aws_list.html">My Account</a></li>
+						<li><a href="#">Sign out</a></li>
+					</ul>
+				</div>
+				<ul class="topbar-btn clearfix">
+					<li class="topbar-lang">
+						<a class="current">EN</a>
+					</li>
+					<li class="topbar-lang">
+						<a href="#">KR</a>
+					</li>
+				</ul>
+				<div class="topbar-btn">
+					<a class="topbar-help" href="../guide/guide_signup.html" target="_blank"><i class="fa fa-question-circle" aria-hidden="true"></i> HELP</a>
+				</div>
+			</div>
+		</div><!--// toppbar -->
+	</div>
+
+	<div class="content-body">
+		<div class="fullbox">
+			<h2 class="title-header">Detail</h2>
+			<div class="header-body clearfix">
+				<ul class="header-filter">
+					<li class="selectbox">
+						<label>Date</label>
+						<div id="reportrange" class="pull-right select-default calendar">
+							<i class="fa fa-calendar" aria-hidden="true"></i>&nbsp;
+							<span></span>
+						</div>
+					</li>
+				</ul>
+				<a class="btn-default">Apply</a>
+			</div>
+		</div>
+		<section class="wrap">
+			<div class="collapse hasfix">
+				<div class="collapse-header">
+					<h3 class="title-collapse">Filter <i class="fa fa-filter" aria-hidden="true"></i></h3>
+				</div>
+				<div class="collapse-body">
+					<div class="wrap-column">
+						<div class="col-4 c01"><!-- service 카타고리는 c01 클래스가 추가됩니다 -->
+							<div class="column-header">
+								<h4 class="title-sub">Service</h4>
+								<div class="btn-set">
+									<a class="btn-control" title="전체선택"><i class="fa fa-check-square-o" aria-hidden="true"></i></a>
+									<a class="btn-control" title="선택해제"><i class="fa fa-square-o" aria-hidden="true"></i></a>
+								</div>
+							</div>
+							<ul class="filterselect clearfix">
+								<li><input type="checkbox" id="service-1" checked><label for="service-1">Amazon Elastic Compute Cloud</label></li>
+								<li><input type="checkbox" id="service-2"><label for="service-2">Amazon Simple Storage Service</label></li>
+								<li><input type="checkbox" id="service-3"><label for="service-3">AWS CloudTrail</label></li>
+								<li><input type="checkbox" id="service-4" checked><label for="service-4">Amazon Elasticsearch Service</label></li>
+								<li><input type="checkbox" id="service-5"><label for="service-5">Amazon RDS Service</label></li>
+								<li><input type="checkbox" id="service-6"><label for="service-6">Amazon Virtual Private Cloud</label></li>
+								<li><input type="checkbox" id="service-7"><label for="service-7">Amazon DynamoDB</label></li>
+								<li><input type="checkbox" id="service-9"><label for="service-9">Amazon CloudWatch</label></li>
+								<li><input type="checkbox" id="service-12"><label for="service-12">Amazon Simple Notification Service</label></li>
+								<li><input type="checkbox" id="service-13"><label for="service-13">Amazon Glacier</label></li>
+								<li><input type="checkbox" id="service-14"><label for="service-14">Amazon Simple Queue Service</label></li>
+								<li><input type="checkbox" id="service-15"><label for="service-15">Amazon Lambda</label></li>
+								<li><input type="checkbox" id="service-18"><label for="service-18">etc</label></li>
+							</ul>
+						</div>
+						<div class="col-4 c02"><!-- region 카타고리는 c02 클래스가 추가됩니다 -->
+							<div class="column-header">
+								<h4 class="title-sub">Region</h4>
+								<div class="btn-set">
+									<a class="btn-control" title="전체선택"><i class="fa fa-check-square-o" aria-hidden="true"></i></a>
+									<a class="btn-control" title="선택해제"><i class="fa fa-square-o" aria-hidden="true"></i></a>
+								</div>
+							</div>
+							<ul class="filterselect clearfix">
+								<li><input type="checkbox" id="region-01"><label for="region-01">us-east-1</label></li>
+								<li><input type="checkbox" id="region-02"><label for="region-02">us-east-2</label></li>
+								<li><input type="checkbox" id="region-03"><label for="region-03">us-west-1</label></li>
+								<li><input type="checkbox" id="region-04"><label for="region-04">us-west-2</label></li>
+								<li><input type="checkbox" id="region-05"><label for="region-05">ca-central-1</label></li>
+								<li><input type="checkbox" id="region-06"><label for="region-06">eu-west-1</label></li>
+								<li><input type="checkbox" id="region-07"><label for="region-07">eu-central-1</label></li>
+								<li><input type="checkbox" id="region-08" checked><label for="region-08">eu-west-2</label></li>
+								<li><input type="checkbox" id="region-09"><label for="region-09">ap-northeast-1</label></li>
+								<li><input type="checkbox" id="region-10"><label for="region-10">ap-northeast-2</label></li>
+								<li><input type="checkbox" id="region-11"><label for="region-11">ap-southeast-1</label></li>
+								<li><input type="checkbox" id="region-12"><label for="region-12">ap-southeast-2</label></li>
+								<li><input type="checkbox" id="region-13"><label for="region-13">ap-south-1</label></li>
+							</ul>
+						</div>
+						<div class="col-4 c03"><!-- account 카타고리는 c03 클래스가 추가됩니다 -->
+							<div class="column-header">
+								<h4 class="title-sub">Account</h4>
+								<div class="btn-set">
+									<a class="btn-control" title="전체선택"><i class="fa fa-check-square-o" aria-hidden="true"></i></a>
+									<a class="btn-control" title="선택해제"><i class="fa fa-square-o" aria-hidden="true"></i></a>
+								</div>
+							</div>
+							<ul class="filterselect clearfix">
+								<li><input type="checkbox" id="account-01" checked><label for="account-01">aws_lee(69123456789)</label></li>
+								<li><input type="checkbox" id="account-02"><label for="account-02">aws_kim111aws_kim111(69123456784)</label></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+
+				<!--
+				선택된 항목이 없을 경우, 아래의 <div class="collapse-fix"></div> div전체를 숨겨주세요.
+				선택된 항목의 카타고리가 service일 때는 filter-label 에 c01 클래스를 추가,
+				region일 때는 filter-label 에 c02 클래스를 추가, account일 때는 filter-label 에 c03 클래스를 추가해주세요.
+				-->
+				<div class="collapse-fix">
+					<ul class="clearfix">
+						<li><span class="filter-label c01">Amazon Elastic Compute Cloud<a class="btn-close"><span class="lnr lnr-cross"></span></a></span></li>
+						<li><span class="filter-label c01">Amazon Elasticsearch Service<a class="btn-close"><span class="lnr lnr-cross"></span></a></span></li>
+						<li><span class="filter-label c02">eu-west-2<a class="btn-close"><span class="lnr lnr-cross"></span></a></span></li>
+						<li><span class="filter-label c03">aws_lee(69123456789)<a class="btn-close"><span class="lnr lnr-cross"></span></a></span></li>
+					</ul>
+				</div>
+
+			</div>
+
+
+			<div class="box fitbox">
+				<div class="box-table">
+					<table id="table_ec2" class="table-data list hoverable" width="100%">
+						<caption class="hidden-element">Cost Detail</caption>
+						<thead>
+							<tr>
+								<th scope="col">AWS Account</th>
+								<th scope="col">Region</th>
+								<th scope="col">Service</th>
+								<th scope="col">Detail</th>
+								<th scope="col">Cost ($)</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>aws_kim</td>
+								<td>ap-northeast-2</td>
+								<td>EC2</td>
+								<td>$0.00 per alarm-month - first 10 alarms</td>
+								<td >10.22</td>
+							</tr>
+							<tr>
+								<td>aws_kim</td>
+								<td>ap-northeast-2</td>
+								<td>EC2</td>
+								<td>$0.061 per On Demand Linux m1.small Instance Hour</td>
+								<td>100.22</td>
+							</tr>
+							<tr>
+								<td>aws_kim</td>
+								<td>ap-northeast-2</td>
+								<td>EC2</td>
+								<td>$0.05 per GB-Month of snapshot data stored - Asia Pacific (Seoul)</td>
+								<td>22.1</td>
+							</tr>
+							<tr>
+								<td>aws_kim</td>
+								<td>ap-northeast-2</td>
+								<td>RDS</td>
+								<td>$0.30 per GB-month of Multi-AZ Provisioned IOPS Storage</td>
+								<td>10.22</td>
+							</tr>
+							<tr>
+								<td>aws_kim</td>
+								<td>ap-northeast-2</td>
+								<td>RDS</td>
+								<td>$0.24 per IOPS-month of Multi-AZ Provisioned IOPS</td>
+								<td>100.22</td>
+							</tr>
+							<tr>
+								<td>aws_kim</td>
+								<td>ap-northeast-2</td>
+								<td>RDS</td>
+								<td>$0.000 per GB - data transfer in per month</td>
+								<td>20.1</td>
+							</tr>
+							<tr>
+								<td>aws_kim</td>
+								<td>ap-northeast-2</td>
+								<td>EC2</td>
+								<td>$0.00 per alarm-month - first 10 alarms</td>
+								<td >10.22</td>
+							</tr>
+							<tr>
+								<td>aws_kim</td>
+								<td>ap-northeast-2</td>
+								<td>EC2</td>
+								<td>$0.061 per On Demand Linux m1.small Instance Hour</td>
+								<td>100.22</td>
+							</tr>
+							<tr>
+								<td>aws_kim</td>
+								<td>ap-northeast-2</td>
+								<td>EC2</td>
+								<td>$0.05 per GB-Month of snapshot data stored - Asia Pacific (Seoul)</td>
+								<td>22.1</td>
+							</tr>
+							<tr>
+								<td>aws_kim</td>
+								<td>ap-northeast-2</td>
+								<td>RDS</td>
+								<td>$0.30 per GB-month of Multi-AZ Provisioned IOPS Storage</td>
+								<td>10.22</td>
+							</tr>
+							<tr>
+								<td>aws_kim</td>
+								<td>ap-northeast-2</td>
+								<td>RDS</td>
+								<td>$0.24 per IOPS-month of Multi-AZ Provisioned IOPS</td>
+								<td>100.22</td>
+							</tr>
+							<tr>
+								<td>aws_kim</td>
+								<td>ap-northeast-2</td>
+								<td>RDS</td>
+								<td>$0.000 per GB - data transfer in per month</td>
+								<td>20.1</td>
+							</tr>
+							<tr>
+								<td>aws_kim</td>
+								<td>ap-northeast-2</td>
+								<td>EC2</td>
+								<td>$0.00 per alarm-month - first 10 alarms</td>
+								<td >10.22</td>
+							</tr>
+							<tr>
+								<td>aws_kim</td>
+								<td>ap-northeast-2</td>
+								<td>EC2</td>
+								<td>$0.061 per On Demand Linux m1.small Instance Hour</td>
+								<td>100.22</td>
+							</tr>
+							<tr>
+								<td>aws_kim</td>
+								<td>ap-northeast-2</td>
+								<td>EC2</td>
+								<td>$0.05 per GB-Month of snapshot data stored - Asia Pacific (Seoul)</td>
+								<td>22.1</td>
+							</tr>
+							<tr>
+								<td>aws_kim</td>
+								<td>ap-northeast-2</td>
+								<td>RDS</td>
+								<td>$0.30 per GB-month of Multi-AZ Provisioned IOPS Storage</td>
+								<td>10.22</td>
+							</tr>
+							<tr>
+								<td>aws_kim</td>
+								<td>ap-northeast-2</td>
+								<td>RDS</td>
+								<td>$0.24 per IOPS-month of Multi-AZ Provisioned IOPS</td>
+								<td>100.22</td>
+							</tr>
+							<tr>
+								<td>aws_kim</td>
+								<td>ap-northeast-2</td>
+								<td>RDS</td>
+								<td>$0.000 per GB - data transfer in per month</td>
+								<td>20.1</td>
+							</tr>
+							<tr>
+								<td>aws_kim</td>
+								<td>ap-northeast-2</td>
+								<td>EC2</td>
+								<td>$0.00 per alarm-month - first 10 alarms</td>
+								<td >10.22</td>
+							</tr>
+							<tr>
+								<td>aws_kim</td>
+								<td>ap-northeast-2</td>
+								<td>EC2</td>
+								<td>$0.061 per On Demand Linux m1.small Instance Hour</td>
+								<td>100.22</td>
+							</tr>
+							<tr>
+								<td>aws_kim</td>
+								<td>ap-northeast-2</td>
+								<td>EC2</td>
+								<td>$0.05 per GB-Month of snapshot data stored - Asia Pacific (Seoul)</td>
+								<td>22.1</td>
+							</tr>
+							<tr>
+								<td>aws_kim</td>
+								<td>ap-northeast-2</td>
+								<td>RDS</td>
+								<td>$0.30 per GB-month of Multi-AZ Provisioned IOPS Storage</td>
+								<td>10.22</td>
+							</tr>
+							<tr>
+								<td>aws_kim</td>
+								<td>ap-northeast-2</td>
+								<td>RDS</td>
+								<td>$0.24 per IOPS-month of Multi-AZ Provisioned IOPS</td>
+								<td>100.22</td>
+							</tr>
+							<tr>
+								<td>aws_kim</td>
+								<td>ap-northeast-2</td>
+								<td>RDS</td>
+								<td>$0.000 per GB - data transfer in per month</td>
+								<td>20.1</td>
+							</tr>
+							<tr>
+								<td>aws_kim</td>
+								<td>ap-northeast-2</td>
+								<td>EC2</td>
+								<td>$0.00 per alarm-month - first 10 alarms</td>
+								<td >10.22</td>
+							</tr>
+							<tr>
+								<td>aws_kim</td>
+								<td>ap-northeast-2</td>
+								<td>EC2</td>
+								<td>$0.061 per On Demand Linux m1.small Instance Hour</td>
+								<td>100.22</td>
+							</tr>
+							<tr>
+								<td>aws_kim</td>
+								<td>ap-northeast-2</td>
+								<td>EC2</td>
+								<td>$0.05 per GB-Month of snapshot data stored - Asia Pacific (Seoul)</td>
+								<td>22.1</td>
+							</tr>
+							<tr>
+								<td>aws_kim</td>
+								<td>ap-northeast-2</td>
+								<td>RDS</td>
+								<td>$0.30 per GB-month of Multi-AZ Provisioned IOPS Storage</td>
+								<td>10.22</td>
+							</tr>
+						</tbody>
+                        <tfoot>
+                            <tr>
+                                <th colspan="5"></th>
+                            </tr>
+                        </tfoot>
+					</table>
+				</div>
+				<script>
+				//colvis separate
+				var org_buildButton = $.fn.DataTable.Buttons.prototype._buildButton;
+				$.fn.DataTable.Buttons.prototype._buildButton = function(config, collectionButton) {
+					 var button = org_buildButton.apply(this, arguments);
+					 $(document).one('init.dt', function(e, settings, json) {
+						if (config.container && $(config.container).length) {
+							$(button.inserter[0]).detach().appendTo(config.container)
+						}
+					})
+					return button;
+				1}
+
+				// table_ec2 sort ascending
+				$('#table_ec2').DataTable({
+					dom: 'B<".collection-filter"l<"#colvis">f>rtip',
+
+					"lengthMenu": [ 10, 20, 50, 100 , 200 ],
+					"iDisplayLength": 20,
+					//"scrollY": "400px",
+					"scrollX": true,
+
+					//Download Btn
+					buttons: [
+						{
+							extend: 'copy',
+							text: '<i class="btn-download-files copy" aria-hidden="true"></i>',
+							titleAttr: 'Copy to Clipboard'
+						},
+						{
+							extend: 'csv',
+							text: '<i class="btn-download-files csv" aria-hidden="true"></i>',
+							titleAttr: 'Export to csv'
+						},
+						{
+							extend: 'excel',
+							text: '<i class="btn-download-files excel" aria-hidden="true"></i>',
+							titleAttr: 'Export to Excel'
+						},
+						{
+							extend: 'pdf',
+							text: '<i class="btn-download-files pdf" aria-hidden="true"></i>',
+							titleAttr: 'Export to PDF'
+						},
+						{
+							extend: 'print',
+							text: '<i class="btn-download-files print" aria-hidden="true"></i>',
+							titleAttr: 'View print view'
+						},
+						{
+							extend: 'colvis',
+							container : '#colvis',
+							text: 'Show / Hide Columns'
+						}
+					],
+
+					//Cost Right Align
+					"columnDefs": [
+					  	{ className: "dt-right", "aTargets": [ 4 ] },
+						{ className: "dt-left", "aTargets": [ 0,1,2,3 ] }
+					],
+
+					"language": {
+						"lengthMenu": "_MENU_",
+						"info": "_START_ - _END_ of _TOTAL_ (_PAGE_/_PAGES_)",
+						"paginate": {
+						  	"previous": "<i class='fa fa-chevron-left' aria-hidden='true'></i>",
+							"next": "<i class='fa fa-chevron-right' aria-hidden='true'></i>"
+						}
+					},
+
+					"footerCallback": function ( row, data, start, end, display ) {
+						var api = this.api(), data;
+
+						// Remove the formatting to get integer data for summation
+						var intVal = function ( i ) {
+							return typeof i === 'string' ?
+							i.replace(/[\$,]/g, '')*1 :
+							typeof i === 'number' ?
+							i : 0;
+						};
+
+						// Total over all pages
+						// total = api
+						//     .column( 4 )
+						//     .data()
+						//     .reduce( function (a, b) {
+						//         return intVal(a) + intVal(b);
+						//     }, 0 );
+
+						// Total over this page
+						pageTotal = api
+						.column( 4, { page: 'current'} )
+						.data()
+						.reduce( function (a, b) {
+							return Math.round(intVal(a) + intVal(b) * 100) / 100;
+						}, 0 );
+
+						// Update footer
+						$( api.column(4).footer() ).html(
+							'<span class="total">Total:</span><span class="cost">$'+pageTotal +'</span>'
+						);
+					}
+				} );
+
+				$('div.dataTables_length select').addClass('buttons-colvis');
+				</script>
+			</div><!--// box -->
+		</section><!--// wrap -->
+
+
+		<!-- 로딩 중일 때 empty-mask 가 나타나도록 해주세요. -->
+		<div class="empty-mask page" style="display:none">
+			<div class="ic_empty">
+				<div class="loading">
+					<svg width="100%" height="100%" x="0px" y="0px" viewBox="0 0 313.3 321.4" style="enable-background:new 0 0 313.3 321.4;" xml:space="preserve">
+					<path class="layer layer1" d="M157.1,0c3.8,0,7.9,1.5,11.4,3.2c45.6,21.1,91.2,42.4,136.7,63.8c3.3,1.5,8,2.1,8.1,7c0.1,5-4.7,5.6-7.9,7.1
+					  c-45.8,21.5-91.7,42.9-137.6,64.3c-7.4,3.4-14.8,3.5-22.2,0C99,123.6,52.3,101.9,5.8,80c-2.4-1.1-5.4-4-5.4-6c0-2,3.1-4.8,5.5-5.9
+					  C52.4,46.2,99.1,24.4,145.8,2.8C149.1,1.2,154.5,0,157.1,0z"/>
+					<path class="layer layer2" d="M156.6,235c-3.1,0-7.7-1.7-11.3-3.3c-46.5-21.6-93-43.3-139.4-65.1c-2.4-1.1-5.8-4.1-5.6-5.8c0.3-2.4,3.2-5,5.7-6.3
+					  c7.5-4,15.3-7.3,23-10.9c7.9-3.7,15.7-3.6,23.6,0.1c30.4,14.3,61,28.4,91.4,42.7c8.6,4.1,16.8,4,25.4-0.1
+					  c30.4-14.3,60.9-28.4,91.4-42.7c7.7-3.6,15.4-3.7,23.1-0.1c8.2,3.8,16.4,7.4,24.4,11.5c2.1,1.1,4.9,3.7,4.7,5.4
+					  c-0.2,2.1-2.7,4.8-4.9,5.9c-46.8,22.1-93.7,44-140.7,65.8C164.2,233.5,159.9,235,156.6,235z"/>
+					<path class="layer layer3" d="M156.8,321.4c-4.6,0-9.3-2.3-13.4-4.2c-45.2-20.9-90.3-42-135.4-63.1c-3.3-1.5-8-2.1-8-7.1c0-5,3.8-5.5,7-7.1
+					  c13.9-6.5,14.9-6.5,21.8-9.8c8-3.8,16-3.7,24.1,0.1c29.9,14,59.8,27.7,89.6,41.9c9.6,4.6,18.5,4.7,28.2,0.1
+					  c29.8-14.2,59.8-27.9,89.6-41.9c8.2-3.9,16.3-4,24.5,0c7.8,3.8,15.8,7.2,23.5,11.1c2.1,1.1,4.8,3.3,4.8,5.4
+					  c-0.1,2.4-2.7,4.8-4.9,5.9c-32.2,15.3-64.5,30.3-96.8,45.4c-13.9,6.5-27.7,13.1-41.7,19.3C165.7,319.2,161.5,321.4,156.8,321.4z"/>
+					</svg>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+
+
+	<a class="btn-top" title="go to top"><i class="fa fa-chevron-up" aria-hidden="true"></i></a>
+	<footer class="footer">
+		<span class="terms"><a href="terms_service.html" class="link">서비스 이용 약관</a> | <a href="terms_privacy.html" class="link"><strong>개인정보 취급방침</strong></a></span>
+		<span class="copyright">© A2 COMPANY ALL RIGHTS RESERVED.</span>
+	</footer>
+
+
+	<script src="js/common.js"></script>
+	<script type="text/javascript">
+	$(function() {
+
+		var start = moment().subtract(29, 'days');
+		var end = moment();
+
+		function cb(start, end) {
+			$('#reportrange span').html(start.format('YYYY-MM-DD') + ' ~ ' + end.format('YYYY-MM-DD'));
+		}
+
+		$('#reportrange').daterangepicker({
+			 locale: {
+			  	format: 'YYYY-MM-DD'
+			},
+			startDate: start,
+			endDate: end,
+			maxDate: moment(),
+			opens: "right",
+			buttonClasses: "btn-txt",
+			applyClass: "point",
+			cancelClass: "gray-lighten1",
+    		alwaysShowCalendars: true,
+			//showCustomRangeLabel:false,
+			ranges: {
+			   //'Today': [moment(), moment()],
+			   //'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+			   'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+			   'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+			   'This Month': [moment().startOf('month'), moment().endOf('month')],
+			   'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+			}
+		}, cb);
+
+		cb(start, end);
+
+	});
+
+	</script>
+
+</body>
+</html>

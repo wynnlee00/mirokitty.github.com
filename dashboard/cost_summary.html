@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="robots" content="all">
+	<title>Cost / Summary</title>
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="viewport" content="initial-scale=1,maximum-scale=1,width=device-width">
+	<meta name="description" content="">
+
+	<link href="" rel="shortcut icon" type="image/x-icon">
+	<link href="" rel="icon" type="image/x-icon">
+	<link rel="stylesheet" href="css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/linearicons.css">
+	<link rel="stylesheet" href="css/common.css" type="text/css">
+	<link href="https://fonts.googleapis.com/css?family=Rubik:400,500,700" rel="stylesheet">
+
+	<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+	<script src="js/common.js"></script>
+
+	<!--[if lt IE 9]>
+	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+	<![endif]-->
+</head>
+<body>
+	<aside class="leftbar">
+		<h1 class="leftbar-logo"><img src="img/logo_a2_leftbar.svg" alt="A2 COMPANY" class="leftbar-logo-img"></h1>
+		<nav class="nav-leftbar">
+			<ul>
+				<li class="open current"><a class="title-nav-leftbar haschild">Cost</a>
+					<ul class="nav-leftbar-sub" style="display:block;opacity:1;">
+						<li class="current"><a href="cost_summary.html" class="title-nav-leftbar-dept-2"><u>Summary</u></a></li>
+						<li><a href="cost_detail.html" class="title-nav-leftbar-dept-2"><u>Detail</u></a></li>
+						<li><a class="title-nav-leftbar-dept-2">RI Utilization</a></li>
+						<li><a class="title-nav-leftbar-dept-2">Right Sizing</a></li>
+						<li><a href="cost_invioce.html" class="title-nav-leftbar-dept-2"><u>Invoice</u></a></li>
+					</ul>
+				</li>
+				<li><a class="title-nav-leftbar haschild">Asset</a>
+					<ul class="nav-leftbar-sub">
+						<li><a href="asset_summary.html" class="title-nav-leftbar-dept-2"><u>Summary</u></a></li>
+						<li><a class="title-nav-leftbar-dept-2 haschild"><u>Detail</u></a>
+							<ul class="nav-leftbar-sub">
+								<li><a href="asset_detail_ec2.html" class="title-nav-leftbar-dept-3 ic"><i class="ic-nav ec2"></i><u>EC2</u></a></li>
+								<li><a class="title-nav-leftbar-dept-3 ic"><i class="ic-nav rds"></i>RDS</a></li>
+								<li><a class="title-nav-leftbar-dept-3 ic"><i class="ic-nav elb"></i>ELB</a></li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+				<li><a class="title-nav-leftbar haschild">Monitoring</a>
+					<ul class="nav-leftbar-sub">
+						<li><a href="monitoring_alarm.html" class="title-nav-leftbar-dept-2"><u>Alarm</u></a></li>
+						<li><a href="monitoring_ec2.html" class="title-nav-leftbar-dept-2 ic"><i class="ic-nav ec2"></i><u>EC2</u></a></li>
+						<li><a class="title-nav-leftbar-dept-2 ic"><i class="ic-nav rds"></i>RDS</a></li>
+						<li><a class="title-nav-leftbar-dept-2 ic"><i class="ic-nav elb"></i>ELB</a></li>
+					</ul>
+				</li>
+				<li><a class="title-nav-leftbar haschild">Account</a>
+					<ul class="nav-leftbar-sub">
+						<li><a href="account_user_list.html" class="title-nav-leftbar-dept-2"><u>User List</u></a></li>
+						<li><a href="account_aws_list.html" class="title-nav-leftbar-dept-2"><u>AWS Account List</u></a></li>
+						<li><a class="title-nav-leftbar-dept-2">Group List</a></li>
+						<li><a class="title-nav-leftbar-dept-2">Change Password</a></li>
+					</ul>
+				</li>
+			</ul>
+		</nav>
+	</aside>
+
+	<div class="content-header">
+		<div class="topbar">
+			<div class="float-right">
+				<div class="topbar-btn">
+					<a class="topbar-account"><span class="ic_account"></span>a2_awsadmin</a>
+					<ul class="account-menu">
+						<li><a href="account_aws_list.html">My Account</a></li>
+						<li><a href="#">Sign out</a></li>
+					</ul>
+				</div>
+				<ul class="topbar-btn clearfix">
+					<li class="topbar-lang">
+						<a class="current">EN</a>
+					</li>
+					<li class="topbar-lang">
+						<a href="#">KR</a>
+					</li>
+				</ul>
+		        <div class="topbar-btn">
+		            <a class="topbar-help" href="../guide/guide_signup.html" target="_blank"><i class="fa fa-question-circle" aria-hidden="true"></i> HELP</a>
+		        </div>
+			</div>
+		</div><!--// toppbar -->
+	</div>
+
+	<div class="content-body">
+		<div class="fullbox">
+			<h2 class="title-header">Summary</h2>
+            <div class="header-body clearfix">
+                <ul class="header-filter">
+					<li class="selectbox">
+						<span class="label">AWS Account</span>
+						<div class="selectwrap account">
+							<a class="select-default" name="dropdown">aws_kim(691531078301), aws_kim(691531078301)</a>
+							<div class="dropselectbox">
+								<ul class="dropselect clearfix">
+									<li class="dept1"><input type="checkbox" id="service-all"><label for="service-all">All</label></li>
+									<li class="dept1"><input type="checkbox" id="service-1" checked><label for="service-1">aws_kim(691531078301)</label>
+										<ul>
+											<li class="dept2"><input type="checkbox" id="service-2" checked><label for="service-2">aws_park1(691123478302)</label></li>
+											<li class="dept2"><input type="checkbox" id="service-3"><label for="service-3">aws_lee(691531078304)</label></li>
+										</ul>
+									</li>
+									<li class="dept1"><input type="checkbox" id="service-4" checked><label for="service-4">aws_park(691232348302)</label>
+										<ul>
+											<li class="dept2"><input type="checkbox" id="service-5" checked><label for="service-5">aws_park2(691531078302)</label></li>
+										</ul>
+									</li>
+									<li class="dept1"><input type="checkbox" id="service-6"><label for="service-6">aws_lee33(691531065404)</label></li>
+									<li class="dept1"><input type="checkbox" id="service-7"><label for="service-7">aws_jung(691531078301)</label></li>
+								</ul>
+							</div>
+						</div>
+					</li>
+                    <li class="selectbox">
+						<span class="label">Date</span>
+						<div class="selectwrap date">
+							<a class="select-default" name="dropdown">2017-03</a>
+							<div class="dropselectbox">
+								<ul class="dropselect clearfix">
+									<li class="opt disabled">2017-03</li><!-- 선택 불가 항목이 있다면 disabled 클래스 추가해주세요 -->
+									<li class="opt">2017-02</li>
+									<li class="opt">2017-03</li>
+								</ul>
+							</div>
+						</div>
+                    </li>
+                </ul>
+				<a class="btn-default">Apply</a><!-- 선택 불가 항목이 있다면 disabled 클래스 추가해주세요 -->
+                <div class="update-time">
+                    <span class="gray-lighten2">Last Updated</span> <span>2017-04-16 17:22:34</span> <button class="btn-floating btn-refresh"><i class="fa fa-refresh" aria-hidden="true"></i></button>
+                </div>
+            </div>
+		</div>
+		<section class="wrap">
+
+			<!-- 계정과 데이터가 없는 경우는 cost_summary_empty.html 페이지를 참고해주세요 -->
+
+			<div class="row box fitbox">
+				<div class="col-4">
+					<div class="summary-list">
+						<div class="box-header">
+							<h3 class="title-box">Month-to-date</h3>
+							<span class="date-badge">2017-03-01 ~ 2017-03-17</span>
+						</div>
+						<div class="box-cont">
+							<span class="txt-value-b point">$520.33</span>
+							<span class="txt-badge-b point">(￦598,639)</span>
+						</div>
+					</div><!-- // box -->
+					<div class="summary-list">
+						<div class="box-header">
+							<h3 class="title-box">Last Month</h3>
+							<span class="date-badge">2017-02-01 ~ 2017-02-28</span>
+						</div>
+						<div class="box-cont">
+							<span class="txt-value-m">$720.22</span>
+							<span class="txt-badge-m">(￦815,433)</span>
+						</div>
+					</div><!-- // box -->
+					<div class="summary-list">
+						<div class="box-header">
+							<h3 class="title-box">Forecast</h3>
+							<span class="date-badge">2017-03-01 ~ 2017-03-31</span>
+						</div>
+						<div class="box-cont">
+							<span class="txt-value-m">$820.33</span>
+							<span class="txt-badge-m">(￦928,777)</span>
+							<!-- 증감액이 플러스일 때 -->
+							<span class="txt-plusminus red"><i class="fa fa-caret-up" aria-hidden="true"></i> $100.11</span>
+							<!-- 증감액이 마이너스일 때
+							<span class="txt-plusminus green"><i class="fa fa-caret-down" aria-hidden="true"></i> $100.11</span> -->
+							<!-- 증감액이 0일 때
+							<span class="txt-plusminus">$0</span> -->
+						</div>
+					</div><!-- // box -->
+				</div>
+				<div class="col-8">
+					<div class="summary-chart">
+						<div id="cost-summary" style="width:100%;height:31em"></div>
+						<ul class="tabs">
+							<li class="tab"><a class="active">Daily</a></li>
+							<li class="tab"><a>Weekly</a></li>
+							<li class="tab"><a>Monthly</a></li>
+						</ul>
+					</div><!-- // box -->
+				</div>
+			</div><!--// row -->
+
+			<div class="row item-row">
+				<div class="col-6">
+					<div class="box">
+						<div class="box-header">
+							<h3 class="title-box">Spend by AWS Service</h3>
+						</div>
+						<div style="position:relative;">
+							<div id="cost-service" style="width:100%;height:250px;"></div>
+<!--
+							<div style="position:absolute;display:table;top:0;left:26px;height:250px">
+								<ul class="chart-legend" style="width:190px;height:auto;display:table-cell;vertical-align:middle;">
+									<li style="width:100%;">WordPress Max Performance with Let's Encrypt</li>
+									<li style="width:100%;">Wowza Streaming Engine 4: Pro Edition (HVM)</li>
+									<li style="width:100%;">Amazon Elastic Compute Cloud</li>
+									<li style="width:100%;">Amazon Virtual Private Cloud</li>
+									<li style="width:100%;">etc</li>
+								</ul>
+							</div>
+-->
+						</div>
+						<div class="box-cont">
+							<table class="table-simple cost hoverable">
+								<thead>
+									<tr>
+										<th>Service</th>
+										<th>Cost ($)</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td><span class="legend-table">EC2</span></td> <!-- 차트가 비활성될 때 span에 dimmed 클래스를 추가해주세요. -->
+										<td>129.89</td>
+									</tr>
+									<tr>
+										<td><span class="legend-table">RDS</span></td> <!-- 차트가 비활성될 때 span에 dimmed 클래스를 추가해주세요. -->
+										<td>55.88</td>
+									</tr>
+									<tr>
+										<td><span class="legend-table">Elaticache</span></td> <!-- 차트가 비활성될 때 span에 dimmed 클래스를 추가해주세요. -->
+										<td>40.08</td>
+									</tr>
+									<tr>
+										<td><span class="legend-table">ELB</span></td> <!-- 차트가 비활성될 때 span에 dimmed 클래스를 추가해주세요. -->
+										<td>29.25</td>
+									</tr>
+									<tr>
+										<td><span class="legend-table">etc</span></td> <!-- 차트가 비활성될 때 span에 dimmed 클래스를 추가해주세요. -->
+										<td>51.99</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div><!--// box -->
+				</div>
+				<div class="col-6">
+					<div class="box">
+						<div class="box-header">
+							<h3 class="title-box">Spend by Region</h3>
+						</div>
+						<div id="map" style="width:100%;height:250px"></div>
+						<div class="box-cont">
+							<table class="table-simple cost hoverable">
+								<thead>
+									<tr>
+										<th>Region</th>
+										<th>Cost ($)</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>ap-northeast-2 (Seoul)</td>
+										<td>213.20</td>
+									</tr>
+									<tr>
+										<td>ap-northeast-1 (Singapore)</td>
+										<td>63.50</td>
+									</tr>
+									<tr>
+										<td>eu-west-1 (Ireland)</td>
+										<td>30.32</td>
+									</tr>
+									<tr>
+										<td>us-east-1 (N. Virginia)</td>
+										<td>0.07</td>
+									</tr>
+									<tr>
+										<td>etc</td>
+										<td>0.00</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div><!--// box -->
+				</div>
+			</div><!--// row -->
+
+			<div class="box">
+				<div class="row">
+					<div class="col-4">
+						<div class="box-header">
+							<h3 class="title-box">Spend by Account</h3>
+						</div>
+						<div class="box-cont">
+							<div id="cost-account" style="width:100%;height:250px"></div>
+						</div>
+					</div>
+					<div class="col-8">
+						<div class="box-cont">
+							<table class="table-simple account cost hoverable">
+								<thead>
+									<tr>
+										<th>Account</th>
+										<th></th>
+										<th>Cost ($)</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>aws_kim (691531078301)</td>
+										<td class="percent c01"><!-- 계정이 여러개일 때 c01부터 c10까지 순서대로 클래스를 추가해주세요. (10개 이후부터는 c01부터 다시 반복) -->
+											<span class="percent-bg"><span class="percent-inner" data-perc="49.6"></span></span>
+											<span class="percent-value">49.6%</span>
+										</td>
+										<td>25.2</td>
+									</tr>
+									<tr>
+										<td>aws_lee (691531074567)</td>
+										<td class="percent c02">
+											<span class="percent-bg"><span class="percent-inner" data-perc="41.03"></span></span>
+											<span class="percent-value">41.03%</span>
+										</td>
+										<td>3.2</td>
+									</tr>
+									<tr>
+										<td>aws_park (691535645301)</td>
+										<td class="percent c03">
+											<span class="percent-bg"><span class="percent-inner" data-perc="48"></span></span>
+											<span class="percent-value">4.85%</span>
+										</td>
+										<td>1.4</td>
+									</tr>
+									<tr>
+										<td>aws_jung (456789078301)</td>
+										<td class="percent c04">
+											<span class="percent-bg"><span class="percent-inner" data-perc="45"></span></span>
+											<span class="percent-value">2.94%</span>
+										</td>
+										<td>1.2</td>
+									</tr>
+									<tr>
+										<td>a2_admin (691531078302)</td>
+										<td class="percent c05">
+											<span class="percent-bg"><span class="percent-inner" data-perc="38"></span></span>
+											<span class="percent-value">1.58%</span>
+										</td>
+										<td>1.0</td>
+									</tr>
+									<tr>
+										<td>flytotheseaofcloud (691534578302)</td>
+										<td class="percent c06">
+											<span class="percent-bg"><span class="percent-inner" data-perc="30"></span></span>
+											<span class="percent-value">1.02%</span>
+										</td>
+										<td>0.85</td>
+									</tr>
+									<tr>
+										<td>aws_jung (456789078301)</td>
+										<td class="percent c07">
+											<span class="percent-bg"><span class="percent-inner" data-perc="29"></span></span>
+											<span class="percent-value">2.94%</span>
+										</td>
+										<td>1.2</td>
+									</tr>
+									<tr>
+										<td>a2_admin (691531078302)</td>
+										<td class="percent c08">
+											<span class="percent-bg"><span class="percent-inner" data-perc="15"></span></span>
+											<span class="percent-value">1.58%</span>
+										</td>
+										<td>1.0</td>
+									</tr>
+									<tr>
+										<td>flytotheseaofcloud (691534578302)</td>
+										<td class="percent c09">
+											<span class="percent-bg"><span class="percent-inner" data-perc="12"></span></span>
+											<span class="percent-value">1.02%</span>
+										</td>
+										<td>0.85</td>
+									</tr>
+									<tr>
+										<td>etc</td>
+										<td class="percent c10">
+											<span class="percent-bg"><span class="percent-inner" data-perc="10"></span></span>
+											<span class="percent-value">0.5%</span>
+										</td>
+										<td>0.56</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+
+						<script>
+							$('.percent').each(function () {
+								if( !$(this).hasClass('animated') ){
+									var p = $(this).find('.percent-inner').data('perc');
+									$(this).find('.percent-inner').animate({ width: p+'%' });
+									$(this).addClass('animated');
+								}
+							});
+						</script>
+					</div>
+				</div><!--// row -->
+			</div><!--// box -->
+
+			<script type="text/javascript" src="js/echarts/echarts.min.js"></script>
+            <script type="text/javascript" src="js/echarts/echarts.map.world.js"></script>
+            <script type="text/javascript" src="js/app/cost_summary.js"></script>
+
+		</section><!--// wrap -->
+	</div>
+
+	<a class="btn-top" title="go to top"><i class="fa fa-chevron-up" aria-hidden="true"></i></a>
+    <footer class="footer">
+		<span class="terms"><a href="terms_service.html" class="link">서비스 이용 약관</a> | <a href="terms_privacy.html" class="link"><strong>개인정보 취급방침</strong></a></span>
+		<span class="copyright">© A2 COMPANY ALL RIGHTS RESERVED.</span>
+	</footer>
+
+</body>
+</html>

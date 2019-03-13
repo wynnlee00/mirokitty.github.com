@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="robots" content="all">
+	<title>Account / User List</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1, width=device-width">
+    <meta name="description" content="">
+
+    <link href="img/favicon_a2solution.ico" rel="shortcut icon" type="image/x-icon">
+    <link href="img/favicon_a2solution.ico" rel="icon" type="image/x-icon">
+    <link rel="stylesheet" href="css/bootstrap-dropdown.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/linearicons.css">
+    <link rel="stylesheet" href="css/common.css" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Rubik:400,500,700" rel="stylesheet">
+
+    <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="js/underscore-min.js"></script>
+    <script type="text/javascript" src="js/datatables/jquery.dataTables.js"></script>
+    <script type="text/javascript" src="js/datatables/dataTables.buttons.min.js"></script>
+    <script type="text/javascript" src="js/datatables/jszip.min.js"></script>
+    <script type="text/javascript" src="js/datatables/pdfmake.min.js"></script>
+    <script type="text/javascript" src="js/datatables/vfs_fonts.js"></script>
+    <script type="text/javascript" src="js/datatables/buttons.flash.min.js"></script>
+    <script type="text/javascript" src="js/datatables/buttons.html5.min.js"></script>
+    <script type="text/javascript" src="js/datatables/buttons.print.min.js"></script>
+    <script type="text/javascript" src="js/datatables/buttons.colVis.min.js"></script>
+    <script type="text/javascript" src="js/common.js"></script>
+
+
+	<!--[if lt IE 9]>
+	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+	<![endif]-->
+</head>
+<body>
+	<aside class="leftbar">
+		<h1 class="leftbar-logo"><img src="img/logo_a2_leftbar.svg" alt="A2 COMPANY" class="leftbar-logo-img"></h1>
+		<nav class="nav-leftbar">
+			<ul>
+				<li><a class="title-nav-leftbar haschild">Cost</a>
+					<ul class="nav-leftbar-sub">
+						<li><a href="cost_summary.html" class="title-nav-leftbar-dept-2"><u>Summary</u></a></li>
+						<li><a href="cost_detail.html" class="title-nav-leftbar-dept-2"><u>Detail</u></a></li>
+						<li><a class="title-nav-leftbar-dept-2">RI Utilization</a></li>
+						<li><a class="title-nav-leftbar-dept-2">Right Sizing</a></li>
+						<li><a href="cost_invioce.html" class="title-nav-leftbar-dept-2"><u>Invoice</u></a></li>
+					</ul>
+				</li>
+				<li><a class="title-nav-leftbar haschild">Asset</a>
+					<ul class="nav-leftbar-sub">
+						<li><a href="asset_summary.html" class="title-nav-leftbar-dept-2"><u>Summary</u></a></li>
+						<li><a class="title-nav-leftbar-dept-2 haschild"><u>Detail</u></a>
+							<ul class="nav-leftbar-sub">
+								<li><a href="asset_detail_ec2.html" class="title-nav-leftbar-dept-3 ic"><i class="ic-nav ec2"></i><u>EC2</u></a></li>
+								<li><a class="title-nav-leftbar-dept-3 ic"><i class="ic-nav rds"></i>RDS</a></li>
+								<li><a class="title-nav-leftbar-dept-3 ic"><i class="ic-nav elb"></i>ELB</a></li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+				<li><a class="title-nav-leftbar haschild">Monitoring</a>
+					<ul class="nav-leftbar-sub">
+						<li><a href="monitoring_alarm.html" class="title-nav-leftbar-dept-2"><u>Alarm</u></a></li>
+						<li><a href="monitoring_ec2.html" class="title-nav-leftbar-dept-2 ic"><i class="ic-nav ec2"></i><u>EC2</u></a></li>
+						<li><a class="title-nav-leftbar-dept-2 ic"><i class="ic-nav rds"></i>RDS</a></li>
+						<li><a class="title-nav-leftbar-dept-2 ic"><i class="ic-nav elb"></i>ELB</a></li>
+					</ul>
+				</li>
+				<li class="open current"><a class="title-nav-leftbar haschild">Account</a>
+					<ul class="nav-leftbar-sub" style="display:block;opacity:1;">
+						<li class="current"><a href="account_user_list.html" class="title-nav-leftbar-dept-2"><u>User List</u></a></li>
+						<li><a href="account_aws_list.html" class="title-nav-leftbar-dept-2"><u>AWS Account List</u></a></li>
+						<li><a class="title-nav-leftbar-dept-2">Group List</a></li>
+						<li><a class="title-nav-leftbar-dept-2">Change Password</a></li>
+					</ul>
+				</li>
+			</ul>
+		</nav>
+	</aside>
+
+	<div class="content-header">
+		<div class="topbar">
+			<div class="float-right">
+				<div class="topbar-btn">
+					<a class="topbar-account"><span class="ic_account"></span>a2_awsadmin</a>
+					<ul class="account-menu">
+						<li><a href="account_aws_list.html">My Account</a></li>
+						<li><a href="#">Sign out</a></li>
+					</ul>
+				</div>
+				<ul class="topbar-btn clearfix">
+					<li class="topbar-lang">
+						<a class="current">EN</a>
+					</li>
+					<li class="topbar-lang">
+						<a href="#">KR</a>
+					</li>
+				</ul>
+		        <div class="topbar-btn">
+		            <a class="topbar-help" href="../guide/guide_signup.html" target="_blank"><i class="fa fa-question-circle" aria-hidden="true"></i> HELP</a>
+		        </div>
+			</div>
+		</div><!--// toppbar -->
+	</div>
+
+	<div class="content-body">
+		<div class="fullbox">
+			<h2 class="title-header">User List</h2>
+		</div>
+		<section class="wrap">
+			<div class="box fitbox">
+				<div class="wrap-absolute">
+					<a class="btn-default" name="modal" href="#modal-create-user">Create User</a>
+				</div>
+
+				<table id="table_user_list" class="table-data v-center list hoverable" width="100%">
+					<colgroup>
+                        <col class="number-cell">
+                        <col span="3">
+                        <col style="width:29.75rem">
+					</colgroup>
+					<thead>
+						<tr>
+							<th scope="col">No.</th>
+							<th scope="col">Email ID</th>
+							<th scope="col">Invite Date</th>
+							<th scope="col">Status</th>
+							<th scope="col">Action</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>1</td>
+							<td>abc11@yopmail.com</td>
+							<td>2017-06-08</td>
+							<td>Active</td>
+							<td>
+								<a class="email btn-small disabled" name="modal" href="#modal-send-email"><span class="lnr lnr-envelope"></span> Send Email</a>
+                                <a class="withdraw btn-small" name="modal" href="#modal-withdraw"><span class="lnr lnrcustom-withdraw"></span> Withdraw</a>
+                                <a class="reset btn-small" name="modal" href="#modal-pw-reset"><span class="lnr lnr-lock"></span> Password Reset</a>
+							</td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td>abc11@yopmail.com</td>
+							<td>2017-06-08</td>
+							<td>Active</td>
+							<td>
+								<a class="email btn-small disabled" name="modal" href="#modal-send-email"><span class="lnr lnr-envelope"></span> Send Email</a>
+                                <a class="withdraw btn-small disabled" name="modal" href="#modal-withdraw"><span class="lnr lnrcustom-withdraw"></span> Withdraw</a>
+                                <a class="reset btn-small" name="modal" href="#modal-pw-reset"><span class="lnr lnr-lock"></span> Password Reset</a>
+							</td>
+						</tr>
+						<tr>
+							<td>3</td>
+							<td>abc11@yopmail.com</td>
+							<td>2017-06-08</td>
+							<td>Active</td>
+							<td>
+								<a class="email btn-small" name="modal" href="#modal-send-email"><span class="lnr lnr-envelope"></span> Send Email</a>
+                                <a class="withdraw btn-small" name="modal" href="#modal-withdraw"><span class="lnr lnrcustom-withdraw"></span> Withdraw</a>
+                                <a class="reset btn-small" name="modal" href="#modal-pw-reset"><span class="lnr lnr-lock"></span> Password Reset</a>
+							</td>
+						</tr>
+						<tr>
+							<td>4</td>
+							<td>abc11@yopmail.com</td>
+							<td>2017-06-08</td>
+							<td>Active</td>
+							<td>
+								<a class="email btn-small" name="modal" href="#modal-send-email"><span class="lnr lnr-envelope"></span> Send Email</a>
+                                <a class="withdraw btn-small" name="modal" href="#modal-withdraw"><span class="lnr lnrcustom-withdraw"></span> Withdraw</a>
+                                <a class="reset btn-small" name="modal" href="#modal-pw-reset"><span class="lnr lnr-lock"></span> Password Reset</a>
+							</td>
+						</tr>
+						<tr>
+							<td>5</td>
+							<td>abc11@yopmail.com</td>
+							<td>2017-06-08</td>
+							<td>Expired</td>
+							<td>
+								<a class="email btn-small" name="modal" href="#modal-send-email"><span class="lnr lnr-envelope"></span> Send Email</a>
+                                <a class="withdraw btn-small" name="modal" href="#modal-withdraw"><span class="lnr lnrcustom-withdraw"></span> Withdraw</a>
+                                <a class="reset btn-small disabled" name="modal" href="#modal-pw-reset"><span class="lnr lnr-lock"></span> Password Reset</a>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</section><!--// wrap -->
+	</div>
+
+	<div class="modal" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-backdrop"></div>
+		<div class="v-align">
+			<div class="v-align-cell">
+
+				<!-- Create User -->
+				<div class="modal-dialog large" id="modal-create-user">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="modal-close close"><span class="lnr lnr-cross"></span></button>
+							<h4 class="title-modal">Create User</h4>
+						</div>
+						<div class="modal-body">
+							<ul class="align-left">
+								<li class="wrap-column">
+									<label for="email-id" class="column col-label">Email ID <span class="red">*</span></label>
+									<input type="email" id="email-id" class="input-default"><!-- 미선택 시 invalid 클래스가 추가되도록 해주세요 -->
+									<!-- 에러메시지
+									<span class="err-color">Email ID를 입력해주세요.</span> -->
+								</li>
+								<li class="wrap-column">
+									<label for="group" class="column col-label">Company <span class="red">*</span></label>
+									<select class="select-default"><!-- 미선택 시 invalid 클래스가 추가되도록 해주세요 -->
+										<option selected disabled>Company</option>
+										<option>KINX</option>
+										<option>Amazon</option>
+										<option>Google</option>
+									</select>
+									<!-- 에러메시지
+									<span class="err-color">Company를 선택해주세요.</span> -->
+								</li>
+								<li class="wrap-column">
+									<label for="group" class="column col-label">Group <span class="red">*</span></label>
+									<select class="select-default">
+										<option selected>Admin Group (default)</option>
+										<option>group1group1gro</option>
+										<option>group2</option>
+									</select>
+								</li>
+							</ul>
+							<br>
+							Email ID 을 사용자로 초대하시겠습니까?
+						</div>
+						<div class="modal-footer">
+							<div class="btn-area divide">
+								<button type="button" class="modal-close btn-txt gray-lighten1">Cancel</button><!-- 팝업 닫는 버튼에 modal-close 클래스를 추가해주시면 됩니다 -->
+							</div>
+							<div class="btn-area divide">
+								<button type="button" class="btn-txt point">OK</button>
+							</div>
+						</div>
+
+						<!-- 로딩 중일 때 empty-mask 가 나타나도록 해주세요. -->
+						<div class="empty-mask" style="display:none">
+							<div class="ic_empty">
+								<div class="loading">
+									<svg width="100%" height="100%" x="0px" y="0px" viewBox="0 0 313.3 321.4" style="enable-background:new 0 0 313.3 321.4;" xml:space="preserve">
+									<path class="layer layer1" d="M157.1,0c3.8,0,7.9,1.5,11.4,3.2c45.6,21.1,91.2,42.4,136.7,63.8c3.3,1.5,8,2.1,8.1,7c0.1,5-4.7,5.6-7.9,7.1
+									  c-45.8,21.5-91.7,42.9-137.6,64.3c-7.4,3.4-14.8,3.5-22.2,0C99,123.6,52.3,101.9,5.8,80c-2.4-1.1-5.4-4-5.4-6c0-2,3.1-4.8,5.5-5.9
+									  C52.4,46.2,99.1,24.4,145.8,2.8C149.1,1.2,154.5,0,157.1,0z"/>
+									<path class="layer layer2" d="M156.6,235c-3.1,0-7.7-1.7-11.3-3.3c-46.5-21.6-93-43.3-139.4-65.1c-2.4-1.1-5.8-4.1-5.6-5.8c0.3-2.4,3.2-5,5.7-6.3
+									  c7.5-4,15.3-7.3,23-10.9c7.9-3.7,15.7-3.6,23.6,0.1c30.4,14.3,61,28.4,91.4,42.7c8.6,4.1,16.8,4,25.4-0.1
+									  c30.4-14.3,60.9-28.4,91.4-42.7c7.7-3.6,15.4-3.7,23.1-0.1c8.2,3.8,16.4,7.4,24.4,11.5c2.1,1.1,4.9,3.7,4.7,5.4
+									  c-0.2,2.1-2.7,4.8-4.9,5.9c-46.8,22.1-93.7,44-140.7,65.8C164.2,233.5,159.9,235,156.6,235z"/>
+									<path class="layer layer3" d="M156.8,321.4c-4.6,0-9.3-2.3-13.4-4.2c-45.2-20.9-90.3-42-135.4-63.1c-3.3-1.5-8-2.1-8-7.1c0-5,3.8-5.5,7-7.1
+									  c13.9-6.5,14.9-6.5,21.8-9.8c8-3.8,16-3.7,24.1,0.1c29.9,14,59.8,27.7,89.6,41.9c9.6,4.6,18.5,4.7,28.2,0.1
+									  c29.8-14.2,59.8-27.9,89.6-41.9c8.2-3.9,16.3-4,24.5,0c7.8,3.8,15.8,7.2,23.5,11.1c2.1,1.1,4.8,3.3,4.8,5.4
+									  c-0.1,2.4-2.7,4.8-4.9,5.9c-32.2,15.3-64.5,30.3-96.8,45.4c-13.9,6.5-27.7,13.1-41.7,19.3C165.7,319.2,161.5,321.4,156.8,321.4z"/>
+									</svg>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+
+				<!-- 이메일 입력칸 5개 테스트 -->
+				<div class="modal-dialog large" id="modal-create-company">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="modal-close close"><span class="lnr lnr-cross"></span></button>
+							<h4 class="title-modal">Create Company</h4>
+						</div>
+						<div class="modal-body">
+							<ul class="align-left">
+								<li class="wrap-column">
+									<label for="email-id" class="column col-label">Company <span class="red">*</span></label>
+									<input type="email" id="email-id" class="input-default"><!-- 미선택 시 invalid 클래스가 추가되도록 해주세요 -->
+									<!-- 에러메시지
+									<span class="err-color">Email ID를 입력해주세요.</span> -->
+								</li>
+
+								<li class="wrap-column">
+									<label for="email-id" class="column col-label">Email <span class="red">*</span></label>
+									<input type="email" id="email-id" class="input-default" placeholder="abc@gmail.com"><!-- 미선택 시 invalid 클래스가 추가되도록 해주세요 -->
+									<input type="email" class="input-default" placeholder="abc@gmail.com">
+									<input type="email" class="input-default" placeholder="abc@gmail.com">
+									<input type="email" class="input-default" placeholder="abc@gmail.com">
+									<input type="email" class="input-default" placeholder="abc@gmail.com">
+									<small class="gray-lighten1">이메일은 최대 5개까지 입력 가능합니다.</small>
+									<!-- 에러메시지
+									<span class="err-color">Email ID를 입력해주세요.</span> -->
+								</li>
+							</ul>
+							<br>
+							회사를 초대하시겠습니까?
+						</div>
+						<div class="modal-footer">
+							<div class="btn-area divide">
+								<button type="button" class="modal-close btn-txt gray-lighten1">Cancel</button><!-- 팝업 닫는 버튼에 modal-close 클래스를 추가해주시면 됩니다 -->
+							</div>
+							<div class="btn-area divide">
+								<button type="button" class="btn-txt point">OK</button>
+							</div>
+						</div>
+
+						<!-- 로딩 중일 때 empty-mask 가 나타나도록 해주세요. -->
+						<div class="empty-mask" style="display:none">
+							<div class="ic_empty">
+								<div class="loading">
+									<svg width="100%" height="100%" x="0px" y="0px" viewBox="0 0 313.3 321.4" style="enable-background:new 0 0 313.3 321.4;" xml:space="preserve">
+									<path class="layer layer1" d="M157.1,0c3.8,0,7.9,1.5,11.4,3.2c45.6,21.1,91.2,42.4,136.7,63.8c3.3,1.5,8,2.1,8.1,7c0.1,5-4.7,5.6-7.9,7.1
+									  c-45.8,21.5-91.7,42.9-137.6,64.3c-7.4,3.4-14.8,3.5-22.2,0C99,123.6,52.3,101.9,5.8,80c-2.4-1.1-5.4-4-5.4-6c0-2,3.1-4.8,5.5-5.9
+									  C52.4,46.2,99.1,24.4,145.8,2.8C149.1,1.2,154.5,0,157.1,0z"/>
+									<path class="layer layer2" d="M156.6,235c-3.1,0-7.7-1.7-11.3-3.3c-46.5-21.6-93-43.3-139.4-65.1c-2.4-1.1-5.8-4.1-5.6-5.8c0.3-2.4,3.2-5,5.7-6.3
+									  c7.5-4,15.3-7.3,23-10.9c7.9-3.7,15.7-3.6,23.6,0.1c30.4,14.3,61,28.4,91.4,42.7c8.6,4.1,16.8,4,25.4-0.1
+									  c30.4-14.3,60.9-28.4,91.4-42.7c7.7-3.6,15.4-3.7,23.1-0.1c8.2,3.8,16.4,7.4,24.4,11.5c2.1,1.1,4.9,3.7,4.7,5.4
+									  c-0.2,2.1-2.7,4.8-4.9,5.9c-46.8,22.1-93.7,44-140.7,65.8C164.2,233.5,159.9,235,156.6,235z"/>
+									<path class="layer layer3" d="M156.8,321.4c-4.6,0-9.3-2.3-13.4-4.2c-45.2-20.9-90.3-42-135.4-63.1c-3.3-1.5-8-2.1-8-7.1c0-5,3.8-5.5,7-7.1
+									  c13.9-6.5,14.9-6.5,21.8-9.8c8-3.8,16-3.7,24.1,0.1c29.9,14,59.8,27.7,89.6,41.9c9.6,4.6,18.5,4.7,28.2,0.1
+									  c29.8-14.2,59.8-27.9,89.6-41.9c8.2-3.9,16.3-4,24.5,0c7.8,3.8,15.8,7.2,23.5,11.1c2.1,1.1,4.8,3.3,4.8,5.4
+									  c-0.1,2.4-2.7,4.8-4.9,5.9c-32.2,15.3-64.5,30.3-96.8,45.4c-13.9,6.5-27.7,13.1-41.7,19.3C165.7,319.2,161.5,321.4,156.8,321.4z"/>
+									</svg>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+
+
+				<!-- Create User step2 버튼이 하나인 팝업-->
+				<div class="modal-dialog" id="modal-withdraw">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="modal-close close"><span class="lnr lnr-cross"></span></button>
+							<h4 class="title-modal">탈퇴 완료</h4>
+						</div>
+						<div class="modal-body">
+							Email ID 가 탈퇴 처리되었습니다.
+						</div>
+						<div class="modal-footer">
+							<div class="btn-area">
+								<button type="button" class="modal-close btn-txt point">OK</button>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+				<!-- Password Reset 버튼이 두개인 팝업 -->
+				<div class="modal-dialog" id="modal-pw-reset">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="modal-close close"><span class="lnr lnr-cross"></span></button>
+							<h4 class="title-modal">Password Reset</h4>
+						</div>
+						<div class="modal-body">
+                            abc11@yopmail.com로<br>
+                            비밀번호 초기화 메일을 발송하시겠습니까?
+						</div>
+						<div class="modal-footer">
+							<div class="btn-area divide">
+								<button type="button" class="modal-close btn-txt gray-lighten1">Cancel</button>
+							</div>
+							<div class="btn-area divide">
+								<button type="button" class="btn-txt point">OK</button>
+							</div>
+						</div>
+					</div>
+				</div>
+
+                <!-- Send Email 버튼이 두개인 팝업 -->
+				<div class="modal-dialog" id="modal-send-email">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="modal-close close"><span class="lnr lnr-cross"></span></button>
+							<h4 class="title-modal">Send Email</h4>
+						</div>
+						<div class="modal-body">
+                            abc11@yopmail.com로<br>
+                            인증 메일을 재발송하시겠습니까?
+						</div>
+						<div class="modal-footer">
+							<div class="btn-area divide">
+								<button type="button" class="modal-close btn-txt gray-lighten1">Cancel</button>
+							</div>
+							<div class="btn-area divide">
+								<button type="button" class="btn-txt point">OK</button>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div><!--// modal -->
+
+	<a class="btn-top" title="go to top"><i class="fa fa-chevron-up" aria-hidden="true"></i></a>
+	<footer class="footer">
+		<span class="terms"><a href="terms_service.html" class="link">서비스 이용 약관</a> | <a href="terms_privacy.html" class="link"><strong>개인정보 취급방침</strong></a></span>
+		<span class="copyright">© A2 COMPANY ALL RIGHTS RESERVED.</span>
+	</footer>
+
+	<script>
+		// table_ec2 sort ascending
+		$('#table_user_list').DataTable({
+			dom: '<".collection-filter"lf>rtip',
+			"lengthMenu": [ 20, 50, 100 , 200 ],
+			"iDisplayLength": 100,
+			//"scrollY": "400px",
+			"scrollX": true,
+			"language": {
+				"lengthMenu": "_MENU_",
+				"info": "_START_ - _END_ of _TOTAL_ (_PAGE_/_PAGES_)",
+				"paginate": {
+					"previous": "<i class='fa fa-chevron-left' aria-hidden='true'></i>",
+					"next": "<i class='fa fa-chevron-right' aria-hidden='true'></i>"
+				}
+			},
+			"columnDefs": [
+				{ "orderable": false, "targets": 4 }
+			]
+		});
+		$('div.dataTables_length select').addClass('buttons-colvis');
+	</script>
+
+</body>
+</html>

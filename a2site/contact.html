@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="robots" content="all">
+	<title>CONTACT - A2 COMPANY</title>
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="viewport" content="initial-scale=1,maximum-scale=1, width=device-width">
+
+	<link href="img/ic_apple_180.png" rel="apple-touch-icon" sizes="180x180">
+	<link href="img/favicon.ico" rel="shortcut icon" type="image/x-icon">
+	<link href="img/favicon.ico" rel="icon" type="image/x-icon">
+	<link href="css/common.css" type="text/css" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:800,400" rel="stylesheet" type="text/css">
+	<!--[if lt IE 9]>
+	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+	<![endif]-->
+
+	<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	  ga('create', 'UA-103564483-1', 'auto');
+	  ga('send', 'pageview');
+	</script>
+</head>
+<body>
+	<header>
+		<div class="wrap-1140">
+			<div class="row">
+				<div class="grid-col-6">
+					<h1><a href="index.html" class="img-logo hidden-font">A2 COMPANY</a></h1>
+				</div>
+				<div class="grid-col-6 align-right">
+					<div class="btn-menu">
+						<div class="menu">
+							<span class="top"></span>
+							<span class="middle"></span>
+							<span class="bottom"></span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+
+	<section id="menu">
+		<h2 class="hidden-element">navigation</h2>
+		<div class="vertical-center">
+			<div class="wrap-1140 vertical-center-inner">
+				<nav class="nav">
+					<ul class="nav-list">
+						<li><a class="link-slash" href="index.html">Home</a></li>
+						<li><a class="link-slash" href="about.html">About</a></li>
+						<li><a class="link-slash" href="contact.html">Contact</a></li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+	</section>
+
+	<section class="cover bgcontact">
+		<div class="wrap-1140 vertical-center">
+			<div class="vertical-center-inner">
+				<h2 class="title-page">Contact</h2>
+			</div>
+		</div>
+	</section>
+
+	<div class="wrap">
+		<section id="contact" class="section center">
+			<div class="wrap-1140">
+				<ul class="list-contact row">
+					<li class="grid-col-4">
+						<h3 class="title-sub">TEL / FAX</h3>
+						<address class="list-detail">
+							<p>PHONE. 070 4325 8411</p>
+							<p>FAX. 070 4325 7348</p>
+						</address>
+					</li>
+					<li class="grid-col-4">
+						<h3 class="title-sub">ADDRESS</h3>
+						<address class="list-detail">
+							<p>서울시 강남구 영동대로85길 30, 4층 (대치동, 은탑타워Ⅱ) 06180</p>
+							<p>4th Floor, 30, Yeongdong-daero 85-gil, Gangnam-gu, Seoul, Korea 06180</p>
+						</address>
+					</li>
+					<li class="grid-col-4">
+						<h3 class="title-sub">EMAIL</h3>
+						<address class="list-detail">
+							<p><a href="mailto:contact@a2company.co.kr" class="list-detail">contact@a2company.co.kr</a></p>
+						</address>
+					</li>
+				</ul>
+			</div>
+		</section>
+
+		<div id="map" style="width:100%"></div>
+
+		<footer>
+			<div class="wrap-1140">
+				<div class="row">
+					<div class="grid-col-9">
+						<p class="copyright">Copyright ⓒ 2016 A2 Company <span class="inline-block">ALL RIGHTS RESERVED. </span></p>
+					</div>
+				</div>
+				<a class="btn-top hidden-font" title="go to top">go to top</a>
+			</div>
+		</footer>
+	</div>
+	<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3"></script>
+	<script type="text/javascript" src="js/script.js"></script>
+	<script type="text/javascript" src="js/common.js"></script>
+  <script>
+		$(window).resize(function(){
+			mapHeight();
+		});
+
+		//scroll reveal
+		window.sr = ScrollReveal();
+
+		if (navigator.appVersion.indexOf("Win")!=-1) { //windows os
+			if (navigator.userAgent.indexOf('Safari') == -1 || navigator.userAgent.indexOf('Chrome') != -1) { //not safari browser
+				if (sr.isSupported()) {
+					document.documentElement.classList.add('sr');
+				}
+				sr.reveal('.title-page', titleReveal);
+			} else { //safari
+				$('.title-page').css('visibility','visible');
+			}
+		} else {
+			if (sr.isSupported()) {
+				document.documentElement.classList.add('sr');
+			}
+			sr.reveal('.title-page', titleReveal);
+		}
+  </script>
+</body>
+</html>

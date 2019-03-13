@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta cherset="ute-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="robots" content="all">
+	<title>Get Started :: LG SmartHome Developer</title>
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no, width=device-width">
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+
+	<link type="text/css" rel="stylesheet" href="css/materialize.css">
+	<link type="text/css" rel="stylesheet" href="css/common.css">
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:700,600,400' rel='stylesheet' type='text/css'>
+
+	<!--[if lt IE 9]>
+	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+	<![endif]-->
+</head>
+<body>
+	<header>
+		<!--
+		<div class="unsupported_bar">
+			<div class="container clearfix">IE 10 버전 이상에 최적화 되어 있습니다. 브라우저 업데이트를 권장합니다.<a id="close_unsupported_bar" class="right close"></a></div>
+		</div>
+		-->
+		<div class="main_header">
+			<div class="container">
+				<h1><a href="index.html"><img src="img/logo_smarthome_dev.png" alt="LG Smart Home Developer"></a></h1>
+				<div class="header_menu">
+
+					<div class="dropdown slideright">
+						<a class="myaccount down">test@lge.com</a>
+						<ul class="dropdown_content btnlist clearfix">
+							<li><a href="profile.html">Profile</a></li>
+							<li><a>Sign out</a></li>
+						</ul>
+					</div><!--// dropdown-->
+
+					<div class="dropdown">
+						<a class="nav_more hidden_font">more</a>
+						<dl class="dropdown_content clearfix">
+							<dt>Link</dt>
+							<dd><a href="http://developer.lge.com" class="link_site" target="_blank">LG Developer</a></dd>
+							<dt>Language</dt>
+							<dd>
+								<select class="select_default">
+									<option selected>English</option>
+									<option>Korea</option>
+								</select>
+							</dd>
+						</dl>
+					</div><!--// dropdown-->
+
+				</div><!--// header_menu-->
+			</div>
+		</div>
+	</header>
+
+	<div class="navbar_wrap">
+		<div class="navbar">
+			<div class="container">
+				<ul class="navlist left">
+					<li><a href="get_started.html" class="current">Get Started</a></li>
+					<li><a href="supported_products.html">Supported Products</a></li>
+					<li><a href="apis_overview.html">APIs</a></li>
+					<li><a href="sdks.html">SDKs</a></li>
+					<li><a href="alljoyn.html">Alljoyn</a></li>
+				</ul>
+				<ul class="navlist right">
+					<li><a href="myservices.html">My Services</a></li>
+					<li><a href="virtual_test_lab.html">Virtual Test Lab</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div class="content">
+	<div class="wrap_content">
+
+		<div class="expand_content">
+			<div class="container row">
+				<div class="col s8">
+					<h2 class="title_expand">Get Started with<br>LG SmartHome Developers</h2>
+					<p class="sub_txt2">API, SDK를 통한 서비스 개발 및 Virtual Test를 위해<br>필요한 아래 6가지 가이드로 개발을 시작해 보세요.</p>
+				</div>
+				<div class="col s4 right-align">
+					<img src="img/img_started.png" alt="" class="img_main img_started">
+				</div>
+			</div>
+		</div>
+
+		<div class="container">
+			<ul class="started_list">
+				<li class="mt0 row flexbox">
+					<span class="badge_started_list">1</span>
+					<div class="col s6">
+						<h3 class="title_m">Check out the Supported Products</h3>
+						<p>현재 준비중인 서비스(어플리케이션)에 연동할<br>LG 스마트 제품의 종류, 모델, 기능을 먼저 확인해 주세요.</p><br>
+						<ul class="list_check">
+							<li>제휴 내용에 따라 지원되는 제품 종류는 다를 수 있습니다.</li>
+							<li>제품의 안전을 위해 일부 기능은 원격 제어가 제한됩니다.</li>
+						</ul><br>
+						<a class="link">Supported Products 보기<span class="icon arrow"></span></a>
+
+					</div>
+					<figure class="col s6 center flexbottom">
+						<img src="img/img_started_guide1.png" alt="" class="img_started_list">
+					</figure>
+				</li>
+
+				<li class="row flexcenter">
+					<span class="badge_started_list">2</span>
+					<figure class="col s6 center">
+						<img src="img/img_started_guide2.png" alt="" class="img_started_list">
+					</figure>
+					<div class="col s6">
+						<h3 class="title_m">Create Service ID</h3>
+						<p>개발을 진행하기 위해서는 Service 생성이 반드시 필요합니다.<br><br>Service 생성 시, Service ID가 부여되고<br>이는 지원제품, 대상국가, 개발환경 등을 규정하는<br>Key 값으로 사용됩니다.</p><br>
+						<ul class="list_check">
+							<li>Service ID는 최대 20개까지 생성이 가능합니다.</li>
+							<li>계정 등급(Admin/Developer)에 따라서 Service 생성이 제한될 수 있습니다.</li>
+						</ul><br>
+						<a class="link">Service ID 생성하기<span class="icon arrow"></span></a>
+					</div>
+				</li>
+
+				<li class="row flexcenter">
+					<span class="badge_started_list">3</span>
+					<div class="col s6">
+						<h3 class="title_m">Connect User to Service ID</h3>
+						<p>생성한 Service ID에 LG 스마트 제품을 연동하려면<br>그 제품을 등록한 User 정보가 필요합니다.<br><br>필요한 User 정보 (Session ID, Session Key)는 <br>User API에서 생성할 수 있습니다.</p><br>
+						<a class="link">Supported Products 보기<span class="icon arrow"></span></a>
+					</div>
+					<figure class="col s6 center">
+						<img src="img/img_started_guide3.png" alt="" class="img_started_list">
+					</figure>
+				</li>
+
+				<li class="row">
+					<span class="badge_started_list">4</span>
+					<h3 class="col s6 offset-s6 title_m">Develop by API/SDK</h3>
+					<ul class="sub_list">
+						<li class="row">
+							<div class="col s6">
+								<figure>
+									<img src="img/img_started_guide4-1.png" alt="" class="img_started_list">
+									<figcaption>Supported Products &amp; Features</figcaption>
+								</figure>
+							</div>
+							<div class="col s6">
+								<p>LG 스마트 제품의 연동, 연동된 제품의 상태조회 및 제어 등등은<br>각각의 API/SDK를 이용합니다.<br><br>제품에서 사용 할 수 있는 Function Set 은<br>해당 제품의 Features 에서 확인 후 입력해 주세요.</p><br>
+								<a class="link">Supported Features 확인하기<span class="icon arrow"></span></a>
+							</div>
+						</li>
+						<li class="row">
+							<div class="col s6">
+								<figure>
+									<img src="img/img_started_guide4-2.png" alt="" class="img_started_list">
+									<figcaption>Open API</figcaption>
+								</figure>
+							</div>
+							<div class="col s6">
+								<p>각 API 별로 정의된 Parameter 값과 예제를 확인 후,<br>Try (Test) 를 해 보면서 프로그래밍의 정합 여부를 확인해 보세요.</p><br>
+								<ul class="list_check">
+									<li>API는 Service ID 별로 등록된 User 및 Product 단위로<br>세부 테스트가 가능합니다.</li>
+								</ul><br>
+								<a class="link">API Reference 확인하기<span class="icon arrow"></span></a>
+							</div>
+						</li>
+						<li class="row">
+							<div class="col s6">
+								<figure>
+									<img src="img/img_started_guide4-3.png" alt="" class="img_started_list">
+									<figcaption>SDK</figcaption>
+								</figure>
+							</div>
+							<div class="col s6">
+								<p>SDK는 플랫폼 (iOS, Android, HTML) 별로 준비되어 있습니다.<br>적합한 SDK를 다운로드 후 진행해 주세요.</p><br>
+								<a class="link">SDK 다운로드하기<span class="icon arrow"></span></a>
+							</div>
+						</li>
+					</ul>
+				</li>
+
+				<li class="row">
+					<span class="badge_started_list">5</span>
+					<div class="col s6">
+						<h3 class="title_m">Test by Virtual Product</h3>
+						<p>Virtual Test Lab에서는 <br>실제 제품의 주요 기능이 동일하게 동작하는 "가상 제품"과<br>이를 제어할 수 있는 'Emulator'를 제공합니다.<br><br>API 및 SDK를 이용해 개발이 완료되면, <br>Virtual Test Lab에서 제품이 제대로 동작하는지 확인해 보세요.</p><br>
+						<a class="link">Virtual Test Lab 가기<span class="icon arrow"></span></a>
+					</div>
+					<figure class="col s6 center">
+						<img src="img/img_started_guide5.png" alt="" class="img_started_list">
+					</figure>
+				</li>
+
+				<li class="row flexcenter">
+					<span class="badge_started_list">6</span>
+					<figure class="col s6 center">
+						<img src="img/img_started_guide6.png" alt="" class="img_started_list">
+					</figure>
+					<div class="col s6">
+						<h3 class="title_m">Submit for Review</h3>
+						<p>서비스(어플리케이션) 런칭에 필요한 준비가 마무리되면, <br>Service를 OP환경으로 새로 생성한 후 관리자에게 승인 요청을 해 주세요.<br><br>승인이 완료되면 서비스(어플리케이션)를 바로 런칭 할 수 있습니다. </p><br>
+						<div style="padding:15px;background:#f5f5f5;border-radius:7px;">
+							<strong>승인 진행 단계</strong>
+							<div class="wrap_step">
+								<span class="approval_step"><span>승인 요청</span></span><span class="status_next"></span>
+								<span class="approval_step"><span>관리자 검증</span></span><span class="status_next"></span>
+								<span class="approval_step"><span>승인 완료</span></span><span class="status_next"></span>
+								<span class="approval_step"><span>서비스 런칭</span></span>
+							</div>
+							각 단계별로 승인 진행 현황에 대한 안내 메일을 발송하며,<br>현재 단계에 대한 상태는 <a class="link">'My Service'</a> 목록에서 확인이 가능합니다.
+						</div>
+					</div>
+				</li>
+
+				<li class="row flexcenter">
+					<span class="badge_started_list">7</span>
+					<div class="col s6">
+						<h3 class="title_m">Launch</h3>
+						<p>
+							최종 승인이 완료되면, 서비스(어플리케이션)를 런칭할 수 있습니다.<br><br>
+							단, 고객이 제품을 연결해서 서비스(어플리케이션)를 이용하려면,<br>미리 LG Account에 제품 등록이 되어 있어야 합니다.<br><br>
+							아래의 단계를 고객에게 가이드 해주시고, <br>필요한 화면은 런칭 한 서비스(어플리케이션)에 함께 제공해 주세요.
+						</p>
+					</div>
+					<figure class="col s6 center">
+						<img src="img/img_started_guide7.png" alt="" class="img_started_list">
+					</figure>
+				</li>
+			</ul>
+
+			<div class="started_list_subbox">
+				<h4 class="started_list_subbox_title">1. 고객에게 미리 알려주세요!</h4>
+				<div class="row">
+					<div class="col s8">
+						<h5 class="bold_txt mb10">LG Account에 제품 등록하기</h5>
+						<p>LG 스마트 제품은 구매 후 LG Account에 제품을 등록해야 원격 제어가 가능합니다.<br>제품의 모바일 앱을 통해 LG Account 를 가입한 후 제품을 등록해 주세요.</p>
+					</div>
+					<figure class="col s4 left-align">
+						<img src="img/img_started_guide7-1.png" alt="" class="block">
+					</figure>
+				</div>
+			</div><!--// started_list_subbox -->
+
+			<div class="started_list_subbox">
+				<h4 class="started_list_subbox_title">2. 서비스 (어플리케이션)에 적용해 주세요!</h4>
+				<div class="row">
+					<div class="col s4">
+						<h5 class="bold_txt"><span class="sub_step_txt">Step 1</span><br> LG Account 로그인하기</h5>
+						<img src="img/img_started_screen1.png" alt="" class="img_screen">
+						<p>제품을 등록한 LG Account 로 로그인 할 수 있도록 ID/PW 입력창을 제공해 주세요.</p><br>
+						<ul class="list_check">
+							<li>ID/PW 입력창 API는 SDK 문서를 통해 확인이 가능합니다.</li>
+						</ul><br>
+						<a class="link">SDK 다운로드 하기<span class="icon arrow"></span></a>
+					</div>
+					<div class="col s4">
+						<h5 class="bold_txt"><span class="sub_step_txt">Step 2</span><br> 정보 제공 동의 받기</h5>
+						<img src="img/img_started_screen1.png" alt="" class="img_screen">
+						<p>로그인이 완료되면, LG 스마트 제품을 통해 추가로 수급/제공되는 정보에 대한 별도 '동의' 절차를 진행합니다.</p>
+					</div>
+					<div class="col s4">
+						<h5 class="bold_txt"><span class="sub_step_txt">Step 3</span><br> 연결 가능한 제품 목록 보여주기</h5>
+						<img src="img/img_started_screen3.png" alt="" class="img_screen">
+						<p>동의까지 마무리가 되면, 해당 LG Account에 등록된 제품 목록을 불러올 수 있습니다.<br>이 목록에서 고객은 서비스 (어플리케이션)에 연결하고 싶은 제품을 선택해서 이용할 수 있습니다.</p><br>
+						<ul class="list_check">
+							<li>연결 가능한 제품 목록 API는 API  Reference에서 확인이 가능합니다.</li>
+						</ul><br>
+						<a class="link">API Reference 확인하기<span class="icon arrow"></span></a>
+					</div>
+				</div><!--// row -->
+			</div><!--// started_list_subbox -->
+			<p style="padding:0 40px;">추가 궁금하신 사항은 관리자에게 문의해 주세요.<br>관리자 이메일 : lgsmarthomedevs@lge.com</p>
+
+
+		</div><!--// container -->
+	</div><!--// wrap_content -->
+	</div><!--// content -->
+
+	<span class="hidden_font btn_top" style="display:none;">go to top</span>
+	<footer>
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<img src="img/logo_lg_footer.png" class="img_footer_logo" alt="LG logo">
+				</div>
+				<div class="col">
+					<p class="copyright">COPYRIGHT ⓒ 2015 LG ELECTRONICS.<br>ALL RIGHTS RESERVED.</p>
+				</div>
+				<div class="col right">
+					<div class="termslist">
+						<p class="">TERMS & CONDITIONS<br>[ <a href="terms_global.html">Global</a> / <a href="terms.html">KOR</a> ]</p>
+					</div>
+					<div class="termslist">
+						<p class="">PRIVACY<br>[ <a href="terms_privacy.html">Global</a> / <a href="terms_privacy_global.html">개인정보처리방침</a> / <a href="terms_privacy_global.html">개인정보취급방침</a> ]</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+	<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+	<script type="text/javascript" src="js/materialize.js"></script>
+	<script type="text/javascript" src="js/retina.min.js"></script>
+	<script type="text/javascript" src="js/common.js"></script>
+
+
+	<script>
+	//main img fade in
+	setTimeout(function(){
+        $('.img_main').css({'opacity':1,'top': 0});
+    },300);
+
+	//started list img scrollFire
+	/*var options = [
+		//{selector: '#img_started_list01', offset: 0, callback: 'Materialize.fadeInImage("#img_started_list01")' },
+		{selector: '#img_started_list02', offset: 200, callback: 'Materialize.fadeInImage("#img_started_list02")' },
+		{selector: '#img_started_list03', offset: 200, callback: 'Materialize.fadeInImage("#img_started_list03")' },
+		{selector: '#img_started_list04', offset: 200, callback: 'Materialize.fadeInImage("#img_started_list04")' },
+		{selector: '#img_started_list05', offset: 200, callback: 'Materialize.fadeInImage("#img_started_list05")' },
+		{selector: '#img_started_list06', offset: 200, callback: 'Materialize.fadeInImage("#img_started_list06")' },
+		{selector: '#img_started_list07', offset: 200, callback: 'Materialize.fadeInImage("#img_started_list07")' },
+		{selector: '#img_started_list08', offset: 200, callback: 'Materialize.fadeInImage("#img_started_list08")' }
+	];
+	Materialize.scrollFire(options);*/
+
+	</script>
+</body>
+</html>

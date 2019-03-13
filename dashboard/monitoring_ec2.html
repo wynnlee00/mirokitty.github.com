@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="robots" content="all">
+	<title>Monitoring / EC2</title>
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no, width=device-width">
+	<meta name="description" content="">
+
+	<link href="" rel="apple-touch-icon-precomposed" sizes="180x180">
+	<link href="" rel="shortcut icon" type="image/x-icon">
+	<link href="" rel="icon" type="image/x-icon">
+	<link rel="stylesheet" href="css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/linearicons.css">
+	<link rel="stylesheet" href="css/bootstrap-dropdown.css" />
+	<link rel="stylesheet" href="css/common.css" type="text/css">
+	<link href="https://fonts.googleapis.com/css?family=Rubik:400,500,700" rel="stylesheet">
+
+	<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="js/datatables/jquery.dataTables.js"></script>
+	<script type="text/javascript" src="js/datatables/dataTables.buttons.min.js"></script>
+	<script type="text/javascript" src="js/datatables/jszip.min.js"></script>
+	<script type="text/javascript" src="js/datatables/pdfmake.min.js"></script>
+	<script type="text/javascript" src="js/datatables/vfs_fonts.js"></script>
+	<script type="text/javascript" src="js/datatables/buttons.flash.min.js"></script>
+	<script type="text/javascript" src="js/datatables/buttons.html5.min.js"></script>
+	<script type="text/javascript" src="js/datatables/buttons.print.min.js"></script>
+	<script type="text/javascript" src="js/datatables/buttons.colVis.min.js"></script>
+
+	<!-- Date Range Picker -->
+	<script type="text/javascript" src="js/daterangepicker/moment.min.js"></script>
+	<script type="text/javascript" src="js/daterangepicker/daterangepicker.js"></script>
+
+    <script type="text/javascript" src="js/common.js"></script>
+
+	<!--[if lt IE 9]>
+	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+	<![endif]-->
+</head>
+<body>
+	<aside class="leftbar">
+		<h1 class="leftbar-logo"><img src="img/logo_a2_leftbar.svg" alt="A2 COMPANY" class="leftbar-logo-img"></h1>
+		<nav class="nav-leftbar">
+			<ul>
+				<li><a class="title-nav-leftbar haschild">Cost</a>
+					<ul class="nav-leftbar-sub">
+						<li><a href="cost_summary.html" class="title-nav-leftbar-dept-2"><u>Summary</u></a></li>
+						<li><a href="cost_detail.html" class="title-nav-leftbar-dept-2"><u>Detail</u></a></li>
+						<li><a class="title-nav-leftbar-dept-2">RI Utilization</a></li>
+						<li><a class="title-nav-leftbar-dept-2">Right Sizing</a></li>
+						<li><a href="cost_invioce.html" class="title-nav-leftbar-dept-2"><u>Invoice</u></a></li>
+					</ul>
+				</li>
+				<li><a class="title-nav-leftbar haschild">Asset</a>
+					<ul class="nav-leftbar-sub">
+						<li><a href="asset_summary.html" class="title-nav-leftbar-dept-2"><u>Summary</u></a></li>
+						<li><a class="title-nav-leftbar-dept-2 haschild"><u>Detail</u></a>
+							<ul class="nav-leftbar-sub">
+								<li><a href="asset_detail_ec2.html" class="title-nav-leftbar-dept-3 ic"><i class="ic-nav ec2"></i><u>EC2</u></a></li>
+								<li><a class="title-nav-leftbar-dept-3 ic"><i class="ic-nav rds"></i>RDS</a></li>
+								<li><a class="title-nav-leftbar-dept-3 ic"><i class="ic-nav elb"></i>ELB</a></li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+				<li class="open current"><a class="title-nav-leftbar haschild">Monitoring</a>
+					<ul class="nav-leftbar-sub" style="display:block;opacity:1;">
+						<li><a href="monitoring_alarm.html" class="title-nav-leftbar-dept-2"><u>Alarm</u></a></li>
+						<li class="current"><a href="monitoring_ec2.html" class="title-nav-leftbar-dept-2 ic"><i class="ic-nav ec2"></i><u>EC2</u></a></li>
+						<li><a class="title-nav-leftbar-dept-2 ic"><i class="ic-nav rds"></i>RDS</a></li>
+						<li><a class="title-nav-leftbar-dept-2 ic"><i class="ic-nav elb"></i>ELB</a></li>
+					</ul>
+				</li>
+				<li><a class="title-nav-leftbar haschild">Account</a>
+					<ul class="nav-leftbar-sub">
+						<li><a href="account_user_list.html" class="title-nav-leftbar-dept-2"><u>User List</u></a></li>
+						<li><a href="account_aws_list.html" class="title-nav-leftbar-dept-2"><u>AWS Account List</u></a></li>
+						<li><a class="title-nav-leftbar-dept-2">Group List</a></li>
+						<li><a class="title-nav-leftbar-dept-2">Change Password</a></li>
+					</ul>
+				</li>
+			</ul>
+		</nav>
+	</aside>
+
+	<div class="content-header">
+		<div class="topbar">
+			<div class="float-right">
+				<div class="topbar-btn">
+					<a class="topbar-account"><span class="ic_account"></span>a2_awsadmin</a>
+					<ul class="account-menu">
+						<li><a href="account_aws_list.html">My Account</a></li>
+						<li><a href="#">Sign out</a></li>
+					</ul>
+				</div>
+				<ul class="topbar-btn clearfix">
+					<li class="topbar-lang">
+						<a class="current">EN</a>
+					</li>
+					<li class="topbar-lang">
+						<a href="#">KR</a>
+					</li>
+				</ul>
+		        <div class="topbar-btn">
+		            <a class="topbar-help" href="../guide/guide_signup.html" target="_blank"><i class="fa fa-question-circle" aria-hidden="true"></i> HELP</a>
+		        </div>
+			</div>
+		</div><!--// toppbar -->
+	</div>
+
+	<div class="content-body">
+		<div class="fullbox">
+			<h2 class="title-header">EC2</h2>
+			<div class="header-body clearfix">
+                <ul class="header-filter">
+					<li class="selectbox">
+						<span class="label">AWS Account</span>
+						<div class="selectwrap account">
+							<a class="select-default" name="dropdown">aws_kim(691531078301)</a>
+							<div class="dropselectbox">
+								<ul class="dropselect clearfix">
+									<li class="dept1"><input type="checkbox" id="service-all"><label for="service-all">All</label></li>
+									<li class="dept1"><input type="checkbox" id="service-1" checked><label for="service-1">aws_kim(691531078301)</label>
+										<ul>
+											<li class="dept2"><input type="checkbox" id="service-2"><label for="service-2">aws_park1(691123478302)</label></li>
+											<li class="dept2"><input type="checkbox" id="service-3"><label for="service-3">aws_lee(691531078304)</label></li>
+										</ul>
+									</li>
+									<li class="dept1"><input type="checkbox" id="service-4"><label for="service-4">aws_park(691232348302)</label>
+										<ul>
+											<li class="dept2"><input type="checkbox" id="service-5"><label for="service-5">aws_park2(691531078302)</label></li>
+										</ul>
+									</li>
+									<li class="dept1"><input type="checkbox" id="service-6"><label for="service-6">aws_lee33(691531065404)</label></li>
+									<li class="dept1"><input type="checkbox" id="service-7"><label for="service-7">aws_jung(691531078301)</label></li>
+								</ul>
+							</div>
+						</div>
+					</li>
+					<li class="selectbox">
+						<span class="label">Time</span>
+						<div class="selectwrap">
+							<a class="select-default" name="dropdown">Last hours</a>
+							<div class="dropselectbox">
+								<ul class="dropselect clearfix">
+									<li class="opt">Last hours</li>
+									<li class="opt">Last 3hours</li><!-- 선택 불가 항목이 있다면 disabled 클래스 추가해주세요 -->
+								</ul>
+							</div>
+						</div>
+                    </li>
+				</ul>
+                <div class="update-time">
+                    <span>2017-06-08</span> 기준
+                </div>
+			</div>
+		</div>
+		<section class="wrap">
+			<div class="box box-cont">
+				<div class="row detail-row">
+					<div class="col-4">
+						<h3 class="title-box bb">CPU Utilization TOP5</h3>
+						<div id="top-cpu" style="width:100%;height:210px"></div>
+						<ul class="chart-legend line">
+							<li>i-00dd069d57210e1c9</li><!-- 선택 불가 항목이 있다면 dimmed 클래스 추가해주세요 -->
+							<li>i-00dd069d57210e1c8</li>
+							<li>i-00dd069d57210e1c7</li>
+							<li>i-00dd069d57210e1c6</li>
+							<li>i-00dd069d57210e1c5</li>
+						</ul>
+					</div>
+					<div class="col-4">
+						<h3 class="title-box bb">Network IN TOP5</h3>
+						<div id="top-in" style="width:100%;height:210px"></div>
+						<ul class="chart-legend line">
+							<li>i-00dd069d57210e1c9</li>
+							<li>i-00dd069d57210e1c8</li>
+							<li>i-00dd069d57210e1c7</li>
+							<li>i-00dd069d57210e1c6</li>
+							<li>i-00dd069d57210e1c5</li>
+						</ul>
+					</div>
+					<div class="col-4">
+						<h3 class="title-box bb">Network OUT TOP5</h3>
+						<div id="top-out" style="width:100%;height:210px"></div>
+						<ul class="chart-legend line">
+							<li>i-00dd069d57210e1c9</li>
+							<li>i-00dd069d57210e1c8</li>
+							<li>i-00dd069d57210e1c7</li>
+							<li>i-00dd069d57210e1c6</li>
+							<li>i-00dd069d57210e1c5</li>
+						</ul>
+					</div>
+				</div><!--// row -->
+			</div>
+
+			<script type="text/javascript" src="js/echarts/echarts.min.js"></script>
+			<script type="text/javascript">
+				var topCPU = echarts.init(document.getElementById('top-cpu'));
+				var topNetworkIn = echarts.init(document.getElementById('top-in'));
+				var topNetworkOut = echarts.init(document.getElementById('top-out'));
+
+				var optionCommon = {
+				    color : echart_color_palette15,
+				    tooltip : {
+				        trigger: 'axis',
+				        axisPointer: {
+				            type: 'cross',
+				            label: {
+				                textStyle: {
+				                    fontFamily: echart_fontFamily
+				                },
+				                backgroundColor: '#666'
+				            }
+				        },
+				        backgroundColor:echart_tooltip_backgroundColor,
+				        padding: echart_tooltip_padding,
+				        textStyle:{
+				            fontFamily:echart_fontFamily,
+				            fontSize:echart_tooltip_fontSize
+				        }
+				    },
+				    legend: {
+				        show: false,
+				        center : 'center',
+				        bottom: '8px',
+				        padding: [0, 50],
+				        itemWidth : 20,
+				        itemHeight : 10,
+				        textStyle : {
+				            fontFamily : echart_fontFamily,
+				            fontSize : '10',
+				            color : 'rgba(0,0,0,.5)'
+				        },
+				        data:['i-00dd069d57210e1c9','i-00dd069d57210e1c8','i-00dd069d57210e1c7','i-00dd069d57210e1c6','i-00dd069d57210e1c5']
+				    },
+				    grid: {
+				        left: '0px',
+				        right: '1px',
+				        top:'30px',
+				        bottom: '20px',
+				        containLabel: true,
+				        borderColor: '#e1e1e1'
+				    },
+				    xAxis : [
+				        {
+				            type : 'category',
+				            boundaryGap : true,
+				            axisTick : {
+				                show: false
+				            },
+				            axisLine: {
+				                show: false,
+				                lineStyle: {
+				                    color:'#bbb'
+				                }
+				            },
+				            splitLine: {
+				                show: true,
+				                lineStyle: {
+				                    type: 'dotted',
+				                    color:'#ddd'
+				                }
+				            },
+				            axisLabel: {
+				                textStyle: {
+				                    fontFamily:echart_fontFamily,
+				                    fontSize:10
+				                }
+				            },
+				            data : ['Time1','Time2','Time3']
+				        }
+				    ],
+				    yAxis : [
+				        {
+				            type : 'value',
+				            axisTick : {
+				                show: false
+				            },
+				            axisLine: {
+				                show: false,
+				                lineStyle: {
+				                    color:'#bbb'
+				                }
+				            },
+				            splitLine: {
+				                show: true,
+				                lineStyle: {
+				                    type: 'dotted',
+				                    color:'#ddd'
+				                }
+				            },
+				            axisLabel: {
+				                textStyle: {
+				                    fontFamily:echart_fontFamily,
+				                    fontSize:10
+				                }
+				            }
+				        }
+				    ],
+				    series : [
+				        {
+				            name:'i-00dd069d57210e1c9',
+				            type:'line',
+				            symbolSize: 6,
+				            itemStyle: {
+				                normal: {
+				                    borderColor:'#5f83e8',
+				                    borderWidth:2
+				                }
+				            },
+				            lineStyle:{
+				                normal: {
+				                    color:'#5f83e8'
+				                }
+				            },
+				            data:[20, 20, 30]
+				        },
+				        {
+				            name:'i-00dd069d57210e1c8',
+				            type:'line',
+				            symbolSize: 6,
+				            itemStyle: {
+				                normal: {
+				                    borderColor:'#99cccc',
+				                    borderWidth:2
+				                }
+				            },
+				            lineStyle:{
+				                normal: {
+				                    color:'#99cccc'
+				                }
+				            },
+				            data:[20, 10, 20]
+				        },
+				        {
+				            name:'i-00dd069d57210e1c7',
+				            type:'line',
+				            symbolSize: 6,
+				            itemStyle: {
+				                normal: {
+				                    borderColor:'#8454b2',
+				                    borderWidth:2
+				                }
+				            },
+				            lineStyle:{
+				                normal: {
+				                    color:'#8454b2'
+				                }
+				            },
+				            data:[40, 2, 10]
+				        },
+				        {
+				            name:'i-00dd069d57210e1c6',
+				            type:'line',
+				            symbolSize: 6,
+				            itemStyle: {
+				                normal: {
+				                    borderColor:'#f57399',
+				                    borderWidth:2
+				                }
+				            },
+				            lineStyle:{
+				                normal: {
+				                    color:'#f57399'
+				                }
+				            },
+				            data:[5, 3, 3]
+				        },
+				        {
+				            name:'i-00dd069d57210e1c5',
+				            type:'line',
+				            symbolSize: 6,
+				            itemStyle: {
+				                normal: {
+				                    borderColor:'#d2cabe',
+				                    borderWidth:2
+				                }
+				            },
+				            lineStyle:{
+				                normal: {
+				                    color:'#d2cabe'
+				                }
+				            },
+				            data:[1, 2, 1]
+				        }
+
+				    ]
+				};
+
+				topCPU.setOption(optionCommon);
+				topNetworkIn.setOption(optionCommon);
+				topNetworkOut.setOption(optionCommon);
+
+
+				window.onresize = function() {
+					topCPU.resize();
+					topNetworkIn.resize();
+					topNetworkOut.resize();
+				};
+			</script>
+
+			<div class="box fitbox">
+				<div class="box-table">
+					<table id="table_ec2" class="table-data list hoverable" width="100%">
+						<caption class="hidden-element">Cost Detail</caption>
+						<colgroup>
+							<col class="number-cell">
+							<col >
+						</colgroup>
+						<thead>
+							<tr>
+								<th scope="col"></th>
+								<th scope="col">AWS Account</th>
+								<th scope="col">Name</th>
+								<th scope="col">Instance ID</th>
+								<th scope="col">Type</th>
+								<th scope="col">AZ</th>
+								<th scope="col">State</th>
+								<th scope="col">Launch Time</th>
+								<th scope="col">VPC</th>
+								<th scope="col">Scheduled events</th>
+								<th scope="col">Public IP</th>
+								<th scope="col">Private IP</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td></td>
+								<td>aws_kim(123456789)</td>
+								<td>vpn-client-Tokyo-qa</td>
+								<td>i-00dd069d57210e1c9</td>
+								<td>T2.small</td>
+								<td>Ap-northeast-1c</td>
+								<td>Running</td>
+								<td>May 24, 2017 at 11:11:52 AM UTC+9</td>
+								<td>Lime-dv</td>
+								<td>1</td>
+								<td>52.69.201.200</td>
+								<td>10.20.50.167</td>
+							</tr>
+							<tr>
+								<td></td>
+								<td>aws_kim(123456789)</td>
+								<td>vpn-client-Tokyo-qa</td>
+								<td>i-00dd069d57210e1c9</td>
+								<td>T2.small</td>
+								<td>Ap-northeast-1c</td>
+								<td>Running</td>
+								<td>May 24, 2017 at 11:11:52 AM UTC+9</td>
+								<td>Lime-dv</td>
+								<td>1</td>
+								<td>52.69.201.200</td>
+								<td>10.20.50.167</td>
+							</tr>
+							<tr>
+								<td></td>
+								<td>aws_kim(123456789)</td>
+								<td>vpn-client-Tokyo-qa</td>
+								<td>i-00dd069d57210e1c9</td>
+								<td>T2.small</td>
+								<td>Ap-northeast-1c</td>
+								<td>Running</td>
+								<td>May 24, 2017 at 11:11:52 AM UTC+9</td>
+								<td>Lime-dv</td>
+								<td>1</td>
+								<td>52.69.201.200</td>
+								<td>10.20.50.167</td>
+							</tr>
+							<tr>
+								<td></td>
+								<td>aws_kim(123456789)</td>
+								<td>vpn-client-Tokyo-qa</td>
+								<td>i-00dd069d57210e1c9</td>
+								<td>T2.small</td>
+								<td>Ap-northeast-1c</td>
+								<td>Running</td>
+								<td>May 24, 2017 at 11:11:52 AM UTC+9</td>
+								<td>Lime-dv</td>
+								<td>1</td>
+								<td>52.69.201.200</td>
+								<td>10.20.50.167</td>
+							</tr>
+							<tr>
+								<td></td>
+								<td>aws_kim(123456789)</td>
+								<td>vpn-client-Tokyo-qa</td>
+								<td>i-00dd069d57210e1c9</td>
+								<td>T2.small</td>
+								<td>Ap-northeast-1c</td>
+								<td>Running</td>
+								<td>May 24, 2017 at 11:11:52 AM UTC+9</td>
+								<td>Lime-dv</td>
+								<td>1</td>
+								<td>52.69.201.200</td>
+								<td>10.20.50.167</td>
+							</tr>
+							<tr>
+								<td></td>
+								<td>aws_kim(123456789)</td>
+								<td>vpn-client-Tokyo-qa</td>
+								<td>i-00dd069d57210e1c9</td>
+								<td>T2.small</td>
+								<td>Ap-northeast-1c</td>
+								<td>Running</td>
+								<td>May 24, 2017 at 11:11:52 AM UTC+9</td>
+								<td>Lime-dv</td>
+								<td>1</td>
+								<td>52.69.201.200</td>
+								<td>10.20.50.167</td>
+							</tr>
+							<tr>
+								<td></td>
+								<td>aws_kim(123456789)</td>
+								<td>vpn-client-Tokyo-qa</td>
+								<td>i-00dd069d57210e1c9</td>
+								<td>T2.small</td>
+								<td>Ap-northeast-1c</td>
+								<td>Running</td>
+								<td>May 24, 2017 at 11:11:52 AM UTC+9</td>
+								<td>Lime-dv</td>
+								<td>1</td>
+								<td>52.69.201.200</td>
+								<td>10.20.50.167</td>
+							</tr>
+							<tr>
+								<td></td>
+								<td>aws_kim(123456789)</td>
+								<td>vpn-client-Tokyo-qa</td>
+								<td>i-00dd069d57210e1c9</td>
+								<td>T2.small</td>
+								<td>Ap-northeast-1c</td>
+								<td>Running</td>
+								<td>May 24, 2017 at 11:11:52 AM UTC+9</td>
+								<td>Lime-dv</td>
+								<td>1</td>
+								<td>52.69.201.200</td>
+								<td>10.20.50.167</td>
+							</tr>
+							<tr>
+								<td></td>
+								<td>aws_kim(123456789)</td>
+								<td>vpn-client-Tokyo-qa</td>
+								<td>i-00dd069d57210e1c9</td>
+								<td>T2.small</td>
+								<td>Ap-northeast-1c</td>
+								<td>Running</td>
+								<td>May 24, 2017 at 11:11:52 AM UTC+9</td>
+								<td>Lime-dv</td>
+								<td>1</td>
+								<td>52.69.201.200</td>
+								<td>10.20.50.167</td>
+							</tr>
+							<tr>
+								<td></td>
+								<td>aws_kim(123456789)</td>
+								<td>vpn-client-Tokyo-qa</td>
+								<td>i-00dd069d57210e1c9</td>
+								<td>T2.small</td>
+								<td>Ap-northeast-1c</td>
+								<td>Running</td>
+								<td>May 24, 2017 at 11:11:52 AM UTC+9</td>
+								<td>Lime-dv</td>
+								<td>1</td>
+								<td>52.69.201.200</td>
+								<td>10.20.50.167</td>
+							</tr>
+							<tr>
+								<td></td>
+								<td>aws_kim(123456789)</td>
+								<td>vpn-client-Tokyo-qa</td>
+								<td>i-00dd069d57210e1c9</td>
+								<td>T2.small</td>
+								<td>Ap-northeast-1c</td>
+								<td>Running</td>
+								<td>May 24, 2017 at 11:11:52 AM UTC+9</td>
+								<td>Lime-dv</td>
+								<td>1</td>
+								<td>52.69.201.200</td>
+								<td>10.20.50.167</td>
+							</tr>
+							<tr>
+								<td></td>
+								<td>aws_kim(123456789)</td>
+								<td>vpn-client-Tokyo-qa</td>
+								<td>i-00dd069d57210e1c9</td>
+								<td>T2.small</td>
+								<td>Ap-northeast-1c</td>
+								<td>Running</td>
+								<td>May 24, 2017 at 11:11:52 AM UTC+9</td>
+								<td>Lime-dv</td>
+								<td>1</td>
+								<td>52.69.201.200</td>
+								<td>10.20.50.167</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<script>
+				//colvis separate
+				var org_buildButton = $.fn.DataTable.Buttons.prototype._buildButton;
+				$.fn.DataTable.Buttons.prototype._buildButton = function(config, collectionButton) {
+					 var button = org_buildButton.apply(this, arguments);
+					 $(document).one('init.dt', function(e, settings, json) {
+						if (config.container && $(config.container).length) {
+							$(button.inserter[0]).detach().appendTo(config.container)
+						}
+					})
+					return button;
+				1}
+
+				// table_ec2 sort ascending
+				$('#table_ec2').DataTable({
+					dom: 'B<"collection-filter"l<"#colvis">f>rtip',
+
+					"lengthMenu": [ 10, 20, 50, 100 , 200 ],
+					"iDisplayLength": 100,
+					"scrollX": true,
+
+					//Download Btn
+					buttons: [
+						{
+							text:'<i class="btn-graph" aria-hidden="true"></i><span class="btn-graph-inner">사용률<br>그래프</span>',
+							className: 'buttons-graph disabled',
+							titleAttr: '선택한 항목 간 사용률그래프 보기'
+						},
+						{
+							extend: 'copy',
+							text: '<i class="btn-download-files copy" aria-hidden="true"></i>',
+							titleAttr: 'Copy to Clipboard'
+						},
+						{
+							extend: 'csv',
+							text: '<i class="btn-download-files csv" aria-hidden="true"></i>',
+							titleAttr: 'Export to csv'
+						},
+						{
+							extend: 'excel',
+							text: '<i class="btn-download-files excel" aria-hidden="true"></i>',
+							titleAttr: 'Export to Excel'
+						},
+//						{
+//							extend: 'pdf',
+//							text: '<i class="btn-download-files pdf" aria-hidden="true"></i>',
+//							titleAttr: 'Export to PDF'
+//						},
+						{
+							extend: 'print',
+							text: '<i class="btn-download-files print" aria-hidden="true"></i>',
+							titleAttr: 'View print view'
+						},
+						{
+							extend: 'colvis',
+							container : '#colvis',
+							text: 'Show / Hide Columns',
+							columns: ':not(:first-child)'
+						}
+					],
+
+					columnDefs: [ {
+						orderable: false,
+						className: 'select-checkbox',
+						targets:   0
+					} ],
+//					select: {
+//						style: 'multi',
+//						selector: 'td:first-child'
+//					},
+					order: [[ 1, 'asc' ]],
+
+
+					"language": {
+						"lengthMenu": "_MENU_",
+						"info": "_START_ - _END_ of _TOTAL_ (_PAGE_/_PAGES_)",
+						"paginate": {
+						  	"previous": "<i class='fa fa-chevron-left' aria-hidden='true'></i>",
+							"next": "<i class='fa fa-chevron-right' aria-hidden='true'></i>"
+						}
+					}
+				} );
+
+				$('div.dataTables_length select').addClass('buttons-colvis');
+
+				$('.buttons-graph').attr({
+					name:'modal',
+					href:'#modal-graph'
+				});
+
+				//limit multi select
+				$('#table_ec2 tr').css('cursor','pointer');
+				$('#table_ec2 tr').click(function() {
+					var self = $(this);
+					if (self.hasClass('selected')) {
+						self.removeClass('selected');
+						if ($('#table_ec2 tr.selected').length == 0){
+							$('.buttons-graph').addClass('disabled');
+						}
+					} else {
+						if ($('#table_ec2 tr.selected').length < 10) {
+							$(this).addClass('selected');
+							$('.buttons-graph').removeClass('disabled');
+						}
+					}
+				});
+				</script>
+			</div><!--// box -->
+		</section><!--// wrap -->
+
+		<div class="modal" tabindex="-1" role="dialog" aria-hidden="true">
+	        <div class="modal-backdrop"></div>
+	        <div class="v-align">
+	            <div class="v-align-cell">
+
+	                <!-- graph modal -->
+	                <div class="modal-dialog fullchart" id="modal-graph">
+	                    <div class="modal-content separated">
+	                        <div class="modal-header clearfix">
+	                            <ul class="header-filter">
+	                                <li class="selectbox">
+	                                    <label>Time Range</label>
+	                                    <div class="timerange pull-right select-default calendar">
+	                                        <i class="fa fa-calendar" aria-hidden="true"></i>&nbsp;
+	                                        <span></span>
+	                                    </div>
+	                                </li>
+	                                <li class="selectbox">
+	                                    <span class="label">Period</span>
+	                                    <div class="selectwrap">
+	                                        <a class="select-default" name="dropdown">5 Minutes</a>
+	                                        <div class="dropselectbox">
+	                                            <ul class="dropselect clearfix">
+	                                                <li class="opt">5 Minutes</li>
+	                                                <li class="opt">15 Minutes</li>
+	                                                <li class="opt">1 Hour</li>
+	                                                <li class="opt">6 Hours</li>
+	                                                <li class="opt">1 Day</li>
+	                                            </ul>
+	                                        </div>
+	                                    </div>
+	                                </li>
+	                                <li class="float-left">
+	                                    <a class="btn-default" id="modalUpdateData">Apply</a>
+	                                </li>
+	                                <li class="float-right">
+	                                    <button class="btn-floating btn-refresh" title="새로고침"><i class="fa fa-refresh" aria-hidden="true"></i></button>
+	                                </li>
+	                            </ul>
+	                            <button type="button" class="modal-close close"><span class="lnr lnr-cross"></span></button>
+	                        </div>
+
+	                        <div class="modal-body align-left">
+	                            <div class="row detail-row">
+	                                <div class="col-4">
+	                                    <div class="bb-box">
+	                                        <h3 class="title-box">CPU Utilization <small>(%)</small></h3>
+	                                        <div class="selectwrap side">
+	                                            <a class="select-default" name="dropdown">Average</a>
+	                                            <div class="dropselectbox">
+	                                                <ul class="dropselect clearfix">
+	                                                    <li class="opt">Average</li>
+	                                                    <li class="opt">Minimum</li>
+	                                                    <li class="opt">Maximum</li>
+	                                                    <li class="opt">Sum</li>
+	                                                </ul>
+	                                            </div>
+	                                        </div>
+	                                    </div>
+	                                    <div id="modal-cpu" style="width:100%;height:210px"></div>
+	                                    <ul class="chart-legend line modal-cpu">
+											<li>i-00dd069d57210e1c9</li>
+											<li>i-00dd069d57210e1c8</li>
+											<li>i-00dd069d57210e1c7</li>
+											<li>i-00dd069d57210e1c6</li>
+											<li>i-00dd069d57210e1c5</li>
+	                                    </ul>
+	                                </div>
+	                                <div class="col-4">
+	                                    <div class="bb-box">
+	                                        <h3 class="title-box">Network IN <small>(Bytes)</small></h3>
+	                                        <div class="selectwrap side">
+	                                            <a class="select-default" name="dropdown">Average</a>
+	                                            <div class="dropselectbox">
+	                                                <ul class="dropselect clearfix">
+	                                                    <li class="opt">Average</li>
+	                                                    <li class="opt">Minimum</li>
+	                                                    <li class="opt">Maximum</li>
+	                                                    <li class="opt">Sum</li>
+	                                                </ul>
+	                                            </div>
+	                                        </div>
+	                                    </div>
+	                                    <div id="modal-networkin" style="width:100%;height:210px"></div>
+	                                    <ul class="chart-legend line modal-network-in">
+											<li>i-00dd069d57210e1c9</li>
+											<li>i-00dd069d57210e1c8</li>
+											<li>i-00dd069d57210e1c7</li>
+											<li>i-00dd069d57210e1c6</li>
+											<li>i-00dd069d57210e1c5</li>
+	                                    </ul>
+	                                </div>
+	                                <div class="col-4">
+	                                    <div class="bb-box">
+	                                        <h3 class="title-box">Network OUT <small>(Bytes)</small></h3>
+	                                        <div class="selectwrap side">
+	                                            <a class="select-default" name="dropdown">Average</a>
+	                                            <div class="dropselectbox">
+	                                                <ul class="dropselect clearfix">
+	                                                    <li class="opt">Average</li>
+	                                                    <li class="opt">Minimum</li>
+	                                                    <li class="opt">Maximum</li>
+	                                                    <li class="opt">Sum</li>
+	                                                </ul>
+	                                            </div>
+	                                        </div>
+	                                    </div>
+	                                    <div id="modal-networkout" style="width:100%;height:210px"></div>
+	                                    <ul class="chart-legend line modal-network-out">
+											<li>i-00dd069d57210e1c9</li>
+											<li>i-00dd069d57210e1c8</li>
+											<li>i-00dd069d57210e1c7</li>
+											<li>i-00dd069d57210e1c6</li>
+											<li>i-00dd069d57210e1c5</li>
+	                                    </ul>
+	                                </div>
+	                            </div><!--// row -->
+	                        </div>
+	                    </div>
+	                    <div class="empty-mask popup" style="display:none">
+	                        <div class="ic_empty">
+	                            <div class="loading">
+	                                <svg width="100%" height="100%" x="0px" y="0px" viewBox="0 0 313.3 321.4" style="enable-background:new 0 0 313.3 321.4;" xml:space="preserve">
+	                                    <path class="layer layer1" d="M157.1,0c3.8,0,7.9,1.5,11.4,3.2c45.6,21.1,91.2,42.4,136.7,63.8c3.3,1.5,8,2.1,8.1,7c0.1,5-4.7,5.6-7.9,7.1
+	                                    c-45.8,21.5-91.7,42.9-137.6,64.3c-7.4,3.4-14.8,3.5-22.2,0C99,123.6,52.3,101.9,5.8,80c-2.4-1.1-5.4-4-5.4-6c0-2,3.1-4.8,5.5-5.9
+	                                    C52.4,46.2,99.1,24.4,145.8,2.8C149.1,1.2,154.5,0,157.1,0z"/>
+	                                    <path class="layer layer2" d="M156.6,235c-3.1,0-7.7-1.7-11.3-3.3c-46.5-21.6-93-43.3-139.4-65.1c-2.4-1.1-5.8-4.1-5.6-5.8c0.3-2.4,3.2-5,5.7-6.3
+	                                    c7.5-4,15.3-7.3,23-10.9c7.9-3.7,15.7-3.6,23.6,0.1c30.4,14.3,61,28.4,91.4,42.7c8.6,4.1,16.8,4,25.4-0.1
+	                                    c30.4-14.3,60.9-28.4,91.4-42.7c7.7-3.6,15.4-3.7,23.1-0.1c8.2,3.8,16.4,7.4,24.4,11.5c2.1,1.1,4.9,3.7,4.7,5.4
+	                                    c-0.2,2.1-2.7,4.8-4.9,5.9c-46.8,22.1-93.7,44-140.7,65.8C164.2,233.5,159.9,235,156.6,235z"/>
+	                                    <path class="layer layer3" d="M156.8,321.4c-4.6,0-9.3-2.3-13.4-4.2c-45.2-20.9-90.3-42-135.4-63.1c-3.3-1.5-8-2.1-8-7.1c0-5,3.8-5.5,7-7.1
+	                                    c13.9-6.5,14.9-6.5,21.8-9.8c8-3.8,16-3.7,24.1,0.1c29.9,14,59.8,27.7,89.6,41.9c9.6,4.6,18.5,4.7,28.2,0.1
+	                                    c29.8-14.2,59.8-27.9,89.6-41.9c8.2-3.9,16.3-4,24.5,0c7.8,3.8,15.8,7.2,23.5,11.1c2.1,1.1,4.8,3.3,4.8,5.4
+	                                    c-0.1,2.4-2.7,4.8-4.9,5.9c-32.2,15.3-64.5,30.3-96.8,45.4c-13.9,6.5-27.7,13.1-41.7,19.3C165.7,319.2,161.5,321.4,156.8,321.4z"/>
+	                                </svg>
+	                            </div>
+	                        </div>
+	                    </div>
+	                </div><!--// modal-graph -->
+	            </div>
+	        </div>
+	    </div><!--// modal -->
+
+	</div>
+
+
+
+	<a class="btn-top" title="go to top"><i class="fa fa-chevron-up" aria-hidden="true"></i></a>
+	<footer class="footer">
+		<span class="terms"><a href="terms_service.html" class="link">서비스 이용 약관</a> | <a href="terms_privacy.html" class="link"><strong>개인정보 취급방침</strong></a></span>
+		<span class="copyright">© A2 COMPANY ALL RIGHTS RESERVED.</span>
+	</footer>
+
+	<script>
+		//사용률 그래프가 팝업이 열릴 때 로드되도록
+		$('.buttons-graph').one('click', function(){
+			setTimeout(function (){
+				var modalCPU = echarts.init(document.getElementById('modal-cpu'));
+				var modalNetworkIn = echarts.init(document.getElementById('modal-networkin'));
+				var modalNetworkOut = echarts.init(document.getElementById('modal-networkout'));
+
+				modalCPU.setOption(optionCommon);
+				modalNetworkIn.setOption(optionCommon);
+				modalNetworkOut.setOption(optionCommon);
+			}, 1);
+		});
+
+		//모달 timerange
+		var start = moment().subtract(1, 'hours');
+		var end = moment();
+
+		function cb(start, end) {
+		    $('.timerange span').html(start.format('YYYY-MM-DD HH:mm') + ' ~ ' + end.format('YYYY-MM-DD HH:mm'));
+		    startDate = start;
+		    endDate = end;
+		}
+
+		$('.timerange').daterangepicker({
+		    locale: {
+		        format: 'YYYY-MM-DD HH:mm'
+		    },
+		    timePicker: true,
+		    timePicker24Hour: false,
+		    startDate: start,
+		    endDate: end,
+		    maxDate: moment(),
+		    opens: "right",
+		    buttonClasses: "btn-txt",
+		    applyClass: "point",
+		    cancelClass: "gray-lighten1",
+		    alwaysShowCalendars: true,
+		    linkedCalendars: false,
+		    //showCustomRangeLabel:false,
+		    ranges: {
+		        'Last Hour' : [moment().subtract(1, 'hours'), moment()],
+		        'Last 3 Hours' : [moment().subtract(3, 'hours'), moment()],
+		        'Last 6 Hours' : [moment().subtract(6, 'hours'), moment()],
+		        'Last 12 Hours' : [moment().subtract(12, 'hours'), moment()],
+		        'Last 24 hours': [moment().subtract(1, 'days'), moment()],
+		        'Last 3 Days': [moment().subtract(2, 'days'), moment()],
+		        'Last 1 week': [moment().subtract(6, 'days'), moment()],
+		        'Last 2 weeks': [moment().subtract(13, 'days'), moment()]
+		    }
+		}, cb);
+
+		cb(start, end);
+	</script>
+
+</body>
+</html>

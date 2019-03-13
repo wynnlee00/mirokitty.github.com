@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta cherset="ute-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="robots" content="all">
+	<title>Emulator :: LG SmartHome Developer</title>
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no, width=device-width">
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+
+	<link type="text/css" rel="stylesheet" href="css/common.css">
+	<link type="text/css" rel="stylesheet" href="css/emulator.css">
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:600,400' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
+	<!--[if lt IE 9]>
+	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+	<![endif]-->
+</head>
+<body onload="prettyPrint()"><!-- 로그창 prettyPrint 사용 시 -->
+	<div id="mask"></div>
+	<div id="mask_light"></div>
+	<header class="header_emulator">
+		<div class="connection_status connected"><!-- 미연결 시 connected 클래스를 disconnected 로 바꿔주세요 -->
+			<span class="light"></span><!-- <br> 삭제 -->
+		</div>
+		<div class="flex1">
+			<h2 class="title_emulator">Air Conditioner1</h2>
+			<p class="txt_info">
+				Service <span class="txt_emulator_info">LG_HomeChat_QA</span>&nbsp;&nbsp;/&nbsp;&nbsp;
+				Product <span class="txt_emulator_info">Air Conditioner</span>&nbsp;&nbsp;/&nbsp;&nbsp;
+				Model No. <span class="txt_emulator_info">FQ167PASW</span><!-- 펌웨어 버전 표기 삭제 -->
+			</p>
+		</div>
+		<div class="flexcenter btn_area_right">
+			<a href="#emulator_reset" id="button" name="dialog_common" class="btn_txt">초기화</a>
+			<a href="" id="button" name="" class="btn_txt">도움말</a><!-- 도움말 추가 -->
+		</div>
+	</header>
+
+	<div class="content_emulator">
+
+		<div class="display">
+			<div class="inner">
+
+				<div class="status_area">
+					<div class="display_status">
+						<span class="hidden_font icon power"></span>
+						<span class="hidden_font icon wifi"></span>
+					</div>
+					<!--<div id="messagebox" class="messagebox"><span class="badge">0</span></div> 푸시알림 확인영역 삭제 -->
+				</div>
+
+				<div class="main_area grid divide2 clearfix">
+					<div class="col white_txt">
+						<span class="txt_display_s ml5">희망</span><br>
+						<span class="txt_display_l">20</span><span class="txt_display_m">ºC</span>
+					</div>
+					<div class="col pl40">
+						<span class="txt_display_s ml5">현재</span><br>
+						<span class="txt_display_l">25</span><span class="txt_display_m">ºC</span>
+					</div>
+				</div>
+
+				<div class="mode_area flexcenter">
+					<div class="tbdisplay">
+						<div class="tbrdisplay">
+							<div class="txt_mode tbcdisplay">운전모드</div>
+							<div class="tbcdisplay"><span class="selected">냉방</span></div>
+						</div>
+						<div class="tbrdisplay">
+							<div class="txt_mode tbcdisplay">바람세기</div>
+							<div class="tbcdisplay"><span class="selected">약</span></div>
+						</div>
+						<div class="tbrdisplay">
+							<div class="txt_mode tbcdisplay">예약</div>
+							<div class="tbcdisplay"><span class="selected">취침</span><span class="selected">꺼짐</span><span class="selected">켜짐</span></div>
+						</div>
+					</div>
+				</div>
+
+				<div class="display_mask"></div>
+
+				<!-- 신규 알림창 삭제
+				<div id="popup_messagebox" class="display_push_alert">
+					<h3 class="title_s">신규 알림</h3>
+					<div class="scrollbox">
+						<p>물통의 물을 깨끗한 물로 "Max"까지 채운 뒤 "선택/시작 건편조리" 버튼을 누르세요.</p>
+						<p>물 보충이 필요합니다.</p>
+						<p>스팀 청소가 완료되었습니다.</p>
+						<p>오븐의 예열이 완료되었습니다.</p>
+						<p>물 보충이 필요합니다.</p>
+						<p>스팀 청소가 완료되었습니다.</p>
+						<p>오븐의 예열이 완료되었습니다.</p>
+						<p>물 보충이 필요합니다.</p>
+						<p>스팀 청소가 완료되었습니다.</p>
+					</div>
+					<a class="btn_border">확인</a>
+				</div>
+				-->
+
+			</div>
+		</div><!--// display -->
+
+
+		<div class="wrap_control">
+
+			<!-- 외부 환경 제어부 삭제
+			<div class="controlbox white">
+				<h3 class="hidden_element">외부 환경 제어</h3>
+				<ul class="grid divide3 clearfix">
+					<li class="col">
+						<p class="title_control center">전력 공급</p>
+						<div class="tbdisplay">
+							<span class="ic_control power"></span>
+							<div class="tbcdisplay right-align">
+								<div class="onoffswitch">
+									<input type="checkbox" class="onoffswitch-checkbox" id="power_supply" checked>
+									<label class="onoffswitch-label" for="power_supply">
+										<span class="onoffswitch-inner"></span>
+										<span class="onoffswitch-switch"></span>
+									</label>
+								</div>
+							</div>
+						</div>
+					</li>
+
+					<li class="col">
+						<p class="title_control center">홈 네트워크</p>
+						<div class="tbdisplay">
+							<span class="ic_control wifi"></span>
+							<div class="tbcdisplay right-align">
+								<div class="onoffswitch">
+									<input type="checkbox" class="onoffswitch-checkbox" id="home_network">
+									<label class="onoffswitch-label" for="home_network">
+										<span class="onoffswitch-inner"></span>
+										<span class="onoffswitch-switch"></span>
+									</label>
+								</div>
+							</div>
+						</div>
+					</li>
+
+					<li class="col">
+						<p class="title_control center">현재 온도</p>
+						<div class="tbdisplay">
+							<span class="ic_control temp"></span>
+							<div class="tbcdisplay right-align">
+								<a href="#dialog_current_temp" name="dialog" class="emulator_link">25ºC</a>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+			-->
+
+			<div class="controlbox">
+				<h3 class="title_control">API 제공 기능</h3>
+				<ul class="control_list">
+
+					<!-- disabled 되는 기능이 있을 경우, control_list 의 li 에 "disabled" 라는 클래스를 추가해주세요.
+							li 속에 input(checkbox나 radio버튼) 이 있을 경우 해당 li 의 자식 input 상태도 disabled 로 바꿔주세요. -->
+					<li>
+						<p class="flex1">운전 시작/정지</p><!-- 전원 → '운전 시작/정지' 로 문구변경 -->
+						<div class="flexcenter">
+							<div class="onoffswitch">
+								<input type="checkbox" class="onoffswitch-checkbox" id="power" checked>
+								<label class="onoffswitch-label" for="power">
+									<span class="onoffswitch-inner"></span>
+									<span class="onoffswitch-switch"></span>
+								</label>
+							</div>
+						</div>
+					</li>
+					<li>
+						<p class="flex1">운전모드</p>
+						<div class="flexcenter">
+							<div class="buttonbar">
+								<input type="radio" id="cool" name="mode" checked><label for="cool">냉방</label>
+								<input type="radio" id="humid" name="mode"><label for="humid">제습</label>
+							</div>
+						</div>
+					</li>
+					<li>
+						<p class="flex1">희망온도</p>
+						<a href="#dialog_target_temp" name="dialog" class="emulator_link">20ºC</a>
+					</li>
+					<li>
+						<p class="flex1">바람세기</p>
+						<div class="flexcenter">
+							<div class="buttonbar">
+								<input type="radio" id="weak" name="wind" checked ><label for="weak">약</label>
+								<input type="radio" id="medium" name="wind"><label for="medium">중</label>
+								<input type="radio" id="strong" name="wind" ><label for="strong">강</label>
+							</div>
+						</div>
+					</li>
+
+					<!-- 절전 추가 -->
+					<li>
+						<p class="flex1">절전</p>
+						<div class="flexcenter">
+							<div class="onoffswitch">
+								<input type="checkbox" class="onoffswitch-checkbox" id="power_saving" checked>
+								<label class="onoffswitch-label" for="power_saving">
+									<span class="onoffswitch-inner"></span>
+									<span class="onoffswitch-switch"></span>
+								</label>
+							</div>
+						</div>
+					</li>
+
+					<!-- 공기청정 추가 -->
+					<li>
+						<p class="flex1">공기청정</p>
+						<div class="flexcenter">
+							<div class="onoffswitch">
+								<input type="checkbox" class="onoffswitch-checkbox" id="air_fresh">
+								<label class="onoffswitch-label" for="air_fresh">
+									<span class="onoffswitch-inner"></span>
+									<span class="onoffswitch-switch"></span>
+								</label>
+							</div>
+						</div>
+					</li>
+
+					<li>
+						<p class="flex1">예약</p>
+						<a href="#dialog_timer" name="dialog" class="emulator_link">켜짐</a>
+					</li>
+				</ul>
+			</div>
+
+			<div class="controlbox">
+				<h3 class="title_control">푸시 알림</h3>
+				<div class="control_list modal_link">
+					<!-- 푸시 알림 있는 경우
+					<a href="#dialog_push" name="dialog" class="emulator_link">제품에서 제공하는 푸시 알림을 간편하게 테스트해 볼 수 있습니다.</a> -->
+
+					<!-- 푸시 알림 없을 경우 -->
+					<p class="not_support"><span class="ic_notice">!</span>이 제품은 푸시 알림을 지원하지 않습니다.</p>
+				</div>
+			</div>
+
+			<div class="controlbox">
+				<h3 class="title_control">에어컨 설정</h3>
+				<div class="control_list modal_link">
+					<a href="#dialog_aircon_setting" name="dialog" class="emulator_link">제품의 다양한 상태를 테스트하기 위하여 API 제공 기능 외에도 제품의 세부 설정을 변경해 볼 수 있습니다.</a>
+				</div>
+			</div>
+
+		</div><!--// wrap_control -->
+	</div><!--// content_emulator -->
+
+
+	<div id="tabs_log" class="wrap_log"><!-- tabs_log 아이디 추가 -->
+
+		<div class="log_header">
+				<!-- View All 부분을 아래 구조로 바꿔주세요
+				<div class="flex1 link_area">
+					<a href="" class="blank_link">View All</a>
+				</div>
+				-->
+
+				<!-- 결과내역 영역을 이 구조로 바뀌주세요 -->
+				<div class="flexbox flexcenter log_header_top">
+					<h3 class="title_control flex1">결과 내역</h3>
+					<ul class="link_area">
+						<li><a href="#tab_mode_general" class="hidden_font mode_icon doc">general mode</a></li>
+						<li><a href="#tab_mode_log" class="hidden_font mode_icon log">log mode</a></li>
+					</ul>
+					<a class="hidden_font search_icon">search</a>
+				</div>
+				<!--// -->
+
+				<div class="flexbox wrap_search"><!-- wrap_search 클래스 추가 -->
+					<!-- <div class="search_icon"></div> 검색 아이콘 삭제 -->
+					<div class="search_area flex1">
+						<input tyle="text" value="마지막">
+						<span class="result_number">1/00</span>
+					</div>
+					<div class="btn_area">
+						<a class="hidden_font btn_arrow prev">previous</a>
+						<a class="hidden_font btn_arrow next">next</a>
+					</div>
+				</div>
+		</div>
+
+		<!--
+		한개였던 <div class="log_area"></div> 가 2개가 됩니다.
+		(i) #tab_mode_general -일반모드
+		(i) #tab_mode_log - 로그모드
+
+		하단에 $("#tabs_log").tabs(); 스크립트 선언도 추가됩니다.	-->
+		<div id="tab_mode_general" class="log_area">
+			<div class="log">
+				<p>바람 세기 강풍으로 변경 완료</p><p>바람 세기 강풍으로 변경 완료</p><p>바람 세기 강풍으로 변경 완료</p><p>바람 세기 강풍으로 변경 완료</p><p>바람 세기 강풍으로 변경 완료</p>
+				<p class="blue_txt">바람 세기 강풍으로 변경 완료</p>
+				<p>바람 세기 강풍으로 변경 완료</p><p>바람 세기 강풍으로 변경 완료</p><p>바람 세기 강풍으로 변경 완료</p>
+				<p class="error_txt">에러 : 9999</p>
+				<p>바람 세기 강풍으로 변경 완료</p><p>바람 세기 강풍으로 변경 완료</p><p>바람 세기 강풍으로 변경 완료</p><p>바람 세기 강풍으로 변경 완료</p><p>바람 세기 강풍으로 변경 완료</p>
+				<p>바람 세기 <span class="violet_txt">강풍으로 변경 완료</span></p>
+				<p>바람 세기 강풍으로 변경 완료</p><p>바람 세기 강풍으로 변경 완료</p><p>바람 세기 강풍으로 변경 완료</p><p>바람 세기 강풍으로 변경 완료</p><p>바람 세기 강풍으로 변경 완료</p><p>바람 세기 강풍으로 변경 완료</p><p>바람 세기 강풍으로 변경 완료</p><p>바람 세기 강풍으로 변경 완료</p><p>바람 세기 강풍으로 변경 완료</p><p>바람 세기 강풍으로 변경 완료</p><p>바람 세기 강풍으로 변경 완료</p><p>바람 세기 강풍으로 변경 완료</p><p>바람 세기 강풍으로 변경 완료</p><p>바람 세기 강풍으로 변경 완료</p><p>바람 세기 강풍으로 변경 완료</p><p>바람 세기 강풍으로 변경 완료</p><p>바람 세기 강풍으로 변경 완료</p><p>바람 세기 강풍으로 변경 완료</p><p>바람 세기 강풍으로 변경 완료</p><p>바람 세기 강풍으로 변경 완료</p><p>바람 세기 강풍으로 변경 완료</p><p>바람 세기 강풍으로 변경 완료</p><p>바람 세기 강풍으로 변경 완료</p><p>바람 세기 강풍으로 변경 완료</p><p>바람 세기 강풍으로 변경 완료</p><p>바람 세기 강풍으로 변경 완료</p><p>바람 세기 강풍으로 변경 완료</p><p>바람 세기 강풍으로 변경 완료</p><p>바람 세기 강풍으로 변경 완료</p><p>바람 세기 강풍으로 변경 완료</p><p>바람 세기 강풍으로 변경 완료</p><p>바람 세기 강풍으로 변경 완료</p><p>바람 세기 강풍으로 변경 완료</p><p>바람 세기 강풍으로 변경 완료</p><p>바람 세기 강풍으로 변경 완료</p><p>바람 세기 강풍으로 변경 완료</p><p>바람 세기 강풍으로 변경 완료</p><p>바람 세기 강풍으로 변경 완료</p>
+				<p><span class="result">마지막</span>줄</p>
+			</div>
+		</div>
+
+		<div id="tab_mode_log" class="log_area">
+			<!--
+			웹 API 영역에서 사용된 code-prettify 를 사용하였습니다. https://github.com/google/code-prettify
+			편하신 것으로 바꾸어 사용하셔도 됩니다. :)
+			-->
+			<pre class="prettyprint log">
+<span class="nocode">[00:00:00 API 요청]</span><!-- 코드가 아닌 문장은 <span class="nocode"></span> 으로 감싸주시면 됩니다. -->
+<span class="nocode">운전모드/냉방</span>
+{"msgId":"68d8d1725e9ef87d_1437983207190","result":{"Misc":{"AutoDry":{"0":"off"},"AirClean":{"0":"off"}},"Power":{"State":{"1":"on"},"Save":{"0":"off"}},"Wind":{"Strength":{"6":"강풍"}},"Operation":{"Mode":{"0":"냉방"}},"Temperature":{"Current":"28","Target":"22"},"Time":{"On":"795","Off":"2","Sleep":"120"}},"result_code":"200","device_id":"68d8d1725e9ef87d"}
+<span class="nocode">[00:00:03 API 응답]</span>
+<span class="nocode">운전모드/냉방/성공</span>
+{"msgId":"68d8d1725e9ef87d_1437983207190","result":{"Misc":{"AutoDry":{"0":"off"},"AirClean":{"0":"off"}},"Power":{"State":{"1":"on"},"Save":{"0":"off"}},"Wind":{"Strength":{"6":"강풍"}},"Operation":{"Mode":{"0":"냉방"}},"Temperature":{"Current":"28","Target":"22"},"Time":{"On":"795","Off":"2","Sleep":"120"}},"result_code":"200","device_id":"68d8d1725e9ef87d"}
+<span class="nocode">[00:01:03 앱]</span>
+<span class="nocode">바람세기/강</span>
+{"msgId":"68d8d1725e9ef87d_1437983207190","result":{"Misc":{"AutoDry":{"0":"off"},"AirClean":{"0":"off"}},"Power":{"State":{"1":"on"},"Save":{"0":"off"}},"Wind":{"Strength":{"6":"강풍
+			</pre>
+		</div>
+
+		<div class="alret_area">
+			<a class="hidden_font btn_more">view new log<span class="up"></span><!-- down → up 으로 클래스 변경 --></a>
+		</div>
+
+	</div><!--// wrap_log -->
+
+
+	<!--dialog-->
+	<div id="dialog">
+
+		<!-- 공통팝업 -->
+		<div id="emulator_reset" class="dialog modal simple">
+			<div class="modal-content">
+				<h4 class="title_modal">가상제품 초기화</h4>
+				<p>
+					제품 설정을 초기화하시겠습니까?
+				</p>
+			</div>
+			<div class="modal-footer">
+				<a href="#!" class="close btn_modal btn_gray">아니오</a>
+				<a href="#!" class="close btn_modal btn_pink">예</a>
+			</div>
+		</div>
+
+		<div id="firmware_update" class="dialog modal simple">
+			<div class="modal-content">
+				<h4 class="title_modal">펌웨어 업데이트 안내</h4>
+				<p>
+					펌웨어가 업데이트 되어 XX버전으로 동작합니다.
+				</p>
+			</div>
+			<div class="modal-footer">
+				<a href="#!" class="close btn_modal btn_pink">확인</a>
+			</div>
+		</div>
+
+		<div id="disconnect_server" class="dialog modal simple">
+			<div class="modal-content">
+				<h4 class="title_modal">응답 없음</h4>
+				<p>
+					서버와의 연결이 끊어졌습니다.<br>
+					재연결 후에도.문제가 지속될 경우, 창을 닫고 잠시 후에 다시 시도해 주세요.
+				</p>
+			</div>
+			<div class="modal-footer">
+				<a href="#!" class="close btn_modal btn_gray">취소</a>
+				<a href="#!" class="close btn_modal btn_pink">재연결</a>
+			</div>
+		</div>
+
+		<div id="setting_fail" class="dialog modal simple">
+			<div class="modal-content">
+				<h4 class="title_modal">설정 실패</h4>
+				<p>
+					설정이 실패하였습니다.<br>
+					다시 시도해 주세요.
+				</p>
+			</div>
+			<div class="modal-footer">
+				<a href="#!" class="close btn_modal btn_pink">확인</a>
+			</div>
+		</div>
+
+		<div id="unknown_error" class="dialog modal simple">
+			<div class="modal-content">
+				<h4 class="title_modal">알 수 없는 에러</h4>
+				<p>
+					알 수 없는 에러가 발생했습니다.<br>
+					창을 닫고 잠시 후에 다시 시도해 주세요.
+				</p>
+			</div>
+			<div class="modal-footer">
+				<a href="#!" class="close btn_modal btn_pink">확인</a>
+			</div>
+		</div>
+
+
+
+		<!-- 기능관련팝업 -->
+
+		<div id="dialog_current_temp" class="dialog dialog_wrap narrow">
+			<div class="dialog_header">
+				<a class="back hidden_font">back</a> <!-- back 버튼 추가 -->
+				<h3 class="dialog_title ml10">현재온도 설정</h3> <!-- back 버튼 옆에 오는 dialog_title 에는 ml10 클래스 추가해주세요 -->
+				<a class="close hidden_font">close</a>
+			</div>
+			<div class="dialog_body temp">
+				<form>
+					<div class="flexbox">
+						<div class="flex1">
+							<div class="tbcdisplay">
+								<div id="current_temp_slider"></div>
+							</div>
+							<div class="tbcdisplay">
+								<input type="text" id="current_temp_value" class="txt_value" readonly>
+							</div>
+						</div>
+						<div class="flexbottom"><a class="btn_emulator btn_pink">설정</a></div>
+					</div>
+				</form>
+			</div>
+		</div>
+
+		<div id="dialog_target_temp" class="dialog dialog_wrap narrow">
+			<div class="dialog_header">
+				<h3 class="dialog_title">희망온도 설정</h3>
+				<a class="close hidden_font">close</a>
+			</div>
+			<div class="dialog_body temp">
+				<form>
+					<div class="flexbox">
+						<div class="flex1">
+							<div class="tbcdisplay">
+								<div id="target_temp_slider"></div>
+							</div>
+							<div class="tbcdisplay">
+								<input type="text" id="target_temp_value" class="txt_value" readonly>
+							</div>
+						</div>
+						<div class="flexbottom"><a class="btn_emulator btn_pink">설정</a></div>
+					</div>
+				</form>
+			</div>
+		</div>
+
+		<div id="dialog_timer" class="dialog dialog_wrap">
+			<div class="dialog_header">
+				<h3 class="dialog_title">예약 설정</h3>
+				<a class="close hidden_font">close</a>
+			</div>
+			<div id="tabs">
+				<ul class="clearfix grid divide3">
+					<li class="col"><a href="#tabs_sleep">열대야 취침</a></li>
+					<li class="col"><a href="#tabs_poweroff">꺼짐</a></li>
+					<li class="col"><a href="#tabs_poweron">켜짐</a></li>
+				</ul>
+				<div class="dialog_body">
+					<form>
+					<div id="tabs_sleep">
+						<!-- 온오프 버튼 영역 삭제
+						<div class="flexbox">
+							<p class="flex1">열대야 취침 예약</p>
+							<div class="flexcenter">
+								<div class="onoffswitch">
+									<input type="checkbox" class="onoffswitch-checkbox" id="timer_sleep">
+									<label class="onoffswitch-label" for="timer_sleep">
+										<span class="onoffswitch-inner"></span>
+										<span class="onoffswitch-switch"></span>
+									</label>
+								</div>
+							</div>
+						</div>
+						-->
+						<div class="txt_timer disabled">00:00</div><!-- 비활성일 때 disabled 클래스 추가 -->
+
+						<!-- 비활성일 때, detail_setting 클래스에 "disabled" 라는 클래스를 추가해주시고, 그 자식의 selectbox 상태도 disabled 로 바꿔주세요. -->
+						<div class="detail_setting flexbox mt20 disabled">
+							<div class="flex1">
+								<select class="select_default" disabled>
+									<option selected>0</option>
+									<option>1</option>
+									<option>2</option>
+									<option>3</option>
+									<option>4</option>
+									<option>5</option>
+									<option>6</option>
+									<option>7</option>
+								</select>
+								시간
+								<select class="select_default ml10" disabled>
+									<option>00</option>
+									<option selected>30</option>
+								</select>
+								분 후 꺼짐
+							</div>
+							<div class="flexbottom"><a class="btn_emulator btn_pink">설정</a></div><!-- 클래스 변경 setting btn_border → btn_emulator btn_pink-->
+						</div>
+					</div><!--// tabs_sleep -->
+
+					<div id="tabs_poweroff">
+						<!-- 온오프 버튼 영역 삭제
+						<div class="flexbox">
+							<p class="flex1">꺼짐 예약</p>
+							<div class="flexcenter">
+								<div class="onoffswitch">
+									<input type="checkbox" class="onoffswitch-checkbox" id="timer_poweroff">
+									<label class="onoffswitch-label" for="timer_poweroff">
+										<span class="onoffswitch-inner"></span>
+										<span class="onoffswitch-switch"></span>
+									</label>
+								</div>
+							</div>
+						</div>
+						-->
+						<div class="txt_timer">00:00</div><!-- 비활성일 때 disabled 클래스 추가 -->
+						<div class="detail_setting flexbox mt20">
+							<div class="flex1">
+								<select class="select_default">
+									<option>0</option>
+									<option selected>1</option>
+									<option>2</option>
+									<option>3</option>
+									<option>4</option>
+									<option>5</option>
+									<option>6</option>
+									<option>7</option>
+									<option>8</option>
+									<option>9</option>
+									<option>10</option>
+									<option>11</option>
+									<option>12</option>
+									<option>13</option>
+									<option>14</option>
+									<option>15</option>
+									<option>16</option>
+									<option>17</option>
+									<option>18</option>
+									<option>19</option>
+									<option>19</option>
+									<option>20</option>
+									<option>21</option>
+									<option>22</option>
+									<option>23</option>
+								</select>
+								시간
+								<select class="select_default ml10">
+									<option selected>00</option>
+									<option>01</option><option>02</option><option>03</option><option>04</option>
+									<option>05</option><option>06</option><option>07</option><option>08</option>
+									<option>09</option><option>10</option><option>11</option><option>12</option>
+									<option>13</option><option>14</option><option>15</option><option>16</option>
+									<option>17</option><option>18</option><option>19</option><option>19</option>
+									<option>20</option><option>21</option><option>22</option><option>23</option>
+									<option>24</option><option>25</option><option>26</option><option>27</option>
+									<option>28</option><option>29</option><option>30</option><option>31</option>
+									<option>32</option><option>33</option>	<option>34</option><option>35</option>
+									<option>36</option><option>37</option><option>38</option><option>39</option>
+									<option>40</option><option>41</option><option>42</option><option>43</option>
+									<option>44</option><option>45</option><option>46</option><option>47</option>
+									<option>48</option><option>49</option><option>50</option><option>51</option>
+									<option>52</option><option>53</option><option>54</option><option>55</option>
+									<option>56</option><option>57</option><option>58</option><option>59</option>
+								</select>
+								분 후 꺼짐
+							</div>
+							<div class="flexbottom"><a class="btn_emulator btn_pink">설정</a></div><!-- 클래스 변경 setting btn_border → btn_emulator btn_pink-->
+						</div>
+				    </div><!--// tabs_poweroff -->
+
+					<div id="tabs_poweron">
+						<!-- 온오프 버튼 영역 삭제
+						<div class="flexbox">
+							<p class="flex1">켜짐 예약</p>
+							<div class="flexcenter">
+								<div class="onoffswitch">
+									<input type="checkbox" class="onoffswitch-checkbox" id="timer_poweron" checked>
+									<label class="onoffswitch-label" for="timer_poweron">
+										<span class="onoffswitch-inner"></span>
+										<span class="onoffswitch-switch"></span>
+									</label>
+								</div>
+							</div>
+						</div>
+						-->
+						<div class="txt_timer">01:05<a class="btn_round">예약 취소</a></div><!-- 비활성일 때 disabled 클래스 추가 -->
+						<div class="detail_setting flexbox mt20">
+							<div class="flex1">
+								<select class="select_default">
+									<option>0</option>
+									<option selected>1</option>
+									<option>2</option>
+									<option>3</option>
+									<option>4</option>
+									<option>5</option>
+									<option>6</option>
+									<option>7</option>
+									<option>8</option>
+									<option>9</option>
+									<option>10</option>
+									<option>11</option>
+									<option>12</option>
+									<option>13</option>
+									<option>14</option>
+									<option>15</option>
+									<option>16</option>
+									<option>17</option>
+									<option>18</option>
+									<option>19</option>
+									<option>19</option>
+									<option>20</option>
+									<option>21</option>
+									<option>22</option>
+									<option>23</option>
+								</select>
+								시간
+								<select class="select_default ml10">
+									<option selected>00</option>
+									<option>01</option><option>02</option><option>03</option><option>04</option>
+									<option>05</option><option>06</option><option>07</option><option>08</option>
+									<option>09</option><option>10</option><option>11</option><option>12</option>
+									<option>13</option><option>14</option><option>15</option><option>16</option>
+									<option>17</option><option>18</option><option>19</option><option>19</option>
+									<option>20</option><option>21</option><option>22</option><option>23</option>
+									<option>24</option><option>25</option><option>26</option><option>27</option>
+									<option>28</option><option>29</option><option>30</option><option>31</option>
+									<option>32</option><option>33</option>	<option>34</option><option>35</option>
+									<option>36</option><option>37</option><option>38</option><option>39</option>
+									<option>40</option><option>41</option><option>42</option><option>43</option>
+									<option>44</option><option>45</option><option>46</option><option>47</option>
+									<option>48</option><option>49</option><option>50</option><option>51</option>
+									<option>52</option><option>53</option><option>54</option><option>55</option>
+									<option>56</option><option>57</option><option>58</option><option>59</option>
+								</select>
+								분 후 꺼짐
+							</div>
+
+							<div class="flexbottom"><a class="btn_emulator btn_pink">설정</a></div><!-- 클래스 변경 setting btn_border → btn_emulator btn_pink-->
+						</div>
+						<p class="err_txt">다른 예약과 같은 시간을 설정할 수 없습니다.</p><!-- 에러 문구 추가 -->
+				    </div><!--// tabs_poweron -->
+
+					</form>
+				</div><!--// dialog_body -->
+			</div><!--// #tabs -->
+		</div><!--// dialog_timer -->
+
+		<div id="dialog_push" class="dialog dialog_wrap">
+			<div class="dialog_header">
+				<h3 class="dialog_title">푸시 알림</h3>
+				<a class="close hidden_font">close</a>
+			</div>
+			<div class="dialog_body">
+				<ul class="control_list">
+					<li>
+						<p class="flex1">뒤집기 알림</p>
+						<div class="flexcenter">
+							<a class="btn_border">Push</a>
+						</div>
+					</li>
+					<li>
+						<p class="flex1">스팀 요리 물부족 알림</p>
+						<div class="flexcenter">
+							<a class="btn_border">Push</a>
+						</div>
+					</li>
+					<li>
+						<p class="flex1">스팀발생기 세정 물보충 알림</p>
+						<div class="flexcenter">
+							<a class="btn_border">Push</a>
+						</div>
+					</li>
+					<li>
+						<p class="flex1">사용 에러 알림</p>
+						<div class="flexcenter">
+							<a class="btn_border">Push</a>
+						</div>
+					</li>
+					<li>
+						<p class="flex1">온도 감지 센서 에러 알림 (1)</p>
+						<div class="flexcenter">
+							<a class="btn_border">Push</a>
+						</div>
+					</li>
+					<li>
+						<p class="flex1">온도 감지 센서 에러 알림 (2)</p>
+						<div class="flexcenter">
+							<a class="btn_border">Push</a>
+						</div>
+					</li>
+					<li>
+						<p class="flex1">입력 버튼 에러 알림</p>
+						<div class="flexcenter">
+							<a class="btn_border">Push</a>
+						</div>
+					</li>
+					<li>
+						<p class="flex1">스팀 발생기 온도 감지 센서 에러 알림 (1)</p>
+						<div class="flexcenter">
+							<a class="btn_border">Push</a>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div><!-- #dialog_push -->
+
+		<!-- 에어컨설정 팝업 추가 -->
+		<div id="dialog_aircon_setting" class="dialog dialog_wrap narrow">
+			<div class="dialog_header">
+				<h3 class="dialog_title">에어컨 설정</h3>
+				<a class="close hidden_font">close</a>
+			</div>
+			<div class="dialog_body">
+				<ul class="control_list">
+					<li>
+						<p class="flex1"><span class="ic_control power"></span>전원</p>
+						<div class="flexcenter">
+							<div class="onoffswitch">
+								<input type="checkbox" class="onoffswitch-checkbox" id="power_supply" checked>
+								<label class="onoffswitch-label" for="power_supply">
+									<span class="onoffswitch-inner"></span>
+									<span class="onoffswitch-switch"></span>
+								</label>
+							</div>
+						</div>
+					</li>
+					<li>
+						<p class="flex1"><span class="ic_control wifi"></span>네트워크</p>
+						<div class="flexcenter">
+							<div class="onoffswitch">
+								<input type="checkbox" class="onoffswitch-checkbox" id="home_network">
+								<label class="onoffswitch-label" for="home_network">
+									<span class="onoffswitch-inner"></span>
+									<span class="onoffswitch-switch"></span>
+								</label>
+							</div>
+						</div>
+					</li>
+					<li>
+						<p class="flex1"><span class="ic_control temp"></span>현재 온도</p>
+						<div class="flexcenter">
+							<a href="#dialog_current_temp" name="dialog" class="emulator_link">25ºC</a>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div><!-- #dialog_aircon_setting -->
+
+	</div><!--// #dialog -->
+
+
+
+	<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+	<script type="text/javascript" src="js/jquery-ui.min.js"></script>
+
+	<!-- prettify -->
+	<script type="text/javascript" src="js/prettify.js"></script>
+
+	<script type="text/javascript" src="js/emulator.js"></script>
+	<script>
+		//general mode ↔ log mode
+		$("#tabs_log").tabs();
+
+		//dialog_current_temp
+		$( "#current_temp_slider" ).slider({
+		  orientation: "vertical",
+		  range: "min",
+		  min: 9,
+		  max: 36,
+		  value: 25,
+		  slide: function( event, ui ) {
+			$( "#current_temp_value" ).val( ui.value );
+		  }
+		});
+		$( "#current_temp_value" ).val( $( "#current_temp_slider" ).slider( "value" ) );
+
+		//dialog_target_temp
+		$( "#target_temp_slider" ).slider({
+		  orientation: "vertical",
+		  range: "min",
+		  min: 18,
+		  max: 30,
+		  value: 20,
+		  slide: function( event, ui ) {
+			$( "#target_temp_value" ).val( ui.value );
+		  }
+		});
+		$( "#target_temp_value" ).val( $( "#target_temp_slider" ).slider( "value" ) );
+
+		//dialog_timer
+		$( "#tabs" ).tabs();
+	</script>
+</body>
+</html>

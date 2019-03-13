@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta cherset="ute-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="robots" content="all">
+	<title>Create - My Services :: LG SmartHome Developer</title>
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no, width=device-width">
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+
+	<link type="text/css" rel="stylesheet" href="css/materialize.css">
+	<link type="text/css" rel="stylesheet" href="css/common.css">
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:700,600,400' rel='stylesheet' type='text/css'>
+	<!--[if lt IE 9]>
+	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+	<![endif]-->
+</head>
+<body>
+	<header>
+		<div class="main_header">
+			<div class="container">
+				<h1><a href="index.html"><img src="img/logo_smarthome_dev.png" alt="LG Smart Home Developer"></a></h1>
+				<div class="header_menu">
+
+					<div class="dropdown slideright">
+						<a class="myaccount down">test@lge.com</a>
+						<ul class="dropdown_content btnlist clearfix">
+							<li><a href="profile.html">Profile</a></li>
+							<li><a>Sign out</a></li>
+						</ul>
+					</div><!--// dropdown-->
+
+					<div class="dropdown">
+						<a class="nav_more hidden_font">more</a>
+						<dl class="dropdown_content clearfix">
+							<dt>Link</dt>
+							<dd><a href="http://developer.lge.com" class="link_site" target="_blank">LG Developer</a></dd>
+							<dt>Language</dt>
+							<dd>
+								<select class="select_default">
+									<option selected>English</option>
+									<option>Korea</option>
+								</select>
+							</dd>
+						</dl>
+					</div><!--// dropdown-->
+
+				</div><!--// header_menu-->
+			</div>
+		</div>
+	</header>
+
+	<div class="navbar_wrap">
+		<div class="navbar">
+			<div class="container">
+				<ul class="navlist left">
+					<li><a href="get_started.html">Get Started</a></li>
+					<li><a href="supported_products.html">Supported Products</a></li>
+					<li><a href="apis_overview.html">APIs</a></li>
+					<li><a href="sdks.html">SDKs</a></li>
+					<li><a href="alljoyn.html">Alljoyn</a></li>
+				</ul>
+				<ul class="navlist right">
+					<li><a href="myservices.html" class="current">My Services</a></li>
+					<li><a href="virtual_test_lab.html">Virtual Test Lab</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div class="content"><!-- bg_gray 클래스 삭제 -->
+	<div class="wrap_content">
+		<div class="container">
+			<h2 class="title_big">Service 생성하기</h2>
+			<div class="flexbox">
+				<p class="sub_txt2 flex1">
+					Service 를 생성하기 위해 필요한 정보를 입력해 주세요.<br>
+					아래 모든 정보는 필수 입력 사항입니다.
+				</p>
+				<p class="sub_txt2 flexbottom ml20">
+					<a href="myservices.html" class="btn_border hvr-shutter-out-horizontal">My Service 목록보기</a>
+				</p>
+			</div>
+			<form>
+				<div class="columnbox">
+					<div class="column grey lighten-3 w200"><!-- lighten-5 → lighten-3 으로 클래스 변경-->
+						<h3 class="title_m">기본 정보</h3>
+					</div>
+
+					<div class="column w200_b">
+						<div class="input_row">
+							<div class="column col_label w200">
+								<label for="service_name">Service 이름</label><!-- *별표와 <span class="small_txt">(0/70bytes)</span> 삭제-->
+							</div>
+							<div class="column w200_b">
+								<input type="text" id="service_name" class="validate" length="40"><!--  "length" 70 → 40 으로 변경 -->
+								<!--<p class="err_txt">필수 입력 정보입니다.</p>-->
+							</div>
+						</div>
+
+						<div class="input_row">
+							<div class="column col_label w200">
+								<label for="service_desc">설명</label><!-- *별표와 <span class="small_txt">(0/600bytes)</span> 삭제 -->
+							</div>
+							<div class="column w200_b">
+								<textarea id="service_desc" class="materialize-textarea" length="600"></textarea>
+								<!--<p class="err_txt">필수 입력 정보입니다.</p>-->
+							</div>
+						</div>
+
+						<div class="input_row">
+							<div class="column col_label w200">
+								카테고리<!-- *별표 삭제 -->
+							</div>
+							<div class="column w200_b">
+								<p class="sub_txt3">제공하실 서비스의 형태를 선택해 주세요.</p>
+								<select id="service_catagory" class="select_default"><!-- 미선택 시 invalid 클래스 추가되도록 해주세요 -->
+									<option disabled selected>카테고리 선택</option>
+									<option>Appliances</option>
+									<option>Audio Video</option>
+									<option>Equipment</option>
+									<option>Automotive</option>
+									<option>Computing</option>
+									<option>Consumer Electronics</option>
+									<option>Education</option>
+									<option>Energy Metering</option>
+									<option>Energy Production</option>
+									<option>HVAC</option>
+									<option>Health</option>
+									<option>Home Automation</option>
+									<option>Home Security</option>
+									<option>Insurance</option>
+									<option>Internet Service</option>
+									<option>Lighting</option>
+									<option>Networking Devices</option>
+									<option>Software</option>
+									<option>Utility Provider</option>
+									<option>Wearable Computing Devices</option>
+								</select>
+								<!--<p class="err_txt">카테고리를 선택해주세요.</p>-->
+							</div>
+						</div>
+
+					</div>
+				</div>
+
+				<div class="columnbox">
+					<div class="column grey lighten-3 w200"><!-- lighten-5 → lighten-3 으로 클래스 변경-->
+						<h3 class="title_m">개발 환경</h3>
+					</div>
+					<div class="column w200_b">
+						<div class="input_row">
+							<p class="sub_txt3">생성할 Service의 개발 환경을 선택해 주세요.<br>
+							개발 환경에 따라서 제공하는 Max 수치의 값이 다릅니다.</p>
+							<p class="mt30">
+								<input name="dev_envir" type="radio" id="dv" checked/>
+								<label for="dv">DV (Development)<!-- (Development) 문구 추가 -->
+									<span class="normal ml10">
+										( Max API Call :
+										<span class="pink-text text-lighten-2">0,00 / hour</span>
+										| Max Product :
+										<span class="pink-text text-lighten-2">0,00 / service</span>
+										)
+									</span>
+								</label>
+							</p>
+							<p>
+								<input name="dev_envir" type="radio" id="op" />
+								<label for="op">OP (Operation)<!-- (Operation) 문구 추가 -->
+									<span class="normal ml10">
+										( Max API Call :
+										<span class="pink-text text-lighten-2">0,00 / hour</span>
+										| Max Product :
+										<span class="pink-text text-lighten-2">0,00 / service</span>
+										)
+									</span>
+								</label>
+							</p>
+						</div>
+						<div class="notibox basic"><!-- 내용 수정 -->
+							<span class="icon"></span>
+							<span class="point_txt">개발환경 선택 시 주의 사항</span><br>
+							• 개발이 완료된 내용으로 실제 서비스를 런칭하기 위해서는 OP 환경을 선택해서 관리자 승인 절차를 진행해야 합니다. <br>
+							• 관리자 승인 절차는 승인요청 &gt; 관리자 검증 &gt; 승인완료 의 순서로 진행합니다.<br>
+							• 각 단계별로 승인 진행에 대한 안내 메일을 발송하며, 단계별 상태는 ‘My Service’ 목록에서 확인 가능합니다.<br>
+							• 승인절차 진행중에는 Service 수정 및 삭제는 불가능 합니다.
+						</div>
+					</div>
+				</div>
+
+				<div class="columnbox">
+					<div class="column grey lighten-3 w200"><!-- lighten-5 → lighten-3 으로 클래스 변경-->
+						<h3 class="title_m">API 접근 권한</h3>
+					</div>
+					<div class="column w200_b">
+						<div class="input_row">
+							<p class="sub_txt3">API 접근 권한을 설정해 주세요.</p>
+							<p class="mt30">
+								<input name="api_permission" type="radio" id="read_write" checked/>
+								<label for="read_write">Read/Write</label>
+							</p>
+							<p>
+								<input name="api_permission" type="radio" id="read" />
+								<label for="read">Read</label>
+							</p>
+						</div>
+						<div class="notibox basic">
+							<span class="icon"></span>
+							Read/Write : 제품의 현재 상태 정보를 조회하고, 설정을 변경할 수 있습니다.<br>
+							Read : 제품의 현재 상태 조회만 할 수 있습니다.
+						</div>
+					</div>
+				</div>
+
+				<div class="columnbox">
+					<div class="column grey lighten-3 w200"><!-- lighten-5 → lighten-3 으로 클래스 변경-->
+						<h3 class="title_m">지원 제품</h3>
+						<a class="link">제품별 지원 기능 보기<span class="icon arrow"></span></a><!-- <a class="link"></a> link 추가 -->
+					</div>
+					<div class="column w200_b">
+						<div class="input_row">
+							<p class="sub_txt3">
+								대상 국가에 따른 지원 제품을 선택해 주세요. <!--  <a class="link"></a> link 삭제 -->
+							</p>
+						</div>
+
+						<div class="input_row">
+							<div class="column col_label w200">
+								대상 국가
+							</div>
+							<div class="column w200_b">
+								<ul class="horizontal_list">
+									<li>
+										<input name="support_prod" type="radio" id="kor" checked/>
+										<label for="kor">한국</label>
+									</li>
+									<li>
+										<input name="support_prod" type="radio" id="usa" />
+										<label for="usa">미국</label>
+									</li>
+								</ul>
+							</div>
+						</div>
+
+						<div class="input_row">
+							<div class="column col_label w200">
+								대상 제품
+							</div>
+							<div class="column w200_b">
+								<ul class="horizontal_list">
+									<li>
+										<input type="checkbox" class="filled-in" id="fridge" checked="checked" />
+										<label for="fridge">냉장고</label>
+									</li>
+									<li>
+										<input type="checkbox" class="filled-in" id="washer" />
+										<label for="washer">세탁기</label>
+									</li>
+									<li>
+										<input type="checkbox" class="filled-in" id="aircon"/>
+										<label for="aircon">에어컨</label>
+									</li>
+									<li>
+										<input type="checkbox" class="filled-in" id="oven" disabled />
+										<label for="oven">오븐</label>
+									</li>
+									<li>
+										<input type="checkbox" class="filled-in" id="roboking" checked="checked" disabled/>
+										<label for="roboking">로보킹</label>
+									</li>
+									<li>
+										<input type="checkbox" class="filled-in" id="audio"/>
+										<label for="audio">오디오</label>
+									</li>
+								</ul>
+							</div>
+						</div>
+
+						<div class="notibox basic">
+							<span class="icon"></span>
+							<span class="point_txt">지원 제품 선택 시 주의 사항</span><!-- sub_txt3 → point_txt 로 클래스 변경 --><br>
+							• 지원 제품 전체 목록 중, 파트너 제휴/협약 내용에 따라 선택 가능한 제품이 다릅니다.<br>
+							• Service 생성 시 선택한 제품들만 그 Service에 연동이 가능합니다.<br>
+							• Service 생성 후에도 파트너 제휴/협약 내용에 따라 제품 추가/삭제가 가능합니다.
+						</div>
+					</div>
+				</div>
+
+				<div class="btnbox cl-effect-5">
+					<a class="btn_default color_gr modal-trigger" href="#create_cancel"><span data-hover="취소">취소</span></a><!-- white → color_gr  로 클래스 변경, <span data-hover=" "></span> 본인값을 data-hover 로 갖는 span 으로 감싸기 -->
+					<a class="btn_default color_pk modal-trigger" href="#create_complete"><span data-hover="Service 생성하기">Service 생성하기</span></a><!-- sitepink → color_pk  로 클래스 변경, <span data-hover=" "></span> 본인값을 data-hover 로 갖는 span 으로 감싸기 -->
+				</div>
+			</form>
+
+		</div><!--// container -->
+	</div>
+	</div>
+
+	<span class="hidden_font btn_top" style="display:none;">go to top</span>
+	<footer>
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<img src="img/logo_lg_footer.png" class="img_footer_logo" alt="LG logo">
+				</div>
+				<div class="col">
+					<p class="copyright">COPYRIGHT ⓒ 2015 LG ELECTRONICS.<br>ALL RIGHTS RESERVED.</p>
+				</div>
+				<div class="col right">
+					<div class="termslist">
+						<p class="">TERMS & CONDITIONS<br>[ <a href="terms_global.html">Global</a> / <a href="terms.html">KOR</a> ]</p>
+					</div>
+					<div class="termslist">
+						<p class="">PRIVACY<br>[ <a href="terms_privacy.html">Global</a> / <a href="terms_privacy_global.html">개인정보처리방침</a> / <a href="terms_privacy_global.html">개인정보취급방침</a> ]</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+	<!-- modal -->
+	<div id="create_cancel" class="modal simple">
+		<div class="modal-content">
+			<h4 class="title_modal">Service 생성 취소</h4>
+			<p>
+				Service 생성을 취소하시겠습니까?
+			</p>
+		</div>
+		<div class="modal-footer">
+			<a href="#!" class="modal-close btn_modal btn_gray"><span data-hover="아니오">아니오</span></a>
+			<a href="#!" class="modal-close btn_modal btn_pink"><span data-hover="예">예</span></a>
+		</div>
+	</div>
+
+	<div id="create_complete" class="modal simple wide">
+		<div class="modal-content">
+			<h4 class="title_modal">Service 생성 완료</h4>
+			<div class="modal-contentbox"><!-- 각 리스트에 " : " 추가 -->
+				<p class="txt_list"><span class="txt_list_title">이름 :</span> service AAA</p>
+				<p class="txt_list"><span class="txt_list_title">카테고리 :</span> Home Automation</p>
+				<p class="txt_list"><span class="txt_list_title">개발 환경 :</span> DV</p>
+				<p class="txt_list"><span class="txt_list_title">API 접근 권한 :</span> Read</p>
+				<p class="txt_list"><span class="txt_list_title">대상 국가 :</span> 한국</p>
+				<p class="txt_list"><span class="txt_list_title">대상 제품 :</span> 냉장고, 로보킹, 오디오</p>
+			</div>
+			<p>
+				이 내용으로 Service를 생성하시겠습니까?
+			</p>
+		</div>
+		<div class="modal-footer">
+			<a href="#!" class="modal-close btn_modal btn_gray"><span data-hover="아니오">아니오</span></a>
+			<a href="#!" class="modal-close btn_modal btn_pink"><span data-hover="예">예</span></a>
+		</div>
+	</div>
+
+	<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+	<script type="text/javascript" src="js/materialize.min.js"></script>
+	<script type="text/javascript" src="js/retina.min.js"></script>
+	<script type="text/javascript" src="js/common.js"></script>
+</body>
+</html>

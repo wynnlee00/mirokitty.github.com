@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta cherset="ute-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="robots" content="all">
+	<title>View - My Services :: LG SmartHome Developer</title>
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no, width=device-width">
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+
+	<link type="text/css" rel="stylesheet" href="css/materialize.css">
+	<link type="text/css" rel="stylesheet" href="css/common.css">
+	<link href="css/c3.css" rel="stylesheet" type="text/css">
+
+	<link rel="stylesheet" href="css/daterangepicker.css" />
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:700,600,400' rel='stylesheet' type='text/css'>
+
+	<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+	<script type="text/javascript" src="js/materialize.min.js"></script>
+	<script type="text/javascript" src="js/retina.min.js"></script>
+	<script type="text/javascript" src="js/common.js"></script>
+	<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <script src="js/c3.min.js"></script>
+
+	<script src="js/moment.min.js"></script>
+	<script src="js/jquery.daterangepicker.js"></script>
+	<!--[if lt IE 9]>
+	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+	<![endif]-->
+</head>
+<body>
+	<header>
+		<!--
+		<div class="unsupported_bar">
+			<div class="container clearfix">IE 10 버전 이상에 최적화 되어 있습니다. 브라우저 업데이트를 권장합니다.<a id="close_unsupported_bar" class="right close"></a></div>
+		</div>-->
+		<div class="main_header">
+			<div class="container">
+				<h1><a href="index.html"><img src="img/logo_smarthome_dev.png" alt="LG Smart Home Developer"></a></h1>
+				<div class="header_menu">
+
+					<div class="dropdown slideright">
+						<a class="myaccount down">test@lge.com</a>
+						<ul class="dropdown_content btnlist clearfix">
+							<li><a href="profile.html">Profile</a></li>
+							<li><a>Sign out</a></li>
+						</ul>
+					</div><!--// dropdown-->
+
+					<div class="dropdown">
+						<a class="nav_more hidden_font">more</a>
+						<dl class="dropdown_content clearfix">
+							<dt>Link</dt>
+							<dd><a href="http://developer.lge.com" class="link_site" target="_blank">LG Developer</a></dd>
+							<dt>Language</dt>
+							<dd>
+								<select class="select_default">
+									<option selected>English</option>
+									<option>Korea</option>
+								</select>
+							</dd>
+						</dl>
+					</div><!--// dropdown-->
+
+				</div><!--// header_menu-->
+			</div>
+		</div>
+	</header>
+
+	<div class="navbar_wrap">
+		<div class="navbar">
+			<div class="container">
+				<ul class="navlist left">
+					<li><a href="get_started.html">Get Started</a></li>
+					<li><a href="supported_products.html">Supported Products</a></li>
+					<li><a href="apis_overview.html">APIs</a></li>
+					<li><a href="sdks.html">SDKs</a></li>
+					<li><a href="alljoyn.html">Alljoyn</a></li>
+				</ul>
+				<ul class="navlist right">
+					<li><a href="myservices.html" class="current">My Services</a></li>
+					<li><a href="virtual_test_lab.html">Virtual Test Lab</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<span class="hidden_font btn_top">맨위로</span>
+	<div class="content">
+	<div class="wrap_content">
+		<div class="container">
+			<div class="flexbox mb30">
+				<h2 class="title_big flex1"><span class="title_m normal">Service :</span> <span class="semibold">Service AAA</span></h2>
+				<p class="flexbottom ml20">
+					<a class="btn_border color_gr">Service 수정하기</a>
+					<a href="myservices.html" class="btn_border">My Service 목록보기</a>
+				</p>
+			</div>
+
+			<div class="columnbox">
+				<div class="column grey lighten-3 w200">
+					<h3 class="title_m">기본 정보</h3>
+				</div>
+
+				<div class="column w200_b">
+					<div class="input_row">
+						<div class="column col_label w200">
+							Service 이름
+						</div>
+						<div class="column w200_b">
+							Service AAA
+						</div>
+					</div>
+
+					<div class="input_row">
+						<div class="column col_label w200">
+							Service ID
+						</div>
+						<div class="column w200_b">
+							89ad1-6dddfs5-192921881
+						</div>
+					</div>
+
+					<div class="input_row">
+						<div class="column col_label w200">
+							설명
+						</div>
+						<div class="column w200_b">
+							새로운 것을 만들거나 발생시키는 것. 컴퓨터에서는 특히 골조만을 코딩하고 있는 프로그램을 근본으로 하여 몇몇 범용 프로그램(general purpose program)을 호출한다.
+						</div>
+					</div>
+
+					<div class="input_row">
+						<div class="column col_label w200">
+							카테고리
+						</div>
+						<div class="column w200_b">
+							Home Automation
+						</div>
+					</div>
+
+					<div class="input_row">
+						<div class="column col_label w200">
+							승인 진행 현황 <a href="#tip_status" class="ic_tip modal-trigger">?</a>
+						</div>
+						<div class="column w200_b">
+							<span class="txt_status passed">passed</span>
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+			<div class="columnbox">
+				<div class="column grey lighten-3 w200">
+					<h3 class="title_m">제한</h3>
+				</div>
+				<div class="column w200_b">
+					<div class="input_row">
+						<div class="column col_label w200">
+							API 접근 권한
+						</div>
+						<div class="column w200_b">
+							Read
+						</div>
+					</div>
+					<div class="input_row">
+						<div class="column col_label w200">
+							개발 환경
+						</div>
+						<div class="column w200_b">
+							DV
+						</div>
+					</div>
+					<div class="input_row">
+						<div class="column col_label w200">
+							Max APII Call
+						</div>
+						<div class="column w200_b">
+							<span class="pink_txt">0,00</span> / hour
+						</div>
+					</div>
+					<div class="input_row">
+						<div class="column col_label w200">
+							Max Product
+						</div>
+						<div class="column w200_b">
+							<span class="pink_txt">0,00</span> / Service
+						</div>
+					</div>
+					<div class="notibox basic">
+						<span class="icon"></span>
+						Max API Call 및 Max Product 값 변경을 원할 경우 관리자에게 문의해 주세요.<br>
+						관리자 이메일 : lgsmarthomedevs@lge.com
+					</div>
+				</div>
+			</div>
+
+			<div class="columnbox">
+				<div class="column grey lighten-3 w200">
+					<h3 class="title_m">지원 제품</h3>
+					<a class="link">제품별 지원 기능 보기<span class="icon arrow"></span></a>
+				</div>
+				<div class="column w200_b">
+					<div class="input_row">
+						<div class="column col_label w200">
+							대상 국가
+						</div>
+						<div class="column w200_b">
+							한국
+						</div>
+					</div>
+
+					<div class="input_row">
+						<div class="column col_label w200">
+							대상 제품
+						</div>
+						<div class="column w200_b">
+							<ul class="product_icon_list clearfix">
+								<li><span class="product_icon refrigerator"></span><span class="device_type">refrigerator</span></li>
+								<li><span class="product_icon washer"></span><span class="device_type">세탁기</span></li>
+								<li><span class="product_icon audio"></span><span class="device_type">오디오</span></li>
+								<li><span class="product_icon aircon"></span><span class="device_type">air conditioner</span></li>
+								<li><span class="product_icon roboking"></span><span class="device_type">roboking</span></li>
+								<li><span class="product_icon refrigerator"></span><span class="device_type">refrigerator</span></li>
+								<li><span class="product_icon washer"></span><span class="device_type">세탁기</span></li>
+								<li><span class="product_icon dryer"></span><span class="device_type">건조기</span></li>
+								<li><span class="product_icon aircon"></span><span class="device_type">air conditioner</span></li>
+								<li><span class="product_icon purifier"></span><span class="device_type">공기청정기</span></li>
+								<li><span class="product_icon smarthub"></span><span class="device_type">스마트허브</span></li>
+								<li><span class="product_icon gateway"></span><span class="device_type">게이트웨이</span></li>
+								<li><span class="product_icon sensor"></span><span class="device_type">센서</span></li>
+								<li><span class="product_icon roboking"></span><span class="device_type">roboking</span></li>
+
+							</ul>
+							<strong>연결된 가상제품</strong> 3개
+							<a class="link disabled" style="margin-left:15px;">Virtual Test 바로 가기<span class="icon arrow"></span></a><!-- 가상제품 없을 떄 a 태그에 disabled 쿨래스 추가해주세요. -->
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<section class="wrap_statistic">
+				<h3 class="title_m">통계</h3>
+
+					<ul class="tabs bg_tabs stat">
+						<li class="tab"><a href="#tab_overview">Overview</a></li>
+						<li class="tab"><a href="#tab_user">User</a></li>
+						<li class="tab"><a href="#tab_product">Product</a></li>
+						<li class="tab"><a href="#tab_api">API</a></li>
+					</ul>
+
+					<div id="tab_overview" class="tab_content "><!-- 전체통계가 없을 때 empty 클래스 추가 -->
+
+						<!-- 수집된 통계 정보가 없습니다. -->
+
+						<div class="flexbox titlearea">
+							<h4 class="flex1 title_m">Overview</h4>
+							<p class="flexcenter small_txt mb0">2015.06.24 GMT +0 09:12:22 기준</p>
+						</div>
+						<div class="statisticbox">
+							<div class="flexbox mb10">
+								<h5 class="flex1 title_s">User</h5>
+								<a href="#tab_user" class="flexbottom link">More<span class="icon arrow"></span></a>
+							</div>
+							<div class="flexbox valign-wrapper">
+								<div class="valuebox">
+									<div class="inner"><p class="txt_value">866<span class="txt_unit">User(s)</span></p> <p class="txt_value_title">전체 사용자</p>
+									</div>
+								</div>
+								<div id="chart1" class="flex1" style="width:630px;height:270px;"></div>
+							</div>
+						</div>
+						<div class="statisticbox">
+							<div class="flexbox">
+								<h5 class="flex1 title_s">Product</h5>
+								<a href="#tab_product" class="flexbottom link">More<span class="icon arrow"></span></a>
+							</div>
+							<div class="flexbox valign-wrapper">
+								<div class="valuebox"><p class="txt_value">1,366<span class="txt_unit">Unit(s)</span></p> <p class="txt_value_title">전체 연동 제품 수</p></div>
+								<ul class="flex1 product_icon_list clearfix">
+									<li><span class="product_icon refrigerator"></span><span class="product_num">35</span></li>
+									<li><span class="product_icon washer"></span><span class="product_num">85</span></li>
+									<li><span class="product_icon audio"></span><span class="product_num">35</span></li>
+									<li><span class="product_icon oven"></span><span class="product_num">35</span></li>
+									<li><span class="product_icon range"></span><span class="product_num">35</span></li>
+									<li><span class="product_icon aircon"></span><span class="product_num">35</span></li>
+									<li><span class="product_icon dryer"></span><span class="product_num">35</span></li>
+
+								</ul>
+								<div id="chart2" class="" style="width:260px;height:255px"></div>
+							</div>
+						</div>
+						<div class="statisticbox">
+							<div class="flexbox">
+								<h5 class="flex1 title_s">API</h5>
+								<a href="#tab_api" class="flexbottom link">More<span class="icon arrow"></span></a>
+							</div>
+							<div class="flexbox valign-wrapper">
+								<div class="valuebox"><p class="txt_value">3,020<span class="txt_unit">Call(s)</span></p> <p class="txt_value_title">API Call 최고 값</p></div>
+								<div id="chart3" class="flex1" style="width:630px;height:270px;"></div>
+							</div>
+						</div>
+
+						<!-- 일부 통계만 없을 때
+						<div class="flexbox titlearea">
+							<h4 class="flex1 title_m">Overview</h4>
+							<p class="flexcenter small_txt mb0">2015.06.24 09:12:22기준</p>
+						</div>
+						<div class="statisticbox">
+							<div class="flexbox mb20">
+								<h5 class="flex1 title_s">User</h5>
+								<a href="" class="flexbottom link">More<span class="icon arrow"></span></a>
+							</div>
+							<div class="flexbox valign-wrapper">
+								<div class="valuebox"><p class="txt_value">866명</p> <p class="semibold">전체 사용자</p></div>
+								<div id="chart1" class="flex1" style="width:400px;height:100%;"></div>
+							</div>
+						</div>
+						<div class="statisticbox">
+							<div class="flexbox mb20">
+								<h5 class="flex1 title_s">Product</h5>
+								<a href="" class="flexbottom link disabled">More<span class="icon arrow"></span></a>
+							</div>
+							<div class="flexbox valign-wrapper">
+								<div class="empty">수집된 통계 정보가 없습니다.</div>
+							</div>
+						</div>
+						<div class="statisticbox">
+							<div class="flexbox mb20">
+								<h5 class="flex1 title_s">API</h5>
+								<a href="/apis/overview" class="flexbottom link disabled">More<span class="icon arrow"></span></a>
+							</div>
+							<div class="flexbox valign-wrapper">
+								<div class="empty">수집된 통계 정보가 없습니다.</div>
+							</div>
+						</div>
+						-->
+
+
+					</div><!--// tab_overview -->
+
+
+					<!-- <div id="tab_user" class="tab_content">
+						<div class="flexbox titlearea">
+							<h4 class="flex1 title_m"></h4>
+							<p class="flexcenter small_txt mb0">2015.06.24 GMT +0 09:12:22 기준</p>
+						</div>
+						<div class="statisticbox flexbox">
+							<div class="empty">There are no statistics available.</div>
+						</div>
+					</div> -->
+					<div id="tab_user" class="tab_content">
+						<div class="flexbox titlearea">
+							<h4 class="flex1 title_m">Summary</h4>
+							<p class="flexcenter small_txt mb0">2015.06.24 GMT +0 09:12:22 기준</p>
+						</div>
+
+						<div class="statisticbox summary flexbox">
+							<div class="valuebox user userarrow1">
+								<div class="datearea"><span class="txt_date">6/23</span></div>
+								<div class="inner"><p class="txt_value">2,366<span class="txt_unit">명</span></p> <p class="txt_value_title">전체 사용자</p>
+								</div>
+							</div>
+							<div class="flex1 userarrow2">
+								<div class="valuebox user">
+									<div class="datearea"><span class="txt_date">6/24</span></div>
+									<div class="inner">
+										<p class="txt_value">2,466<span class="txt_unit">명</span></p>
+										<p class="txt_value_title">전체 사용자</p><br>
+									</div>
+								</div>
+								<div class="detailbox">
+									<p class="tbrdisplay">
+										<span class="tbcdisplay left-align pr20">신규 사용자</span>
+										<span class="tbcdisplay"><span class="ic_plus"></span></span>
+										<span class="tbcdisplay right-align"><strong class="navy_txt">100</strong> 명</span>
+									</p>
+									<p class="tbrdisplay">
+										<span class="tbcdisplay left-align pr20">탈퇴 사용자</span>
+										<span class="tbcdisplay"><span class="ic_minus"></span></span>
+										<span class="tbcdisplay right-align"><strong class="navy_txt">10</strong> 명</span>
+									</p>
+								</div>
+							</div>
+						</div>
+
+						<div class="statisticbox detail">
+							<h5 class="title_s">상세 현황</h5>
+							<p class="lightnavy_txt mb10">User 상세 현황은 1주/1개월/1년 혹은 기간을 설정하여 확인할 수 있습니다.</p>
+
+							<div class="flexbox period_header">
+								<ul class="flex1 period_list">
+									<li><a class="active">1주</a></li><!-- 선택된 a 태그에 "active" 클래스를 추가해 주세요.-->
+									<li><a>1개월</a></li>
+									<li><a>1년</a></li>
+								</ul>
+								<div>
+									<label for="user-date-range1" class="sub_txt4" style="margin-right:5px;">Date Range</label> <span id="stat_user"><input id="user-date-range1" size="20" class="input_calendar" value="2015-06-17"> ~ <input id="user-date-range2" size="20" class="input_calendar" value="2015-06-24"></span>
+								</div>
+							</div>
+							<div class="period_body">
+								<div class="flexbox pt30">
+									<div id="chart_user" class="flex1" style="height:270px;"></div>
+								</div>
+								<div class="pb20">
+									<table class="table_stat">
+										<colgroup>
+											<col width="55%">
+											<col span="3">
+										</colgroup>
+										<thead>
+											<tr>
+												<th class="left-align">기간</th>
+												<th class="right-align">전체 사용자</th>
+												<th class="right-align">신규 사용자</th>
+												<th class="right-align">탈퇴 사용자</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td class="left-align">2015/06/24</td>
+												<td class="right-align">2,366</td>
+												<td class="right-align">309</td>
+												<td class="right-align">12</td>
+											</tr>
+											<tr>
+												<td class="left-align">2015/06/23</td>
+												<td class="right-align">1,800</td>
+												<td class="right-align">102</td>
+												<td class="right-align">9</td>
+											</tr>
+											<tr>
+												<td class="left-align">2015/06/22</td>
+												<td class="right-align">1,523</td>
+												<td class="right-align">580</td>
+												<td class="right-align">8</td>
+											</tr>
+											<tr>
+												<td class="left-align">2015/06/21</td>
+												<td class="right-align">1,400</td>
+												<td class="right-align">205</td>
+												<td class="right-align">28</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div><!--// period_body -->
+						</div><!--// statisticbox -->
+					</div><!--// tab_user -->
+
+
+					<div id="tab_product" class="tab_content">
+						<div class="flexbox titlearea">
+							<h4 class="flex1 title_m">Summary</h4>
+							<p class="flexcenter small_txt mb0">2015.06.24 GMT +0 09:12:22 기준</p>
+						</div>
+						<div class="statisticbox summary">
+							<div class="flexbox">
+								<div class="summarybox1">
+									<h5 class="title_desc">제품별 연동 제품 수</h5>
+									<div class="tbdisplay mauto" style="padding:40px 0 20px;">
+										<div class="flexcenter mb30">
+											<p class="txt_value_l">190</p>
+											<p class="txt_max"><span class="txt_value_maxlabel">Max</span><br><span class="txt_value_max">/10,000</span></p>
+											<p><span class="percent">90%</span></p>
+										</div>
+										<div class="detailbox">
+											<p class="flexbox">
+												<span class="flex1 pr20">Physical Products</span>
+												<strong class="navy_txt">160</strong>
+											</p>
+											<p class="flexbox">
+												<span class="flex1 pr20">Virtual Products</span>
+												<strong class="navy_txt">30</strong>
+											</p>
+										</div>
+									</div>
+								</div>
+								<div class="summarybox2">
+									<h5 class="title_desc center">제품별 연동 비율</h5>
+									<div id="chart_product1" class="mauto" style="width:260px;height:255px;"></div>
+								</div>
+							</div>
+							<div class="summarybox3">
+								<div class="flexcenter">
+									<h5 class="flex1 title_desc">제품별 연동 수</h5>
+									<p>(Physical/<span class="point_txt">Virtual</span>)</p>
+								</div>
+								<ul class="connection_list clearfix">
+									<!-- li 는 6개가 한줄에 채워지므로, 6개씩 생성되도록 해주세요 (제품이 없는 칸은 빈 li 로) -->
+									<li><span class="product_catagory">냉장고</span><span class="connect_num">20</span><span>(10/<span class="point_txt">10</span>)</span></li>
+									<li><span class="product_catagory">세탁기</span><span class="connect_num">50</span><span>(40/<span class="point_txt">10</span>)</span></li>
+									<li><span class="product_catagory">에어컨</span><span class="connect_num">120</span><span>(100/<span class="point_txt">20</span>)</span></li>
+									<li></li>
+									<li></li>
+									<li></li>
+								</ul>
+							</div>
+						</div>
+
+						<div class="statisticbox detail">
+							<h5 class="title_s">상세 현황</h5>
+							<p class="lightnavy_txt mb10">Product 상세 현황은 1주/1개월/1년 혹은 기간을 설정하여 확인하실 수 있습니다.</p>
+
+							<div class="flexbox period_header">
+								<ul class="flex1 period_list">
+									<li><a class="active">1주</a></li><!-- 선택된 a 태그에 "active" 클래스를 추가해 주세요.-->
+									<li><a>1개월</a></li>
+									<li><a>1년</a></li>
+								</ul>
+								<div>
+									<label for="product-date-range1" class="sub_txt4" style="margin-right:5px;">Date Range</label> <span id="stat_product"><input id="product-date-range1" size="20" class="input_calendar" value="2015-06-17"> ~ <input id="product-date-range2" size="20" class="input_calendar" value="2015-06-24"></span>
+								</div>
+							</div>
+							<div class="period_body">
+								<div class="flexbox pt30">
+									<div id="chart_product2" class="flex1" style="width:630px;height:270px;"></div>
+								</div>
+								<div class="mb20" style="overflow-x:auto">
+									<table class="table_stat center">
+										<thead>
+											<tr>
+												<th rowspan="2">기간</th>
+												<th rowspan="2">전체 제품 연동 수</th>
+												<th colspan="2">냉장고</th>
+												<th colspan="2">세탁기</th>
+												<th colspan="2">공기청정기</th>
+												<th colspan="2">에어컨</th>
+												<th colspan="2">오븐</th>
+											</tr>
+											<tr>
+												<th class="bt0">Physical</th>
+												<th class="bt0 bl0">Virtual</th>
+												<th class="bt0">Physical</th>
+												<th class="bt0 bl0">Virtual</th>
+												<th class="bt0">Physical</th>
+												<th class="bt0 bl0">Virtual</th>
+												<th class="bt0">Physical</th>
+												<th class="bt0 bl0">Virtual</th>
+												<th class="bt0">Physical</th>
+												<th class="bt0 bl0">Virtual</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td>2015/06/24</td>
+												<td>20</td>
+												<td>12</td>
+												<td class="bl0">20</td>
+												<td>12</td>
+												<td class="bl0">20</td>
+												<td>12</td>
+												<td class="bl0">20</td>
+												<td>12</td>
+												<td class="bl0">20</td>
+												<td>12</td>
+												<td class="bl0">20</td>
+											</tr>
+											<tr>
+												<td>2015/06/24</td>
+												<td>20</td>
+												<td>12</td>
+												<td class="bl0">20</td>
+												<td>12</td>
+												<td class="bl0">20</td>
+												<td>12</td>
+												<td class="bl0">20</td>
+												<td>12</td>
+												<td class="bl0">20</td>
+												<td>12</td>
+												<td class="bl0">20</td>
+											</tr>
+											<tr>
+												<td>2015/06/24</td>
+												<td>20</td>
+												<td>12</td>
+												<td class="bl0">20</td>
+												<td>12</td>
+												<td class="bl0">20</td>
+												<td>12</td>
+												<td class="bl0">20</td>
+												<td>12</td>
+												<td class="bl0">20</td>
+												<td>12</td>
+												<td class="bl0">20</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div><!--// period_body -->
+						</div><!--// statisticbox -->
+					</div><!--// tab_product -->
+
+					<div id="tab_api" class="tab_content">
+						<div class="flexbox titlearea">
+							<h4 class="flex1 title_m">Summary</h4>
+							<p class="flexcenter small_txt mb0">2015.06.24 GMT +0 09:12:22 기준</p>
+						</div>
+						<div class="statisticbox summary">
+							<div class="summarybox3">
+								<div class="flexcenter">
+									<h5 class="flex1 title_desc">API Call 수</h5>
+									<p>Max Limit  10,000/hour</p>
+								</div>
+								<div class="tbdisplay mauto" style="padding:40px 0;">
+									<div class="flexbottom">
+										<span class="txt_value_maxlabel pr20">Max</span><span class="txt_value">190</span>
+										<span class="value_divider"></span>
+										<span class="txt_value_maxlabel pr20">Average</span><span class="txt_value">70</span>
+									</div>
+
+								</div>
+							</div>
+						</div>
+
+						<div class="statisticbox detail">
+							<h5 class="title_s">상세 현황</h5>
+							<p class="lightnavy_txt mb10">API Call 상세 현황은 1일/1주/1개월 혹은 기간을 설정하여 확인하실 수 있습니다.</p>
+
+							<div class="flexbox period_header">
+								<ul class="flex1 period_list">
+									<li><a class="active">1일</a></li><!-- 선택된 a 태그에 "active" 클래스를 추가해 주세요.-->
+									<li><a>1주</a></li>
+									<li><a>1개월</a></li>
+								</ul>
+								<div>
+									<label for="api-date-range1" class="sub_txt4" style="margin-right:5px;">Date Range</label> <span id="stat_api"><input id="api-date-range1" size="20" class="input_calendar" value="2015-06-17"> ~ <input id="api-date-range2" size="20" class="input_calendar" value="2015-06-17"></span>
+								</div>
+							</div>
+							<div class="period_body">
+								<div class="flexbox pt30 pb20">
+									<div id="chart_api" class="flex1" style="height:270px;"></div>
+								</div>
+								<div class="pb20">
+									<table class="table_stat">
+										<colgroup>
+											<col width="55%">
+											<col span="3">
+										</colgroup>
+										<thead>
+											<tr>
+												<th class="left-align">기간</th>
+												<th class="right-align">API 최고 값</th>
+												<th class="right-align">API 평균 값</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td class="left-align">2015/06/24</td>
+												<td class="right-align">86</td>
+												<td class="right-align">45</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div><!--// period_body -->
+						</div><!--// statisticbox -->
+					</div><!--// tab_api -->
+
+			</section>
+
+		</div><!--// container -->
+	</div>
+	</div>
+
+
+	<span class="hidden_font btn_top" style="display:none;">go to top</span>
+	<footer>
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<img src="img/logo_lg_footer.png" class="img_footer_logo" alt="LG logo">
+				</div>
+				<div class="col">
+					<p class="copyright">COPYRIGHT ⓒ 2015 LG ELECTRONICS.<br>ALL RIGHTS RESERVED.</p>
+				</div>
+				<div class="col right">
+					<div class="termslist">
+						<p class="">TERMS & CONDITIONS<br>[ <a href="terms_global.html">Global</a> / <a href="terms.html">KOR</a> ]</p>
+					</div>
+					<div class="termslist">
+						<p class="">PRIVACY<br>[ <a href="terms_privacy.html">Global</a> / <a href="terms_privacy_global.html">개인정보처리방침</a> / <a href="terms_privacy_global.html">개인정보취급방침</a> ]</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+	<!-- modal -->
+	<div id="user_registration_info" class="modal simple">
+		<div class="modal-content">
+			<h4 class="title_modal">User 등록 안내</h4>
+			<p>
+				생성된 Service에 제품을 연동하려면,<br> 그 제품에 연결된 User 정보가 필요합니다. <br><br>
+				필요한 User 정보 (Session ID 및 Session Key) 는 User API 에서 사용자 등록을 통해 생성해 주세요. <br><br>
+				<a href="" class="link">User 등록 하기<span class="icon arrow"></span></a>
+			</p>
+		</div>
+		<div class="modal-footer">
+			<a href="#!" class="modal-close btn_modal btn_pink"><span data-hover="확인">확인</span></a>
+		</div>
+		<div class="bottom_checkbox"><!-- modal-footer div 밖으로 꺼내기 -->
+				<input type="checkbox" id="dont_show" checked="checked" />
+				<label for="dont_show">다시 보지 않기</label>
+			</div>
+	</div>
+
+	<div id="tip_status" class="modal simple wide">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h4 class="title_modal">Status Information</h4>
+				<a href="#!" class="btn_x btn_close modal-close" title="Close"></a>
+			</div>
+			<h5 class="sub_title_modal left-align">OP Phase Service Statuses</h5>
+			<div class="modal-contentbox left-align normal" style="margin:0.7em 1.429em 0.5em">
+				<strong class="block mb10">Before launch</strong>
+				<img src="img/img_approval_step.png" class="block mb10" alt="">
+				<div style="font-size:0.875em;padding-left:0.5em;">
+					<span class="step_num">1</span> <span class="txt_status submitted">Submitted</span>  : Submitted for review<br>
+					<span class="step_num">2</span> <span class="txt_status reviewing">Reviewing</span> : Under review<br>
+					<span class="step_num">3</span>  <span class="txt_status passed">Passed</span> <span class="txt_status failed">Failed</span> : Review results<br>
+					<span class="step_num">4</span> <span class="txt_status approved">Approved</span> : Approved and ready for launch
+				</div>
+			</div>
+			<div class="modal-contentbox left-align normal" style="margin:0.5em 1.429em">
+				<strong class="block mb10">After launch</strong>
+				<div style="font-size:0.875em;padding-left:0.5em;">
+					<span class="step_num none"></span> <span class="txt_status suspended">Suspended</span> : Temporarily paused due to maintenance or system errors
+				</div>
+			</div>
+			<p class="left-align sub_txt4">You will be notified of status updates via E-mail. You may also check Service statuses in My Services.</p>
+		</div>
+		<div class="modal-footer">
+			<a href="#!" class="modal-close btn_modal btn_pink">Close</a>
+		</div>
+	</div>
+
+<!--
+	<div id="tip_status" class="modal simple wide">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h4 class="title_modal">OP 환경에 대한 상태 정보</h4>
+				<a href="#!" class="modal-close btn_x"></a>
+			</div>
+			<div class="modal-contentbox left-align normal" style="margin:0.5em 1.429em">
+				<strong class="block mb10">런칭 전 승인 진행 단계 표시</strong>
+				<div style="padding-left:0.5em;">
+					<img src="img/img_approval_step.png" class="block mb10" alt="">
+					<span class="step_num">1</span> <span class="txt_status submitted">Submitted</span> 승인 요청 상태<br>
+					<span class="step_num">2</span> <span class="txt_status reviewing">reviewing</span> 검증 진행 상태<br>
+					<span class="step_num">3</span> <span class="txt_status passed">passed</span> <span class="txt_status failed">failed</span> 검증 결과안내<br>
+					<span class="step_num">4</span> <span class="txt_status approved">approved</span> 승인 완료 상태
+				</div>
+				<span class="line mt10 mb10"></span>
+				<strong class="block mb10">런칭 이후 일시 정지 단계 표시</strong>
+				<div style="padding-left:0.5em;">
+					<span class="step_num">1</span> <span class="txt_status suspended">suspended</span> 점검 및 장애로 인한 일시 정지 상태
+				</div>
+			</div>
+			<p class="left-align sub_txt4">※ 각 단계별로 승인 진행 현황에 대한 안내 메일을 발송하며, 현재 단계에 대한 상태는 ‘My Service’ 목록에서 확인이 가능합니다.</p>
+		</div>
+		<div class="modal-footer">
+			<a href="#!" class="modal-close btn_modal btn_gray">닫기</a>
+		</div>
+	</div>
+	-->
+
+
+
+	<script>
+		//modal open on document ready
+		//$('#user_registration_info').openModal({
+		//	dismissible: false, // Modal can be dismissed by clicking outside of the modal
+		//	opacity: .6
+		//});
+
+
+
+		//tabs
+	    $('ul.tabs').tabs();
+
+		//btn_top
+		$(window).scroll(function(){
+			if ($(this).scrollTop() > 200) {
+				$('.btn_top').fadeIn();
+			} else {
+				$('.btn_top').fadeOut();
+			}
+		});
+		$('.btn_top').click(function(){
+			$('html, body').animate({scrollTop : 0},800);
+			return false;
+		});
+
+		//chart
+		var chart1 = c3.generate({
+		bindto: '#chart1',
+		legend: {
+		  hide: true
+		},
+		point: {
+		  r: 4,
+		  focus: {
+			expand: {
+			  r: 5
+			}
+		  }
+		},
+		size: {
+		  width: 630
+		},
+		data: {
+		  columns: [
+			['data1', 130, 210, 120, 440, 250, 350]
+		  ]
+		},
+		axis : {
+	        x : { type: 'category' },
+	        y: { min: 1 }
+
+	    }
+	  });
+	  var chart2 = c3.generate({
+		bindto: '#chart2',
+		size: {
+		  width: 260
+		},
+		data: {
+		  columns: [
+			["versicolor", 1.4, 1.5, 1.5, 1.3, 1.5, 1.3, 1.6, 1.0, 1.3, 1.4, 1.0, 1.5, 1.0, 1.4, 1.3, 1.4, 1.5, 1.0, 1.5, 1.1, 1.8, 1.3, 1.5, 1.2, 1.3, 1.4, 1.4, 1.7, 1.5, 1.0, 1.1, 1.0, 1.2, 1.6, 1.5, 1.6, 1.5, 1.3, 1.3, 1.3, 1.2, 1.4, 1.2, 1.0, 1.3, 1.2, 1.3, 1.3, 1.1, 1.3],
+			["virginica", 2.5, 1.9, 2.1, 1.8, 2.2, 2.1, 1.7, 1.8, 1.8, 2.5, 2.0, 1.9, 2.1, 2.0, 2.4, 2.3, 1.8, 2.2, 2.3, 1.5, 2.3, 2.0, 2.0, 1.8, 2.1, 1.8, 1.8, 1.8, 2.1, 1.6, 1.9, 2.0, 2.2, 1.5, 1.4, 2.3, 2.4, 1.8, 1.8, 2.1, 2.4, 2.3, 1.9, 2.3, 2.5, 2.3, 1.9, 2.0, 2.3, 1.8],
+			["setosa", 30]
+		  ],
+		  type : 'pie',
+		  onmouseover: function (d, i) { console.log("onmouseover", d, i, this); },
+		  onmouseout: function (d, i) { console.log("onmouseout", d, i, this); },
+		  onclick: function (d, i) { console.log("onclick", d, i, this); },
+		},
+		color: {
+			pattern: ['#2aa5b7', '#4D70CE', '#4a4758', '#8f8d96', '#678BCE', '#413773' ]
+		},
+		axis: {
+		  x: {
+			label: 'Sepal.Width'
+		  },
+		  y: {
+			label: 'Petal.Width'
+		  }
+		}
+	  });
+	  var chart3 = c3.generate({
+		bindto: '#chart3',
+		legend: {
+		  hide: true
+		},
+		point: {
+		  r: 4,
+		  focus: {
+			expand: {
+			  r: 5
+			}
+		  }
+		},
+		size: {
+		  width: 630
+		},
+		data: {
+		  columns: [
+			['data1', 130, 210, 120, 440, 250, 350]
+		  ]
+		},
+		axis : {
+	        x : { type: 'category' }
+	    }
+	  });
+
+
+	  var chart_user = c3.generate({
+		bindto: '#chart_user',
+		legend: {
+		  hide: true
+		},
+		point: {
+		  r: 4,
+		  focus: {
+			expand: {
+			  r: 5
+			}
+		  }
+		},
+		size: {
+		  width: 938
+		},
+		data: {
+		  columns: [
+			['data1', 130, 210, 120, 440, 250, 350,100]
+		  ]
+		},
+		axis : {
+	        x : { type: 'category' },
+	        y: { min: 1 }
+
+	    }
+	  });
+	   var chart_product1 = c3.generate({
+		bindto: '#chart_product1',
+		data: {
+		  columns: [
+			["versicolor", 1.4, 1.5, 1.5, 1.3, 1.5, 1.3, 1.6, 1.0, 1.3, 1.4, 1.0, 1.5, 1.0, 1.4, 1.3, 1.4, 1.5, 1.0, 1.5, 1.1, 1.8, 1.3, 1.5, 1.2, 1.3, 1.4, 1.4, 1.7, 1.5, 1.0, 1.1, 1.0, 1.2, 1.6, 1.5, 1.6, 1.5, 1.3, 1.3, 1.3, 1.2, 1.4, 1.2, 1.0, 1.3, 1.2, 1.3, 1.3, 1.1, 1.3],
+			["virginica", 2.5, 1.9, 2.1, 1.8, 2.2, 2.1, 1.7, 1.8, 1.8, 2.5, 2.0, 1.9, 2.1, 2.0, 2.4, 2.3, 1.8, 2.2, 2.3, 1.5, 2.3, 2.0, 2.0, 1.8, 2.1, 1.8, 1.8, 1.8, 2.1, 1.6, 1.9, 2.0, 2.2, 1.5, 1.4, 2.3, 2.4, 1.8, 1.8, 2.1, 2.4, 2.3, 1.9, 2.3, 2.5, 2.3, 1.9, 2.0, 2.3, 1.8],
+			["setosa", 30],
+			["aaa", 2.5, 1.9, 2.1, 1.8, 2.2, 2.1, 1.7, 1.8, 1.8, 2.5, 2.0, 1.9, 2.1, 2.0, 2.4, 2.3, 1.8, 2.2, 2.3, 1.5, 2.3, 2.0, 2.0, 1.8, 2.1, 1.8, 1.8, 1.8, 2.1, 1.6, 1.9, 2.0, 2.2, 1.5, 1.4, 2.3, 2.4, 1.8, 1.8, 2.1, 2.4, 2.3, 1.9, 2.3, 2.5, 2.3, 1.9, 2.0, 2.3, 1.8],
+			["dfsd", 30]
+		  ],
+		  type : 'pie',
+		  onmouseover: function (d, i) { console.log("onmouseover", d, i, this); },
+		  onmouseout: function (d, i) { console.log("onmouseout", d, i, this); },
+		  onclick: function (d, i) { console.log("onclick", d, i, this); },
+		},
+		color: {
+			pattern: ['#2aa5b7', '#4D70CE', '#4a4758', '#8f8d96', '#678BCE', '#413773' ]
+		},
+		size: {
+		  width: 260
+		},
+		axis: {
+		  x: {
+			label: 'Sepal.Width'
+		  },
+		  y: {
+			label: 'Petal.Width'
+		  }
+		}
+	  });
+	  var chart_product2 = c3.generate({
+		bindto: '#chart_product2',
+		legend: {
+		  hide: true
+		},
+		point: {
+		  r: 4,
+		  focus: {
+			expand: {
+			  r: 5
+			}
+		  }
+		},
+		size: {
+		  width: 938
+		},
+		data: {
+		  columns: [
+			['data1', 130, 210, 120, 440, 250, 350,100]
+		  ]
+		},
+		axis : {
+	        x : { type: 'category' },
+	        y: { min: 1 }
+
+	    }
+	  });
+	  var chart_api = c3.generate({
+		bindto: '#chart_api',
+		data: {
+			columns: [
+				['data1', 30, 200, 100, 400, 150, 250, 30, 200, 100, 400, 30, 200, 100, 400, 150, 250, 30, 200, 100, 400, 1, 0, 340, 20]
+			],
+			type: 'bar'
+		},
+		size: {
+		  width: 938
+		},
+		bar: {
+			width: {
+				ratio: 0.7 // this makes bar width 50% of length between ticks
+			}
+			// or
+			//width: 100 // this makes bar width 100px
+		}
+	  });
+
+
+
+	//stat_user
+	$('#stat_user').dateRangePicker(
+	{
+		separator : ' ~ ',
+		endDate: '2015-12-10',
+		getValue: function()
+		{
+			if ($('#user-date-range1').val() && $('#user-date-range2').val() )
+				return $('#user-date-range1').val() + ' ~ ' + $('#user-date-range2').val();
+			else
+				return '';
+		},
+		setValue: function(s,s1,s2)
+		{
+			$('#user-date-range1').val(s1);
+			$('#user-date-range2').val(s2);
+		}
+	});
+
+	//stat_product
+	$('#stat_product').dateRangePicker(
+	{
+		separator : ' ~ ',
+		endDate: '2015-12-10',
+		getValue: function()
+		{
+			if ($('#product-date-range1').val() && $('#product-date-range2').val() )
+				return $('#product-date-range1').val() + ' ~ ' + $('#product-date-range2').val();
+			else
+				return '';
+		},
+		setValue: function(s,s1,s2)
+		{
+			$('#product-date-range1').val(s1);
+			$('#product-date-range2').val(s2);
+		}
+	});
+
+	//stat_api
+	$('#stat_api').dateRangePicker(
+	{
+		separator : ' ~ ',
+		endDate: '2015-12-10',
+		getValue: function()
+		{
+			if ($('#api-date-range1').val() && $('#api-date-range2').val() )
+				return $('#api-date-range1').val() + ' ~ ' + $('#api-date-range2').val();
+			else
+				return '';
+		},
+		setValue: function(s,s1,s2)
+		{
+			$('#api-date-range1').val(s1);
+			$('#api-date-range2').val(s2);
+		}
+	});
+	</script>
+</body>
+</html>

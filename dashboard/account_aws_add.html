@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="robots" content="all">
+	<title>Account / AWS Add</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1, width=device-width">
+    <meta name="description" content="">
+
+    <link href="img/favicon_a2solution.ico" rel="shortcut icon" type="image/x-icon">
+    <link href="img/favicon_a2solution.ico" rel="icon" type="image/x-icon">
+    <link rel="stylesheet" href="css/bootstrap-dropdown.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/linearicons.css">
+    <link rel="stylesheet" href="css/common.css" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Rubik:400,500,700" rel="stylesheet">
+
+    <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="js/common.js"></script>
+
+	<!--[if lt IE 9]>
+	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+	<![endif]-->
+</head>
+<body>
+	<aside class="leftbar">
+		<h1 class="leftbar-logo"><img src="img/logo_a2_leftbar.svg" alt="A2 COMPANY" class="leftbar-logo-img"></h1>
+		<nav class="nav-leftbar">
+			<ul>
+				<li><a class="title-nav-leftbar haschild">Cost</a>
+					<ul class="nav-leftbar-sub">
+						<li><a href="cost_summary.html" class="title-nav-leftbar-dept-2"><u>Summary</u></a></li>
+						<li><a href="cost_detail.html" class="title-nav-leftbar-dept-2"><u>Detail</u></a></li>
+						<li><a class="title-nav-leftbar-dept-2">RI Utilization</a></li>
+						<li><a class="title-nav-leftbar-dept-2">Right Sizing</a></li>
+						<li><a href="cost_invioce.html" class="title-nav-leftbar-dept-2"><u>Invoice</u></a></li>
+					</ul>
+				</li>
+				<li><a class="title-nav-leftbar haschild">Asset</a>
+					<ul class="nav-leftbar-sub">
+						<li><a href="asset_summary.html" class="title-nav-leftbar-dept-2"><u>Summary</u></a></li>
+						<li><a class="title-nav-leftbar-dept-2 haschild"><u>Detail</u></a>
+							<ul class="nav-leftbar-sub">
+								<li><a href="asset_detail_ec2.html" class="title-nav-leftbar-dept-3 ic"><i class="ic-nav ec2"></i><u>EC2</u></a></li>
+								<li><a class="title-nav-leftbar-dept-3 ic"><i class="ic-nav rds"></i>RDS</a></li>
+								<li><a class="title-nav-leftbar-dept-3 ic"><i class="ic-nav elb"></i>ELB</a></li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+				<li><a class="title-nav-leftbar haschild">Monitoring</a>
+					<ul class="nav-leftbar-sub">
+						<li><a href="monitoring_alarm.html" class="title-nav-leftbar-dept-2"><u>Alarm</u></a></li>
+						<li><a href="monitoring_ec2.html" class="title-nav-leftbar-dept-2 ic"><i class="ic-nav ec2"></i><u>EC2</u></a></li>
+						<li><a class="title-nav-leftbar-dept-2 ic"><i class="ic-nav rds"></i>RDS</a></li>
+						<li><a class="title-nav-leftbar-dept-2 ic"><i class="ic-nav elb"></i>ELB</a></li>
+					</ul>
+				</li>
+				<li class="open current"><a class="title-nav-leftbar haschild">Account</a>
+					<ul class="nav-leftbar-sub" style="display:block;opacity:1;">
+						<li><a href="account_user_list.html" class="title-nav-leftbar-dept-2"><u>User List</u></a></li>
+						<li class="current"><a href="account_aws_list.html" class="title-nav-leftbar-dept-2"><u>AWS Account List</u></a></li>
+						<li><a class="title-nav-leftbar-dept-2">Group List</a></li>
+						<li><a class="title-nav-leftbar-dept-2">Change Password</a></li>
+					</ul>
+				</li>
+			</ul>
+		</nav>
+	</aside>
+
+	<div class="content-header">
+		<div class="topbar">
+			<div class="float-right">
+				<div class="topbar-btn">
+					<a class="topbar-account"><span class="ic_account"></span>a2_awsadmin</a>
+					<ul class="account-menu">
+						<li><a href="account_aws_list.html">My Account</a></li>
+						<li><a href="#">Sign out</a></li>
+					</ul>
+				</div>
+				<ul class="topbar-btn clearfix">
+					<li class="topbar-lang">
+						<a class="current">EN</a>
+					</li>
+					<li class="topbar-lang">
+						<a href="#">KR</a>
+					</li>
+				</ul>
+		        <div class="topbar-btn">
+		            <a class="topbar-help" href="../guide/guide_signup.html" target="_blank"><i class="fa fa-question-circle" aria-hidden="true"></i> HELP</a>
+		        </div>
+			</div>
+		</div><!--// toppbar -->
+	</div>
+
+	<div class="content-body">
+		<div class="fullbox">
+			<h2 class="title-header">Add Account</h2>
+		</div>
+		<section class="wrap blank">
+			<div class="form withguide">
+				<div class="wrap-column">
+					<label for="account-type" class="column col-label">Account Type <span class="red">*</span></label>
+					<ul class="horizontal-list-borderless clearfix">
+						<li>
+							<input type="radio" class="with-gap" name="account-type" id="payer" checked><label for="payer">Payer Account</label>
+						</li>
+						<li>
+							<input type="radio" class="with-gap" name="account-type" id="linked"><label for="linked">Linked Account</label>
+						</li>
+						<li>
+							<input type="radio" class="with-gap" name="account-type" id="single"><label for="single">Single Account</label>
+						</li>
+					</ul>
+				</div>
+				<div class="wrap-column">
+					<label for="account-name" class="column col-label">Account Name <span class="red">*</span></label>
+					<input type="text" id="account-name" class="input-default">
+					<!-- 에러메시지
+					<p class="err-color">Account Name을 입력해주세요.</p> -->
+
+					<div class="guide">
+						<p class="title-guide"><i class="fa fa-info-circle" aria-hidden="true"></i>Guide</p>
+						<p><span class="title-num">01</span> 솔루션에서 사용할 Account Name을 입력하세요. (1자 ~ 50자 영어(대/소문자 구분), 숫자, 특수문자 포함)</p>
+					</div>
+				</div>
+
+				<div class="wrap-column">
+					<label for="account-id" class="column col-label">Account ID <span class="red">*</span></label>
+					<input type="text" id="account-id" class="input-default">
+					<!-- 에러메시지
+					<p class="err-color">Account ID를 입력해주세요.</p> -->
+
+					<div class="guide">
+						<p class="title-guide"><i class="fa fa-info-circle" aria-hidden="true"></i>Guide</p>
+						<p><span class="title-num">01</span> <a href="https://console.aws.amazon.com/billing/home?#/account" target="_blank" class="link point">AWS Account</a> 페이지에 접속합니다.</p>
+						<p><span class="title-num">02</span> 상단에 ‘계정 ID’ 정보를 확인하여 입력합니다. (숫자 12자)</p>
+					</div>
+				</div>
+
+				<div class="wrap-column">
+					<label for="access-id" class="column col-label">Access Key ID <span class="red">*</span></label>
+					<input type="text" id="access-id" class="input-default">
+					<!-- 에러메시지
+					<p class="err-color">Access Key를 입력해주세요.</p> -->
+				</div>
+
+				<div class="wrap-column">
+					<label for="secret-key" class="column col-label">Secret Access Key <span class="red">*</span></label>
+					<input type="password" id="secret-key" class="input-default">
+					<!-- 에러메시지
+					<p class="err-color">Secret Key Access를 입력해주세요.</p> -->
+
+					<div class="guide">
+						<p class="title-guide"><i class="fa fa-info-circle" aria-hidden="true"></i>Guide</p>
+                        <p><span class="title-num">01</span> AWS Console에 로그인 후 <a href="https://console.aws.amazon.com/iam/home
+                            " target="_blank" class="link point">IAM Dashboard</a> 페이지에 접속합니다.</p>
+                        <p><span class="title-num">02</span> 좌측 메뉴에서 'Policies'를 선택한 후 'Create Policy' 버튼을 클릭합니다.</p>
+                        <p><span class="title-num">03</span> 'Create Your Own Policy' 클릭 후 Policy Name, Policy Document <a href="#modal-copy" name="modal" class="link point">(팝업 내용 복사)</a>를 입력하고 'Create Policy' 버튼을 클릭합니다.</p>
+                        <p><span class="title-num">04</span> 좌측 메뉴에서 'Groups'를 선택한 후 'Create New Group' 버튼을 클릭합니다.</p>
+                        <p><span class="title-num">05</span> 그룹 이름을 입력하고 위에서 추가한 Policy를 첨부한 후 'Create Group' 버튼을 클릭합니다.</p>
+                        <p><span class="title-num">06</span> 좌측 메뉴에서 'Users'를 선택한 후 'Add User' 버튼을 클릭합니다.</p>
+                        <p><span class="title-num">07</span> Access type은 Programmatic access를 선택하고 User를 추가합니다.</p>
+                        <p><span class="title-num">08</span> 'Add User' 마지막 단계에서 Access Key ID, Secret Access Key 정보를 각각 복사하여 위에 입력합니다.</p>
+					</div>
+				</div>
+			</div>
+
+			<div class="form">
+				<div class="bottom-area">
+					<button onclick="location.href='account_aws_list.html'" class="btn-default gr">Cancel</button>
+					<button onclick="location.href='account_aws_list.html'" class="btn-default">Save</button>
+				</div>
+			</div>
+		</section><!--// wrap -->
+	</div>
+
+	<div class="modal" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-backdrop"></div>
+		<div class="v-align">
+			<div class="v-align-cell">
+
+				<!-- copy modal -->
+				<div class="modal-dialog" id="modal-copy">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="modal-close close"><span class="lnr lnr-cross"></span></button>
+						</div>
+						<div class="modal-body">
+							<pre id="copyCode" class="align-left">
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "FullPolicy",
+            "Action": [
+                "acm:DescribeCertificate",
+                "acm:ListCertificates",
+                "acm:GetCertificate",
+                "autoscaling:Describe*",
+                "cloudformation:DescribeStacks",
+                "cloudformation:GetStackPolicy",
+                "cloudformation:GetTemplate",
+                "cloudformation:ListStackResources",
+                "cloudfront:List*",
+                "cloudfront:GetDistributionConfig",
+                "cloudfront:GetStreamingDistributionConfig",
+                "cloudhsm:Describe*",
+                "cloudhsm:List*",
+                "cloudsearch:DescribeDomains",
+                "cloudsearch:DescribeServiceAccessPolicies",
+                "cloudsearch:DescribeStemmingOptions",
+                "cloudsearch:DescribeStopwordOptions",
+                "cloudsearch:DescribeSynonymOptions",
+                "cloudsearch:DescribeDefaultSearchField",
+                "cloudsearch:DescribeIndexFields",
+                "cloudsearch:DescribeRankExpressions",
+                "cloudtrail:DescribeTrails",
+                "cloudtrail:GetTrailStatus",
+                "cloudwatch:DescribeAlarms",
+                "cloudwatch:GetMetricStatistics",
+                "cloudwatch:ListMetrics",
+                "config:DescribeConfigRules",
+                "config:GetComplianceDetailsByConfigRule",
+                "config:DescribeDeliveryChannels",
+                "config:DescribeDeliveryChannelStatus",
+                "config:DescribeConfigurationRecorders",
+                "config:DescribeConfigurationRecorderStatus",
+                "datapipeline:ListPipelines",
+                "datapipeline:GetPipelineDefinition",
+                "datapipeline:DescribePipelines",
+                "directconnect:DescribeLocations",
+                "directconnect:DescribeConnections",
+                "directconnect:DescribeVirtualInterfaces",
+                "dynamodb:ListTables",
+                "dynamodb:DescribeTable",
+                "ec2:Describe*",
+                "ec2:GetConsoleOutput",
+                "ecs:ListClusters",
+                "ecs:DescribeClusters",
+                "ecs:ListContainerInstances",
+                "ecs:DescribeContainerInstances",
+                "ecs:ListServices",
+                "ecs:DescribeServices",
+                "ecs:ListTaskDefinitions",
+                "ecs:DescribeTaskDefinition",
+                "ecs:ListTasks",
+                "ecs:DescribeTasks",
+                "elasticache:DescribeCacheClusters",
+                "elasticache:DescribeReservedCacheNodes",
+                "elasticache:DescribeCacheSecurityGroups",
+                "elasticache:DescribeCacheParameterGroups",
+                "elasticache:DescribeCacheParameters",
+                "elasticache:DescribeCacheSubnetGroups",
+                "elasticbeanstalk:DescribeApplications",
+                "elasticbeanstalk:DescribeConfigurationSettings",
+                "elasticbeanstalk:DescribeEnvironments",
+                "elasticbeanstalk:DescribeEvents",
+                "elasticloadbalancing:DescribeLoadBalancers",
+                "elasticloadbalancing:DescribeInstanceHealth",
+                "elasticloadbalancing:DescribeLoadBalancerAttributes",
+                "elasticloadbalancing:DescribeTags",
+                "elasticmapreduce:DescribeJobFlows",
+                "elasticmapreduce:DescribeStep",
+                "elasticmapreduce:DescribeCluster",
+                "elasticmapreduce:DescribeTags",
+                "elasticmapreduce:ListSteps",
+                "elasticmapreduce:ListInstanceGroups",
+                "elasticmapreduce:ListBootstrapActions",
+                "elasticmapreduce:ListClusters",
+                "elasticmapreduce:ListInstances",
+                "es:ListDomainNames",
+                "es:DescribeElasticsearchDomains",
+                "glacier:List*",
+                "glacier:DescribeVault",
+                "glacier:GetVaultNotifications",
+                "glacier:DescribeJob",
+                "glacier:GetJobOutput",
+                "iam:Get*",
+                "iam:List*",
+                "iot:DescribeThing",
+                "iot:ListThings",
+                "iam:GenerateCredentialReport",
+                "kinesis:ListStreams",
+                "kinesis:DescribeStream",
+                "kinesis:GetShardIterator",
+                "kinesis:GetRecords",
+                "kms:Describe*",
+                "kms:Get*",
+                "kms:List*",
+                "lambda:ListFunctions",
+                "rds:Describe*",
+                "rds:ListTagsForResource",
+                "redshift:Describe*",
+                "redshift:ViewQueriesInConsole",
+                "route53:ListHealthChecks",
+                "route53:ListHostedZones",
+                "route53:ListResourceRecordSets",
+                "s3:GetBucketACL",
+                "s3:GetBucketLocation",
+                "s3:GetBucketLogging",
+                "s3:GetBucketPolicy",
+                "s3:GetBucketTagging",
+                "s3:GetBucketWebsite",
+                "s3:GetBucketNotification",
+                "s3:GetLifecycleConfiguration",
+                "s3:GetNotificationConfiguration",
+                "s3:GetObject",
+                "s3:GetObjectMetadata",
+                "s3:List*",
+                "sdb:ListDomains",
+                "sdb:DomainMetadata",
+                "ses:ListIdentities",
+                "ses:GetSendStatistics",
+                "ses:GetIdentityDkimAttributes",
+                "ses:GetIdentityVerificationAttributes",
+                "ses:GetSendQuota",
+                "sns:GetSnsTopic",
+                "sns:GetTopicAttributes",
+                "sns:GetSubscriptionAttributes",
+                "sns:ListTopics",
+                "sns:ListSubscriptionsByTopic",
+                "sqs:ListQueues",
+                "sqs:GetQueueAttributes",
+                "storagegateway:Describe*",
+                "storagegateway:List*",
+                "support:*",
+                "swf:ListClosedWorkflowExecutions",
+                "swf:ListDomains",
+                "swf:ListActivityTypes",
+                "swf:ListWorkflowTypes",
+                "workspaces:DescribeWorkspaceDirectories",
+                "workspaces:DescribeWorkspaceBundles",
+                "workspaces:DescribeWorkspaces"
+            ],
+            "Effect": "Allow",
+            "Resource": "*"
+        },
+        {
+            "Sid": "CloudWatchLogsSpecific",
+            "Effect": "Allow",
+            "Action": [
+                "logs:GetLogEvents",
+                "logs:DescribeLogGroups",
+                "logs:DescribeLogStreams"
+            ],
+            "Resource": [
+                "arn:aws:logs:*:*:*"
+            ]
+        }
+    ]
+}</pre>
+						</div>
+                        <div class="modal-footer">
+                            <div class="btn-area">
+                                <button type="button" class="btn-toast btn-txt point">Copy</button>
+                            </div>
+                        </div>
+                        <div class="toast" style="display:none;">
+                            <p>복사가 완료되었습니다. Policy Document에 붙여넣으세요.</p>
+                        </div>
+					</div>
+				</div>
+
+				<!-- Add Account 팝업-->
+				<div class="modal-dialog" id="modal-add-account">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="modal-close close"><span class="lnr lnr-cross"></span></button>
+							<h4 class="title-modal">계정 추가 완료</h4>
+						</div>
+						<div class="modal-body">
+							Account 가 추가되었습니다.
+						</div>
+						<div class="modal-footer">
+							<div class="btn-area">
+								<button type="button" class="modal-close btn-txt point">OK</button>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div><!--// modal -->
+
+    <a class="btn-top" title="go to top"><i class="fa fa-chevron-up" aria-hidden="true"></i></a>
+	<footer class="footer">
+		<span class="terms"><a href="terms_service.html" class="link">서비스 이용 약관</a> | <a href="terms_privacy.html" class="link"><strong>개인정보 취급방침</strong></a></span>
+		<span class="copyright">© A2 COMPANY ALL RIGHTS RESERVED.</span>
+	</footer>
+
+    <script>
+    //copyToClipboard
+    function copyToClipboard(element) {
+        var $temp = $("<textarea>");
+        $("body").append($temp);
+        $temp.val($(element).html()).select();
+        document.execCommand("copy");
+        $temp.remove();
+    }
+
+    $('.btn-toast').click(function(){
+        copyToClipboard('#copyCode');
+
+        $('.toast').show().animate({bottom: '4rem',opacity: '1'}, 300);
+        setTimeout( function(){
+            $('.toast').animate({bottom: '3rem',opacity: '0'}, 300).hide(300);
+        }, 1600 );
+    });
+    </script>
+
+</body>
+</html>

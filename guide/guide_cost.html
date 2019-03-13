@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="robots" content="all">
+	<title>Cost 가이드</title>
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="viewport" content="initial-scale=1,maximum-scale=1, width=device-width">
+	<meta name="description" content="">
+
+	<link href="" rel="apple-touch-icon" sizes="180x180">
+	<link href="" rel="shortcut icon" type="image/x-icon">
+	<link href="" rel="icon" type="image/x-icon">
+	<link rel="stylesheet" href="css/linearicons.css">
+	<link rel="stylesheet" href="css/guide.min.css" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond:700|Rubik:400,500" rel="stylesheet">
+	<script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+    <script src="js/guide.js"></script>
+
+	<!--[if lt IE 9]>
+	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+	<![endif]-->
+</head>
+<body>
+    <div class="wrap">
+        <div class="top-padding"></div>
+        <div class="guide-content">
+            <div class="guide-content-wrap">
+                <div class="guide-sidebar">
+                    <h2 class="sidebar-title">User Guide</h2>
+                    <nav class="nav-leftbar">
+            			<ul>
+                            <li><a href="guide_signup.html" class="title-nav-leftbar">Sign up & Sign in <span class="lnr lnr-arrow-right"></span></a>
+                            </li>
+                            <li><a href="guide_account.html" class="title-nav-leftbar haschild">Account <span class="lnr lnr-arrow-right"></span></a>
+                                <ul class="nav-leftbar-sub">
+                                    <li><a href="#account-account-list" class="title-nav-leftbar-dept-2">Account List</a></li>
+            						<li><a href="#account-user-list" class="title-nav-leftbar-dept-2">User List</a></li>
+            						<li><a href="#account-group-list" class="title-nav-leftbar-dept-2">Group List</a></li>
+            						<li><a href="#account-change-pw" class="title-nav-leftbar-dept-2">Change Password</a></li>
+                                </ul>
+                            </li>
+                            <li class="open"><a href="#" class="title-nav-leftbar haschild active">Cost <span class="lnr lnr-arrow-right"></span></a>
+                                <ul class="nav-leftbar-sub">
+                                    <li><a href="#cost-summary" class="title-nav-leftbar-dept-2">Summary</a></li>
+                                    <li><a href="#cost-detail" class="title-nav-leftbar-dept-2">Detail</a></li>
+                                    <li><a href="#cost-invoice" class="title-nav-leftbar-dept-2">Invoice</a></li>
+                                </ul>
+                            </li>
+            			</ul>
+            		</nav>
+                </div>
+                <div class="guide-content-inner">
+                    <div class="top-line"></div>
+                    <section>
+                        <h3 class="page-title">Cost</h3>
+                        <article id="cost-summary" class="article-body">
+                            <h4 class="article-title">Summary</h4>
+                            <div>
+                                <p>비용 조회할 계정 및 월을 선택 후 제공되는 요약 정보를 확인합니다.</p>
+                                <figure class="w800">
+                                    <img src="img/guide/cost_summary01.png" alt="">
+                                </figure>
+                            </div>
+                        </article>
+                        <article id="cost-detail" class="article-body">
+                            <h4 class="article-title">Detail</h4>
+                            <div>
+                                <p>상세 비용을 조회할 기간을 선택합니다. (기본값은 ‘현재 월’.)</p>
+                                <figure class="w800">
+                                    <img src="img/guide/cost_detail01.png" alt="">
+                                </figure>
+                            </div>
+                        </article>
+                        <article id="cost-invoice" class="article-body">
+                            <h4 class="article-title">Invoice</h4>
+                            <div>
+                                <p>청구서를 조회할 월을 선택합니다. (전월 청구서는 익월 5일 ~ 10일 사이에 확인할 수 있습니다.)</p>
+                                <figure class="w800">
+                                    <img src="img/guide/cost_invoice01.png" alt="">
+                                </figure>
+                            </div>
+                        </article>
+                    </section>
+                </div>
+            </div>
+            <footer class="wrap-footer">
+                <div class="guide-footer">
+                    <span>© A2 COMPANY ALL RIGHTS RESERVED.</span>
+                </div>
+            </footer>
+        </div><!--// guide-content -->
+    </div><!--// wrap -->
+
+    <div class="border">
+        <div id="left"></div>
+        <div id="right"></div>
+        <div id="top"></div>
+        <div id="bottom"></div>
+    </div>
+
+</body>
+</html>

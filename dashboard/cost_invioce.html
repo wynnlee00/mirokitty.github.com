@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="robots" content="all">
+	<title>Cost / Invioce</title>
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no, width=device-width">
+	<meta name="description" content="">
+
+	<link href="" rel="apple-touch-icon-precomposed" sizes="180x180">
+	<link href="" rel="shortcut icon" type="image/x-icon">
+	<link href="" rel="icon" type="image/x-icon">
+	<link rel="stylesheet" href="css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/linearicons.css">
+	<link rel="stylesheet" href="css/common.css" type="text/css">
+	<link href="https://fonts.googleapis.com/css?family=Rubik:400,500,700" rel="stylesheet">
+
+	<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="js/datatables/jquery.dataTables.js"></script>
+	<script type="text/javascript" src="js/datatables/dataTables.buttons.min.js"></script>
+	<script type="text/javascript" src="js/datatables/jszip.min.js"></script>
+	<script type="text/javascript" src="js/datatables/pdfmake.min.js"></script>
+	<script type="text/javascript" src="js/datatables/vfs_fonts.js"></script>
+	<script type="text/javascript" src="js/datatables/buttons.flash.min.js"></script>
+	<script type="text/javascript" src="js/datatables/buttons.html5.min.js"></script>
+	<script type="text/javascript" src="js/datatables/buttons.print.min.js"></script>
+	<script type="text/javascript" src="js/datatables/buttons.colVis.min.js"></script>
+
+	<!--[if lt IE 9]>
+	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+	<![endif]-->
+</head>
+<body class="invoice">
+	<aside class="leftbar">
+		<h1 class="leftbar-logo"><img src="img/logo_a2_leftbar.svg" alt="A2 COMPANY" class="leftbar-logo-img"></h1>
+		<nav class="nav-leftbar">
+			<ul>
+				<li class="open current"><a class="title-nav-leftbar haschild">Cost</a>
+					<ul class="nav-leftbar-sub" style="display:block;opacity:1;">
+						<li><a href="cost_summary.html" class="title-nav-leftbar-dept-2"><u>Summary</u></a></li>
+						<li><a href="cost_detail.html" class="title-nav-leftbar-dept-2"><u>Detail</u></a></li>
+						<li><a class="title-nav-leftbar-dept-2">RI Utilization</a></li>
+						<li><a class="title-nav-leftbar-dept-2">Right Sizing</a></li>
+						<li class="current"><a href="cost_invioce.html" class="title-nav-leftbar-dept-2"><u>Invoice</u></a></li>
+					</ul>
+				</li>
+				<li><a class="title-nav-leftbar haschild">Asset</a>
+					<ul class="nav-leftbar-sub">
+						<li><a href="asset_summary.html" class="title-nav-leftbar-dept-2"><u>Summary</u></a></li>
+						<li><a class="title-nav-leftbar-dept-2 haschild"><u>Detail</u></a>
+							<ul class="nav-leftbar-sub">
+								<li><a href="asset_detail_ec2.html" class="title-nav-leftbar-dept-3 ic"><i class="ic-nav ec2"></i><u>EC2</u></a></li>
+								<li><a class="title-nav-leftbar-dept-3 ic"><i class="ic-nav rds"></i>RDS</a></li>
+								<li><a class="title-nav-leftbar-dept-3 ic"><i class="ic-nav elb"></i>ELB</a></li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+				<li><a class="title-nav-leftbar haschild">Monitoring</a>
+					<ul class="nav-leftbar-sub">
+						<li><a href="monitoring_alarm.html" class="title-nav-leftbar-dept-2"><u>Alarm</u></a></li>
+						<li><a href="monitoring_ec2.html" class="title-nav-leftbar-dept-2 ic"><i class="ic-nav ec2"></i><u>EC2</u></a></li>
+						<li><a class="title-nav-leftbar-dept-2 ic"><i class="ic-nav rds"></i>RDS</a></li>
+						<li><a class="title-nav-leftbar-dept-2 ic"><i class="ic-nav elb"></i>ELB</a></li>
+					</ul>
+				</li>
+				<li><a class="title-nav-leftbar haschild">Account</a>
+					<ul class="nav-leftbar-sub">
+						<li><a href="account_user_list.html" class="title-nav-leftbar-dept-2"><u>User List</u></a></li>
+						<li><a href="account_aws_list.html" class="title-nav-leftbar-dept-2"><u>AWS Account List</u></a></li>
+						<li><a class="title-nav-leftbar-dept-2">Group List</a></li>
+						<li><a class="title-nav-leftbar-dept-2">Change Password</a></li>
+					</ul>
+				</li>
+			</ul>
+		</nav>
+	</aside>
+
+	<div class="content-header">
+		<div class="topbar">
+			<div class="float-right">
+				<div class="topbar-btn">
+					<a class="topbar-account"><span class="ic_account"></span>a2_awsadmin</a>
+					<ul class="account-menu">
+						<li><a href="account_aws_list.html">My Account</a></li>
+						<li><a href="#">Sign out</a></li>
+					</ul>
+				</div>
+				<ul class="topbar-btn clearfix">
+					<li class="topbar-lang">
+						<a class="current">EN</a>
+					</li>
+					<li class="topbar-lang">
+						<a href="#">KR</a>
+					</li>
+				</ul>
+		        <div class="topbar-btn">
+		            <a class="topbar-help" href="../guide/guide_signup.html" target="_blank"><i class="fa fa-question-circle" aria-hidden="true"></i> HELP</a>
+		        </div>
+			</div>
+		</div><!--// toppbar -->
+	</div>
+
+	<div class="content-body">
+		<div class="fullbox">
+			<h2 class="title-header">Invioce</h2>
+			<div class="header-body clearfix">
+                <ul class="header-filter">
+					<li class="selectbox">
+						<span class="label">Company</span>
+						<div class="selectwrap company">
+							<a class="select-default" name="dropdown">KIWIPLUS</a>
+							<div class="dropselectbox">
+								<ul class="dropselect clearfix">
+									<li class="opt">KIWIPLUS</li><!-- 선택 불가 항목이 있다면 disabled 클래스 추가해주세요 -->
+									<li class="opt">Bubble Code</li>
+									<li class="opt">A2 COMPANY</li>
+								</ul>
+							</div>
+						</div>
+                    </li>
+					<li class="selectbox">
+						<span class="label">Date</span>
+						<div class="selectwrap date">
+							<a class="select-default" name="dropdown">2017-03</a>
+							<div class="dropselectbox">
+								<ul class="dropselect clearfix">
+									<li class="opt">2017-03</li><!-- 선택 불가 항목이 있다면 disabled 클래스 추가해주세요 -->
+									<li class="opt">2017-02</li>
+									<li class="opt">2017-03</li>
+								</ul>
+							</div>
+						</div>
+                    </li>
+                </ul>
+				<a class="btn-default">Apply</a>
+			</div>
+		</div>
+		<section class="wrap">
+			<div class="box fitbox">
+				<div class="wrap-buttons">
+					<div class="dt-buttons">
+						<a class="dt-button buttons-pdf" title="Export to PDF"><i class="btn-download-files pdf" aria-hidden="true"></i></a>
+						<a class="dt-button buttons-print" title="View print view"><i class="btn-download-files print" aria-hidden="true"></i></a>
+					</div>
+				</div>
+				<div class="fitbox-cont" id="printArea">
+					<article class="invoice-paper">
+						<div class="invoice-header">
+							<h3 class="invoice-title">
+								<p class="inner"><span>(주)KIWIPLUS</span> 고객님의 <span>2017년 6월</span> 청구서입니다</p>
+							</h3>
+
+							<ul class="invoice-detail row">
+								<li class="col-4">
+									<small class="">납부기한</small><br>
+									<span class="txt-value-s">2017-07-31</span>
+								</li>
+								<li class="col-4">
+									<small class="">이용기간</small><br>
+									<span class="txt-value-s">2017-06-01 ~ 2017-06-30</span>
+								</li>
+								<li class="col-4">
+									<small class="">청구요금</small><br>
+									<span class="txt-value-m">₩2,257,440</span>
+								</li>
+							</ul>
+						</div>
+						<div class="invoice-cont">
+							<h4 class="title-invoice-2dp">Summary</h4>
+							<table class="table-invoice">
+								<colgroup>
+									<col span="3">
+									<col style="width:29%">
+								</colgroup>
+								<thead>
+									<tr>
+										<th scope="col">구분</th>
+										<th scope="col">내용</th>
+										<th scope="col" class="align-right">금액</th>
+										<th scope="col">비고 및 과금방식</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<th scope="row" rowspan="4">AWS Professional Service</th>
+										<td>현지금액(USD)</td>
+										<td class="align-right">$1,720.94</td>
+										<td rowspan="4">*적용환율 2017-07-03 (₩1,151.50)</td>
+									</tr>
+									<tr>
+										<td>청구금액(KRW)</td>
+										<td class="align-right">₩2,052,221</td>
+									</tr>
+									<tr>
+										<td>소계</td>
+										<td class="align-right">₩2,052,221</td>
+									</tr>
+									<tr>
+										<td>부가세</td>
+										<td class="align-right">₩205,222</td>
+									</tr>
+								</tbody>
+								<tfoot>
+									<tr>
+										<th>청구금액</th>
+										<th></th>
+										<th class="align-right">₩2,257,440</th>
+										<th></th>
+									</tr>
+								</tfoot>
+							</table>
+
+							<h4 class="title-invoice-2dp">Detail</h4>
+							<table class="table-invoice">
+								<colgroup>
+									<col >
+									<col style="width:45%">
+									<col style="width:15%">
+								</colgroup>
+								<thead>
+									<tr>
+										<th scope="col">구분</th>
+										<th scope="col">항목</th>
+										<th scope="col" class="align-right">금액</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<th scope="row" rowspan="4">Total</th>
+										<td>AWS Account Name1</td>
+										<td class="align-right">$642.76</td>
+									</tr>
+									<tr>
+										<td>AWS Account Name1</td>
+										<td class="align-right">$49.42</td>
+									</tr>
+									<tr>
+										<td><input type="text" class="input-editable long" value="할인"></td>
+										<td class="align-right">-$20.12</td>
+									</tr>
+									<tr class="total">
+										<th>Total</th>
+										<th class="align-right">$672.06</th>
+									</tr>
+								</tbody>
+								<tbody>
+									<tr>
+										<th scope="row" rowspan="6">AWS Account Name1</th>
+										<td>Elastic Compute Cloud</td>
+										<td class="align-right">$614.41</td>
+									</tr>
+									<tr>
+										<td>Elastic MapReduce</td>
+										<td class="align-right">$0.66</td>
+									</tr>
+									<tr>
+										<td>Key Management Service</td>
+										<td class="align-right">$0.00</td>
+									</tr>
+									<tr>
+										<td>RDS</td>
+										<td class="align-right">$817.08</td>
+									</tr>
+									<tr>
+										<td>Route 53</td>
+										<td class="align-right">$0.05</td>
+									</tr>
+									<tr class="total">
+										<th>Total</th>
+										<th class="align-right">$642.76</th>
+									</tr>
+								</tbody>
+								<tbody>
+									<tr>
+										<th scope="row" rowspan="3">AWS Account Name2</th>
+										<td>Route 53</td>
+										<td class="align-right">$49.29</td>
+									</tr>
+									<tr>
+										<td>Simple Storage Service</td>
+										<td class="align-right">$0.13</td>
+									</tr>
+									<tr class="total">
+										<th>Total</th>
+										<th class="align-right">$49.42</th>
+									</tr>
+								</tbody>
+
+								<tbody>
+									<tr>
+										<th scope="row" rowspan="6">AWS Account Name3</th>
+										<td>Elastic Compute Cloud</td>
+										<td class="align-right">$614.41</td>
+									</tr>
+									<tr>
+										<td>Elastic MapReduce</td>
+										<td class="align-right">$0.66</td>
+									</tr>
+									<tr>
+										<td>Key Management Service</td>
+										<td class="align-right">$0.00</td>
+									</tr>
+									<tr>
+										<td>RDS</td>
+										<td class="align-right">$817.08</td>
+									</tr>
+									<tr>
+										<td>Route 53</td>
+										<td class="align-right">$0.05</td>
+									</tr>
+									<tr class="total">
+										<th>Total</th>
+										<th class="align-right">$642.76</th>
+									</tr>
+								</tbody>
+								<tbody>
+									<tr>
+										<th scope="row" rowspan="3">AWS Account Name4</th>
+										<td>Route 53</td>
+										<td class="align-right">$49.29</td>
+									</tr>
+									<tr>
+										<td>Simple Storage Service</td>
+										<td class="align-right">$0.13</td>
+									</tr>
+									<tr class="total">
+										<th>Total</th>
+										<th class="align-right">$49.42</th>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</article>
+				</div>
+			</div><!--// box -->
+		</section><!--// wrap -->
+	</div>
+
+	<a class="btn-top" title="go to top"><i class="fa fa-chevron-up" aria-hidden="true"></i></a>
+	<footer class="footer">
+		<span class="terms"><a href="terms_service.html" class="link">서비스 이용 약관</a> | <a href="terms_privacy.html" class="link"><strong>개인정보 취급방침</strong></a></span>
+		<span class="copyright">© A2 COMPANY ALL RIGHTS RESERVED.</span>
+	</footer>
+
+
+	<script src="js/common.js"></script>
+	<script>
+
+		$('.buttons-print').click(function(){
+			window.print();
+		});
+	</script>
+
+</body>
+</html>
